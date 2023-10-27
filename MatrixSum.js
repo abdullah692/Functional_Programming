@@ -1,0 +1,72 @@
+// const exampleMatrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+//   ];
+
+
+  const exampleMatrix4x4 = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+  ];
+const matrix=(arr)=>{
+    // let leftDiagonal=0;
+    // let rightDiagonal=0;
+    // const numCols = arr[0]?.length || 0;
+    // let diff=0;
+    // console.log(numCols,"ssssssssss");
+
+    // for(let i=0 ; i<arr.length ;i++)
+    // {
+    //     console.log("i",i)
+    //     for(let j=0; j< arr.length ;j++)
+    //     {
+    //         console.log("j",j);
+    //         if(i === j)
+    //         {
+    //             leftDiagonal+=arr[i][j]
+    //         }
+
+    //         if(i +j == numCols -1 )
+    //         {
+    //             console.log(arr[i][j]);
+    //             rightDiagonal+=arr[i][j]
+    //         }
+    //     }
+    // }
+
+    // diff=Math.abs(leftDiagonal - rightDiagonal);
+    // console.log("diff is",diff);
+    // return {leftDiagonal , rightDiagonal}
+
+    let leftDiagonal=0;
+    let rightDiagonal=0;
+    let numCols=arr[0]?.length || 0;
+    let numRows=arr.length;
+     if(numRows != numCols)
+     {
+        return "Invalid no of rows and columns"
+     }
+
+    for(let i=0 ; i<arr.length ; i++)
+    {
+        for(let j=0 ; j<arr[i].length ;j++)
+        {
+            if(i == j)
+            {
+                leftDiagonal+=arr[i][j]
+            }
+            
+            if( i + j == numCols -1)
+            {
+                rightDiagonal+=arr[i][j]
+            }
+        }
+    } 
+    return {leftDiagonal,rightDiagonal}
+}
+
+const result=matrix(exampleMatrix4x4) 
+console.log(result); 

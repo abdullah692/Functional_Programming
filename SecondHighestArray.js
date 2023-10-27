@@ -1,0 +1,82 @@
+let arr = [2, 5, 4, 3, 12, 11, 67, 32, 12, 43, 23, 76];
+
+// const HighestEelement=(arr)=>{
+// let max=0;
+// for(let i=0; i<arr.length ;i++)
+// {
+//     if(arr[i] > max)
+//     {
+//       max=arr[i]
+//     }
+// }
+// return max
+//   let max=0
+//     for(let i=0 ; i<arr.length  ;i++)
+//     {
+//         if(arr[i] > max)
+//         {
+//           max=arr[i]
+//         }
+//     }
+//     return max;
+// }
+
+// const result=HighestEelement(arr)
+// console.log('The  highest value in array is' , result);
+
+const HighestSecondEelement = (arr) => {
+  //         // let first=-1;
+  //         // let second=-1;
+
+  //         // for(let i=0 ;i<arr.length ; i++)
+  //         // {
+  //         //     if(arr[i] > first)
+  //         //     {
+  //         //         second=first;
+  //         //         first=arr[i]
+  //         //     }
+  //         //     else if(arr[i] > second && arr[i] !=first)
+  //         //     {
+  //         //         second=arr[i]
+  //         //     }
+  //         // }
+  //         // return second;
+
+  let first=-1;
+  let second=-1;
+
+  for(let i=0 ;i<arr.length ; i++)
+  {
+      if(arr[i] > first)
+      {
+          second=first;
+          first=arr[i]
+      }
+      else if(arr[i] > second && arr[i] !=- first)
+      {
+         second=arr[i]
+      }
+  }
+  return second
+};
+// const result = HighestSecondEelement(arr);
+// console.log("The second highest value in array is", result);
+
+const nHighest=(arr,n)=>{
+    // if(n > 0 && arr.length >= n)
+    // {
+    //     const sortedArray=arr.sort((a,b)=>b-a)
+    //     console.log(sortedArray);
+
+    //     return sortedArray[n-1]
+    // }
+
+    if(n > 0 && arr.length >=n)
+    {
+        const sortArr=arr.sort((a,b)=>b-a)
+        return sortArr[n-1]
+    }
+}
+
+const result=nHighest(arr,4)
+console.log('The nth highest value in array is' , result);
