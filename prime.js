@@ -49,14 +49,16 @@ const primeNo=(num)=>{
    
   // }
 
-  for(let i=2 ; i<num ; i++)
+  for(let i=2 ; i<=num ;i++)
   {
-    if(num % i == 0)
+    if(num %i ==0)
     {
-      console.log("Not a prime number");
+      "not a prime number"
+    }
+    else{
+      "It is a prime number"
     }
   }
-  console.log("it is prime number");
 }
 
 
@@ -85,16 +87,15 @@ const isPrime=(num ,i=2)=>{
   
   if(num <=1)
   {
-    return false
+    return false;
   }
   if(num == i)
   {
     return true
   }
-
   if(num % i == 0)
   {
-    return false
+    return "Not a prime number"
   }
   else{
     return isPrime(num , i+1)

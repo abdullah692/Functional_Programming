@@ -11,7 +11,7 @@ const factorial=(num)=>{
     let fact=1;
     for(let i=1 ;i <=num ;i++)
     {
-        fact=fact*i        
+        fact=fact *i;
     }
     return fact;
 }
@@ -30,16 +30,16 @@ const factorialCheck=(num)=>{
 //     {
 //         return num * (factorialCheck(num - 1));
 //     }
-   if(num == 0 || num == 1)
+   if(num == 0 || num ==1)
    {
         return 1;
    }
    else{
-        return num * factorialCheck(num-1)
+    return num * factorialCheck(num -1)
    }
 }
 
-const check=factorialCheck(7)
+const check=factorialCheck(6)
 console.log(check);
 
 

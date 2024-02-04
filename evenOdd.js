@@ -12,10 +12,10 @@ const evenOdd=(num)=>{
 
    if((num & 1) == 0)
    {
-    console.log("It is even");
+     console.log('It is even');
    }
    else{
-        console.log("It is odd");
+     console.log("It is odd");
    }
 }
 

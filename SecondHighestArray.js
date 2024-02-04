@@ -45,17 +45,19 @@ const HighestSecondEelement = (arr) => {
   let first=-1;
   let second=-1;
 
-  for(let i=0 ;i<arr.length ; i++)
+  for(let i=0 ; i < arr.length ;i++)
   {
-      if(arr[i] > first)
-      {
-          second=first;
-          first=arr[i]
-      }
-      else if(arr[i] > second && arr[i] !=- first)
-      {
-         second=arr[i]
-      }
+    console.log(arr[i]);
+    if(arr[i] > first)
+    {
+        second=first;
+        first=arr[i];
+    }
+    
+    else if(arr[i] > second && arr[i] != first)
+    {
+        second=arr[i]
+    }
   }
   return second
 };
@@ -71,10 +73,11 @@ const nHighest=(arr,n)=>{
     //     return sortedArray[n-1]
     // }
 
-    if(n > 0 && arr.length >=n)
+    if(n >0 && arr.length > n)
     {
-        const sortArr=arr.sort((a,b)=>b-a)
-        return sortArr[n-1]
+        const sortArr=arr.sort((a,b)=>a-b);
+        console.log(sortArr);
+        return sortArr[sortArr.length -n]
     }
 }
 

@@ -45,27 +45,28 @@ const matrix=(arr)=>{
     let rightDiagonal=0;
     let numCols=arr[0]?.length || 0;
     let numRows=arr.length;
+    
      if(numRows != numCols)
      {
         return "Invalid no of rows and columns"
      }
 
-    for(let i=0 ; i<arr.length ; i++)
+    for(let i=0 ;i<arr.length ;i++)
     {
         for(let j=0 ; j<arr[i].length ;j++)
+    {
+        if( i == j)
         {
-            if(i == j)
-            {
-                leftDiagonal+=arr[i][j]
-            }
-            
-            if( i + j == numCols -1)
-            {
-                rightDiagonal+=arr[i][j]
-            }
+            leftDiagonal+=arr[i][j]
         }
-    } 
-    return {leftDiagonal,rightDiagonal}
+        if(i +j == numCols -1)
+        {
+            rightDiagonal+=arr[i][j]
+        }
+    }
+    }
+    console.log("leftDiagonal",leftDiagonal);
+    console.log("rightDiagonal",rightDiagonal);
 }
 
 const result=matrix(exampleMatrix4x4) 

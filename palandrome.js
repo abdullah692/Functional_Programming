@@ -1,28 +1,27 @@
 //First Method
 
-const palandrome=(val)=>{
- 
-//   let len=val.length ;
-//   for(let i=0 ; i< len/2 ; i++)
-//   {
-//       if(val[i] !== val[len-1-i])
-//       {
-//           return "It is not a palindome"
-//       }
-//   }
-//   return "It is palindrome"
- 
-let len=val.length;
-for(let  i=0 ; i<len/2 ; i++)
-{
-    if(val[i] !== val[len-1-i])
-    {
-        return "Not a palindorme"
+const palandrome = (val) => {
+
+    //   let len=val.length ;
+    //   for(let i=0 ; i< len/2 ; i++)
+    //   {
+    //       if(val[i] !== val[len-1-i])
+    //       {
+    //           return "It is not a palindome"
+    //       }
+    //   }
+    //   return "It is palindrome"
+
+    let len = val.length;
+    for (let i = 0; i < len / 2; i++) {
+        if(val[i] !== val[len - 1 -i])
+        {
+            return "Not a palindrome"
+        }
     }
+    return "It is a palindrome"
 }
-return "Iit is palindrome"
-}
-const value=palandrome('abbaa');
+const value = palandrome('abbaa');
 console.log(value);
 
 
@@ -45,8 +44,8 @@ console.log(value);
 
 
 //With recursion
-const palindrome=(str)=>{
-    const val=str.toLowerCase();
+const palindrome = (str) => {
+    const val = str.toLowerCase();
     // if(val.length <=1)
     // {
     //     return 'It is a palindrome'
@@ -62,19 +61,19 @@ const palindrome=(str)=>{
 
     // return palindrome(val.slice(1,val.length -1))
 
-    if(val.length <=1)
-    {
-        return "It is palindorme"
-    }
-    if(val.length > 1)
-    {
+   if(val.length <=1)
+   {
+     return "It is palindorme"
+   }
+   if(val.length >1)
+   {
         if(val[0] !== val[val.length -1])
         {
-            return "Not a palinnindorme"
+            return "Not a palindorme"
         }
-    }
-    return palindrome(val.slice(1, val.length -1))
+   }
+   return palandrome(val.slice(1,val.length-1))
 }
 
-const result=palindrome('abbaa')
+const result = palindrome('abba')
 console.log(result);

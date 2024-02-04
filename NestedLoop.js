@@ -16,20 +16,19 @@ const FindBook = (libArr, name) => {
   //   }
   // }
   // return "Unavailabe";
-  for(let  i=0; i < libArr.length ; i++)
+  for(let i=0 ; i<libArr.length ;i++)
   {
-      for(let j=0; j < libArr[i].length ; j++)
+    for(let j=0 ; j<libArr[i].length ; j++)
+    {
+      if(libArr[i][j] == name)
       {
-        if(name == libArr[i][j])
-        {
-          console.log(`The book is found in batch ${i+1} at postion ${j+1}`)
-          return "Book is found"
-        }
+        return `Available at ${j+1} in row ${i+1}`
       }
+    }
   }
-  return "Book is unavailable"
+  return "Not available"
 };
 
-const result = FindBook(libArr, "cababdullah");
+const result = FindBook(libArr, "cab");
 console.log(result);
 console.log("Welcome to Programiz!");

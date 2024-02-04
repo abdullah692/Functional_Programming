@@ -15,19 +15,20 @@
 
 
 const CharacterFreq=(val)=>{
- let obj={}
-
+ let obj={};
  for(let char of val)
  {
+    
     if(!obj[char])
     {
-        obj[char]=1
+      obj[char]=1
     }
-    else{
-      obj[char]++;
+    else
+    {
+        obj[char]++;
     }
-}
-  console.log(obj);
+ }
+ console.log(obj);
 }
 
 CharacterFreq('abdullahasasawewe')

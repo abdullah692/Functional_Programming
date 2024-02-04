@@ -13,21 +13,29 @@
 
 // Object Sum
 
-// const operateOnObject=(data)=>{
-//     let sum=0;
-//     for(const value in data)
-//     {
-//         sum=sum+ data[value]
-//     }
-//     return sum;
-// }
+const operateOnObject=(data)=>{
+    // let sum=0;
+    // for(const value in data)
+    // {
+    //     sum=sum+ data[value]
+    // }
+    // return sum;
+    let sum=0;
+    for(let val in data)
+    {
+        
+        console.log(val);
+        sum+=data[val]
+    }
+    return sum
+}
 
-// const data = {
-//     apples: 5,
-//     bananas: 3,
-//     oranges: 2,
-//     grapes: 4
-// };
+const data = {
+    apples: 5,
+    bananas: 3,
+    oranges: 2,
+    grapes: 4
+};
 
 // const result = operateOnObject(data);
 // console.log("Sum of values:", result);
@@ -86,23 +94,30 @@ Capatalize(obj);
 
 //Length of the Keys
 
-// const sampleObject = {
-//     name: "Alice",
-//     age: 25,
-//     city: "New York"
-// };
+const sampleObject = {
+    name: "Alice",
+    age: 25,
+    city: "New York"
+};
 
-// const LengthKey=(obj)=>{
-//     console.log(obj);
-//     const arr=[];
-//     for(let key in obj)
-//     {
-//         let keyLength=key.length;
-//         console.log(keyLength);
-//         arr.push(keyLength);
-//     }
-//     return arr;
-// }
+const LengthKey=(obj)=>{
+    // console.log(obj);
+    // const arr=[];
+    // for(let key in obj)
+    // {
+    //     let keyLength=key.length;
+    //     console.log(keyLength);
+    //     arr.push(keyLength);
+    // }
+    // return arr;
+    let arr=[];
+    for(let key in obj)
+    {
+        const len=key.length;
+        arr[key]=len
+    }
+    return arr
+}
 
 // const result=LengthKey(sampleObject)
 // console.log(result);
@@ -153,7 +168,7 @@ const GroupByAge = (arr) => {
 //         }
 //         obj[age].push(value)
 //    }
-let obj={};
+let obj={}
 
 for(let value of arr)
 {
@@ -164,9 +179,10 @@ for(let value of arr)
     }
     obj[age].push(value)
 }
-
-return obj
+return obj;
 }
+
+
    
 /////////////////////////////
 // arr.forEach((persons)=>{

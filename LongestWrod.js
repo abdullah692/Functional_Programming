@@ -17,19 +17,17 @@ const LongestString = (val) => {
   // return valueChar
 
     let words=val.split(" ");
-    let highest=0;
-    let max;
-
-    
-    for(let i=0 ; i< words.length ;i++)
+    let highest=-1;
+    let word;
+    for(let char of words)
     {
-        if(words[i].length > highest)
+        if(char.length > highest)
         {
-            highest=words[i].length;
-            max=words[i]
+            highest=char.length;
+            word=char;
         }
     }
-    return [highest,max]
+    return [word,highest]
 };
 
 const result = LongestString(string);

@@ -68,22 +68,22 @@
 
 
 const SumZero=(arr,target)=>{
-   for(let i=0 ; i< arr.length ;i++)
-   {
-        for(let j=i+1 ; j<arr.length ; j++)
+    for(let i=0 ;i< arr.length ;i++)
+    {
+        for(let j=i+1 ; j< arr.length ;j++)
         {
             if(arr[i] + arr[j] == target)
             {
-                return [i,j]   
+                return [arr[i] ,arr[j] , i,j]
             }
         }
-   }
-   return -1
+    }
+    return -1;
 }
 
 
 const arr=[2,4,6,5,10,7,2]
-const result=SumZero(arr,10)
+const result=SumZero(arr,15)
 console.log(result);
 
 

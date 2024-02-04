@@ -1,14 +1,16 @@
-// const SumRecurive=(arr, index = 0 )=>{
-//     if(arr.length == index)
-//     {
-//         return 0;
-//     }
-//     else{
-//         return arr[index] + SumRecurive(arr, index +1)
-//     }
-// }
 
-// const arr = [2, 4, 1, 6, 12, 3];
+
+const SumRecurive=(arr,i=0 )=>{
+    if(arr.length == i)
+    {
+        return 0;
+    }
+    else{
+        return arr[i] + SumRecurive(arr,i+1)
+    }
+}
+
+const arr = [2, 4, 1, 6, 12, 3];
 
 // const SumRecurive=(arr,i=0)=>{
 //     if(arr.length == i)
@@ -24,15 +26,16 @@
 
 //Reverse a String
 
-// const reverseString=(string)=>{
-//     if(string <=1)
-//     {
-//         return string
-//     }
-//     else{
-//         return string[string.length -1] + reverseString(string.slice(0,-1))
-//     }
-// }
+const reverseString=(string)=>{
+    console.log(string);
+   if(string.length <=1)
+   {
+     return string
+   }
+   else{
+    return string[string.length -1] + reverseString(string.slice(0,string.length-1))
+   }
+}
 
 // const reverseString=(val)=>{
 //     if(val.length <=1)
@@ -62,14 +65,14 @@
 //      }
 // }
 
-const reverseArray=(arr,i=0)=>
-{
-    if(arr.length == i)
+const reverseArray=(arr)=>{
+    console.log(arr);
+    if(arr.length < 1)
     {
         return []
     }
     else{
-        return [arr[arr.length-1] , ...reverseArray(arr.slice(0,-1))]
+        return [arr[arr.length -1] , ...reverseArray(arr.slice(0,-1))]
     }
 }
 

@@ -35,15 +35,15 @@ const insertArray = (arr) => {
   let val=100;
   let index=4;
 
-  for(let i=arr.length -1 ; i>= index ;i--)
-  {
-    arr[i+1]=arr[i]
-    if(i == index)
-    {
-      arr[i]=val
-    }
-  }
-  console.log(arr);
+ for(let i=arr.length -1 ; i >= index ; i--)
+ {
+      arr[i+1]=arr[i];
+      if(i == index)
+      {
+        arr[i]=val;
+      }
+ }
+ console.log(arr);
 };
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];

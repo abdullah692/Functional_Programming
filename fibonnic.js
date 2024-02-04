@@ -1,18 +1,26 @@
 //Fibonnic Sequence
 
-const fibonnic=(num)=>{
-   let a=0 , b=1 ,next
-   for(let i=0 ; i<= num ;i++)
-   {
-        console.log(a);
-        next=a+b;
-        a=b;
-        b=next;
-   }
-}
+// const fibonnic=(num)=>{
+//    let a=0 , b=1 ,next
+//    for(let i=0 ; i<= num ;i++)
+//    {
+//         console.log(a);
+//         next=a+b;
+//         a=b;
+//         b=next;
+//    }
+//     let a=0, b=1, next;
+//     for(let i=0 ;i<=num ; i++)
+//     {
+//         console.log(a);
+//         next=a+b;
+//         a=b;
+//         b=next;
+//     }
+// }
 
-const result=fibonnic(6)
-console.log(result);
+// const result=fibonnic(6)
+// console.log(result);
 
 
 // const fibonic=(num)=>{
@@ -51,19 +59,19 @@ console.log(result);
 // printFibonacci(numTerms);
 
 
-const printFibonacci=(num,a=0,b=1 )=>{
+// const printFibonacci=(num , a=0 ,b=1 )=>{
 
-    if(num > 0)
-    {
-        console.log(a);
-        printFibonacci(num-1 , b, a+b)
-    }
-}
+//     if(num > 0)
+//     {
+//         console.log(a);
+//         return printFibonacci(num-1 , b, a+b )
+//     }
+// }
 
 
-const numTerms = 10;  // Number of terms to print
-console.log(`Fibonacci series with ${numTerms} terms:`);
-printFibonacci(numTerms);
+// const numTerms = 10;  // Number of terms to print
+// console.log(`Fibonacci series with ${numTerms} terms:`);
+// printFibonacci(numTerms);
 
 
 // function fibonacci(n) {
@@ -72,6 +80,7 @@ printFibonacci(numTerms);
 //     } else if (n === 1) {
 //         return 1;  // Base case
 //     } else {
+        
 //         return fibonacci(n - 1) + fibonacci(n - 2);  // Recursive case
 //     }
 // }
