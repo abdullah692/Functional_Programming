@@ -13,73 +13,49 @@
 
 // Object Sum
 
-const operateOnObject=(data)=>{
-    // let sum=0;
-    // for(const value in data)
-    // {
-    //     sum=sum+ data[value]
-    // }
-    // return sum;
-    let sum=0;
-    for(let val in data)
-    {
-        
-        console.log(val);
-        sum+=data[val]
-    }
-    return sum
-}
+// const operateOnObject=(data)=>{
+   
+//    let sum=0;
+//    for(const key in data)
+//    {
+//     console.log(key, "value is", key);
+//     sum+=data[key]
+//    }
+//    return sum;
+// }
 
-const data = {
-    apples: 5,
-    bananas: 3,
-    oranges: 2,
-    grapes: 4
-};
+// const data = {
+//     apples: 5,
+//     bananas: 3,
+//     oranges: 2,
+//     grapes: 4
+// };
 
 // const result = operateOnObject(data);
 // console.log("Sum of values:", result);
 
 // Key Capitalization
 
-let obj={
-    name: "Alice",
-    age: 25,
-    city: "New York"
-}
-
-const Capatalize=(obj)=>{
-    let capitals={}
-
-    for(let key in obj)
-    {
-        const firstLetter=key[0].toUpperCase();
-        const restletter=key.slice(1)
-        const result=firstLetter+restletter;
-        capitals[result]=obj[key]
-    }
-    console.log(capitals);
-
-//     for(let keys in obj)
-//     {
-//         const firstLetter=keys[0].toUpperCase();
-//         const restLetter=keys.slice(1);
-//         const Keys=firstLetter+restLetter;
-//         capitals[Keys]=obj[keys];
-
-//     }
-//     console.log(capitals);
-}
+// let obj={
+//     name: "Alice",
+//     age: 25,
+//     city: "New York"
+// }
 
 // const Capatalize=(obj)=>{
-// const Capital=Object.keys(obj).map((key)=>{
-//         // console.log(key);
-//         const firstLetter=key[0].toUpperCase();
-//         // console.log(firstLetter);
+//    let capitalObj={}
+//    for(let key in obj)
+//    {
+//         const firstLetter=key[0].toUpperCase()
 //         const restLetter=key.slice(1)
-//         // console.log(restLetter);
-//         return firstLetter + restLetter
-//     })
+//         const conCat=firstLetter+restLetter;
+//         capitalObj[conCat]=obj[key];     
+//    }
+//    console.log(capitalObj);
+// }
+
+// Capatalize(obj);
+
 
 //     const newObj={}
 //     for(let i=0 ;i < Capital.length ; i++)
@@ -90,17 +66,17 @@ const Capatalize=(obj)=>{
 //     console.log(newObj);
 // }
 
-Capatalize(obj);
+
 
 //Length of the Keys
 
-const sampleObject = {
-    name: "Alice",
-    age: 25,
-    city: "New York"
-};
+// const sampleObject = {
+//     name: "Alice",
+//     age: 25,
+//     city: "New York"
+// };
 
-const LengthKey=(obj)=>{
+// const LengthKey=(obj)=>{
     // console.log(obj);
     // const arr=[];
     // for(let key in obj)
@@ -110,14 +86,14 @@ const LengthKey=(obj)=>{
     //     arr.push(keyLength);
     // }
     // return arr;
-    let arr=[];
-    for(let key in obj)
-    {
-        const len=key.length;
-        arr[key]=len
-    }
-    return arr
-}
+//     let arr=[];
+//     for(let key in obj)
+//     {
+//         const len=key.length;
+//         arr[key]=len
+//     }
+//     return arr
+// }
 
 // const result=LengthKey(sampleObject)
 // console.log(result);
@@ -149,38 +125,44 @@ const LengthKey=(obj)=>{
 
 //Group the objects of same age
 
-const arrayOfPeople = [
-  { name: "Alice", age: 30 },
-  { name: "Bob", age: 25 },
-  { name: "Charlie", age: 30 },
-];
+// const arrayOfPeople = [
+//   { name: "Alice", age: 30 },
+//   { name: "Bob", age: 25 },
+//   { name: "Charlie", age: 30 },
+// ];
 
-const GroupByAge = (arr) => {
-
-//    let obj={}
-//    for(let value of arr)
-//    {
-//         const {age}=value
-
+// const GroupByAge = (arr) => {
+//     let obj={}
+//     for(let values of arr)
+//     {
+//         const {age}=values;
 //         if(!obj[age])
 //         {
 //             obj[age]=[]
 //         }
-//         obj[age].push(value)
-//    }
-let obj={}
+//         obj[age].push(values)
+//     }
+//     console.log(obj);
+ 
+// }
+// const result = GroupByAge(arrayOfPeople);
+// console.log(result);
 
-for(let value of arr)
-{
-    const {age}=value;
-    if(!obj[age])
-    {
-        obj[age]=[]
-    }
-    obj[age].push(value)
-}
-return obj;
-}
+
+
+// let obj={}
+
+// for(let value of arr)
+// {
+//     const {age}=value;
+//     if(!obj[age])
+//     {
+//         obj[age]=[]
+//     }
+//     obj[age].push(value)
+// }
+// return obj;
+// }
 
 
    
@@ -198,8 +180,7 @@ return obj;
 // })
 // return obj
 // };
-const result = GroupByAge(arrayOfPeople);
-console.log(result);
+
 
 //
 
@@ -229,28 +210,27 @@ console.log(result);
 // const array = ["one", "two", "three", "four"];
 
 // const ArrayToObj=(arr)=>{
-//     let obj={};
-//     for(let i=0 ;i <arr.length ;i++)
-//     {
-//         obj[i]=arr[i];
+    
+//     let obj={}
+//     for(i=0 ; i<arr.length ;i++){
+//         obj[i]=arr[i]
 //     }
-//     return obj;
+//     return obj
 // }
 
 // const result=ArrayToObj(array)
 // console.log(result);
 
-// const obj = { 0: "one", 1: "two", 2: "three", 3: "four" };
+const obj = { 0: "one", 1: "two", 2: "three", 3: "four" };
 
-// const objToArr = (obj) => {
-//     let arr=[];
-//     for(let key in obj)
-//     {
-//         arr[key]=obj[key]
-//     }
-//     return arr;
-   
-// };
+const objToArr = (obj) => {
+    let arr=[];
+    for(let key in obj)
+    {
+        arr[key]=obj[key]
+    }
+   return arr
+};
 
-// const result = objToArr(obj);
-// console.log(result);
+const result = objToArr(obj);
+console.log(result);

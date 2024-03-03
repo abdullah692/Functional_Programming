@@ -14,21 +14,20 @@
 // CharacterFrequency("Abdullah");
 
 
-const CharacterFreq=(val)=>{
- let obj={};
- for(let char of val)
- {
-    
+const CharacterFreq=(string)=>{
+ const obj={}
+  for(let char of string)
+  {
     if(!obj[char])
     {
       obj[char]=1
     }
-    else
-    {
-        obj[char]++;
+    else{
+
+      obj[char]++
     }
- }
- console.log(obj);
+  }
+  console.log(obj);
 }
 
 CharacterFreq('abdullahasasawewe')
@@ -37,21 +36,19 @@ CharacterFreq('abdullahasasawewe')
 //With Array
 
 const CharacterCheck=(arr)=>{
-    let obj=[]
-
-    for(let char of arr)
+  const obj=[]
+  for(let char of arr)
+  {
+    if(!obj[char])
     {
-      // console.log(char);
-      if(!obj[char])
-      {
-        obj[char]=1
-      }
-      else{
-        obj[char]++
-      }
+      obj[char]=1
     }
-    return obj;
-}
+    else{
+
+      obj[char]++
+    }
+  }
+  console.log(obj);}
 
 const arr=['a','a','a','b','b','b','b',"t","y","c","c","i","o","o"]
 const result=CharacterCheck(arr)
