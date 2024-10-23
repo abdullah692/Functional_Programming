@@ -14,14 +14,15 @@ const palandrome = (val) => {
 
     let len = val.length;
     for (let i = 0; i < len / 2; i++) {
-        if(val[i] !== val[len - 1 -i])
+        if(val[i] != val[len -1 -i])
         {
-            return "Not a palindrome"
+            return "Not a Palindrome"
         }
     }
-    return "It is a palindrome"
+    return "It is a Palindrome"
+
 }
-const value = palandrome('abbaa');
+const value = palandrome('abba');
 console.log(value);
 
 
@@ -61,18 +62,15 @@ const palindrome = (str) => {
 
     // return palindrome(val.slice(1,val.length -1))
 
-   if(val.length <=1)
-   {
-     return "It is palindorme"
-   }
-   if(val.length >1)
-   {
-        if(val[0] !== val[val.length -1])
-        {
+    if (val.length <= 1) {
+        return "It is palindorme"
+    }
+    if (val.length > 1) {
+        if (val[0] !== val[val.length - 1]) {
             return "Not a palindorme"
         }
-   }
-   return palandrome(val.slice(1,val.length-1))
+    }
+    return palandrome(val.slice(1, val.length - 1))
 }
 
 const result = palindrome('abba')

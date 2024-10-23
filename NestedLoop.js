@@ -16,16 +16,19 @@ const FindBook = (libArr, name) => {
   //   }
   // }
   // return "Unavailabe";
-  for (let i = 0; i < libArr.length; i++) {
-    for (let j = 0; j < libArr[i].length; j++) {
-      if (libArr[i][j] == name) {
-        return `${name} is found at ${j + 1}`
+  for(let i=0;i<libArr.length ;i++){
+    for(let j=0 ; j< libArr[i].length  ;j++)
+      {
+         if(libArr[i][j] == name)
+          {
+            return `Book Find ${name} at ${i} at ${j} shelf`
+          }
       }
-    }
   }
-  return "Unavailable"
+  return "unavailable"
+
 };
 
-const result = FindBook(libArr, "sds");
+const result = FindBook(libArr, "board");
 console.log(result);
 

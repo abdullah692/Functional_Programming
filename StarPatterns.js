@@ -16,6 +16,31 @@
 // const result=squarePattern()
 // console.log(result);
 
+const leftTriangle = () => {
+    let string = '';
+    for(let i=0 ;i<=5 ; i++)
+            {
+                for(let j=0 ; j<=i ;j++)
+                {
+                    if(i==0 || j==0 || j==i || i==5)
+                        {
+
+                            string+="*"
+                        }
+                        else{
+                            string+=" "
+                        }
+                }
+                string+="\n"
+            }
+    return string
+}
+
+const result = leftTriangle()
+console.log(result);
+
+
+
 
 //Hollow Square Pattern
 
@@ -154,24 +179,24 @@
 
 //Payramind Pattern
 
-const payramind=()=>{
+// const payramind=()=>{
 
-    let string=""
-    for(let i=1 ; i<=5  ;i++)
-    {
-        for(let j=1 ;j<=5-i ;j++)
-        {
-            string +=" "
-        }
+//     let string=""
+//     for(let i=1 ; i<=5  ;i++)
+//     {
+//         for(let j=1 ;j<=5-i ;j++)
+//         {
+//             string +=" "
+//         }
 
-        for(let k=1; k<=2*i-1; k++)
-        {
-            string+="*"
-        }
-        string+="\n"
-    }
-    return string
-}
+//         for(let k=1; k<=2*i-1; k++)
+//         {
+//             string+="*"
+//         }
+//         string+="\n"
+//     }
+//     return string
+// }
 
-const result =payramind()
-console.log(result);
+// const result =payramind()
+// console.log(result);

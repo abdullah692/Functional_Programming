@@ -1,4 +1,4 @@
-const string = "Hello my name is Abdullahs Siddiqui";
+const string = "Hello my name is Abdullah Siddiqui";
 
 const LongestString = (val) => {
   // const stringArray=val.split(" ");
@@ -16,18 +16,24 @@ const LongestString = (val) => {
   // }
   // return valueChar
 
-    let words=val.split(" ");
-    let highest=-1;
-    let word;
-    for(let char of words)
+    
+    let stringValue=val.split(" ");
+    let maxLength=0;
+    let maxWord;
+    console.log(stringValue);
+    for(let char of stringValue)
     {
-        if(char.length > highest)
+        // console.log(char.length);
+        
+        if(char.length >= maxLength)
         {
-            highest=char.length;
-            word=char;
+            maxLength=char.length;
+            maxWord=char;
         }
     }
-    return [word,highest]
+
+    return [maxLength,maxWord]
+    
 };
 
 const result = LongestString(string);

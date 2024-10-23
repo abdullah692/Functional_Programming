@@ -1,22 +1,26 @@
 const Anagram = (string1, string2) => {
-     if(string1.length != string2.length)
-     {
-        return "Not an Anagram"
-     }
-     let obj={}
-     for(const char of string1)
-     {
-        obj[char]=(obj[char] || 0)+1
-     }
-     for(const char of string2)
-     {
-        if(!obj[char])
-        {
-          return "Not an Anagram"
-        }
-        obj[char]=obj[char] -1;
-     }
-     return "It is a Anagram"
+   let obj={}
+   if(string1.length != string2.length)
+   {
+      return false
+   }
+   
+   for(const char of string1)
+   {
+      obj[char]=(obj[char] ||0)+1
+   }
+   console.log(obj);
+   for(const char of string2)
+   {
+      if(!obj[char])
+      {
+         return "Not an Anagram"
+      }
+      else{
+         obj[char]=obj[char]-1
+      }
+   }
+   return "It is an Anagram"
 }
 
 const result=Anagram('abdullahsidd','sidabddullah')

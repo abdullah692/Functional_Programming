@@ -24,8 +24,8 @@
 
 
 
-const primeNo=(num)=>{
-  
+const primeNo = (num) => {
+
   // let isPrime=true;
   // if(num == 1)
   // {
@@ -46,19 +46,24 @@ const primeNo=(num)=>{
   //     }
   //   }
   //   console.log("It is prime num",isPrime);
-   
+
   // }
 
-  for(let i=2 ; i<=num ;i++)
-  {
-    if(num %i ==0)
-    {
-      "not a prime number"
+  let isPrime = false;
+  for (let i = 2; i < num; i++) {
+    if (num % i == 0) {
+      isPrime = false
+      return "It is not a Prime no"
     }
-    else{
-      "It is a prime number"
+    else {
+      isPrime = true
+      // console.log("It is Prime no");
+
     }
+
   }
+  console.log(`It is a Prime No ${isPrime}`);
+   
 }
 
 
@@ -66,7 +71,7 @@ primeNo(11);
 
 
 
-const isPrime=(num ,i=2)=>{
+const isPrime = (num, i = 2) => {
   // if(num <=1)
   // {
   //   return false
@@ -84,21 +89,18 @@ const isPrime=(num ,i=2)=>{
   // else{
   //   return isPrime(num , current+1)
   // }
-  
-  if(num <=1)
-  {
+
+  if (num <= 1) {
     return false;
   }
-  if(num == i)
-  {
+  if (num == i) {
     return true
   }
-  if(num % i == 0)
-  {
+  if (num % i == 0) {
     return "Not a prime number"
   }
-  else{
-    return isPrime(num , i+1)
+  else {
+    return isPrime(num, i + 1)
   }
 }
 
