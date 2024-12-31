@@ -17,3 +17,4 @@ const moveZeroToEnd = (arr) => {
 const arr = [0, 2, 4, 0, 12, 14, 0, 6, 0, 0.0, 4, 5, 8, 0]
 const result = moveZeroToEnd(arr);
 console.log(result);
+ 
