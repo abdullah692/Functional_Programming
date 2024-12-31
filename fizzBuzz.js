@@ -17,24 +17,25 @@
 // fizzBuzz(15);
 
 const FizzBuzz = (num) => {
-  for(let i=0 ;i<=num; i++)
-  {
-    if(i%3 ==0 && i%5 ==0){
-        console.log("FizzBuzz");
-    }
-    else if(i%5 ==0 )
+ for(let i=0 ; i<=num; i++)
+ {
+    if(i % 3==0 && i%5==0)
     {
-      console.log("Buzz");
+      console.log("FizzBuzz",i); 
     }
-    else if(i%3==0)
+    else if(i%3 ==0)
     {
-      console.log("Fizz");
+      console.log("Fizz",i);
+    }
+    else if(i%5 ==0)
+    {
+      console.log("Buzz",i);
     }
     else{
       console.log(i);
       
     }
-  }
+ }
 };
 
 FizzBuzz(30);
