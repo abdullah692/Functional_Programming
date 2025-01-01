@@ -49,64 +49,47 @@ const primeNo = (num) => {
 
   // }
 
-  let isPrime = false;
-  for (let i = 2; i < num; i++) {
-    if (num % i == 0) {
-      isPrime = false
-      return "It is not a Prime no"
+  let prime=false;
+  for(let i=2; i< num ;i++)
+  {
+    if(num % i == 0)
+    {
+      prime=false;
+      // console.log("It is not a Prime no");
+      break;
     }
-    else {
-      isPrime = true
-      // console.log("It is Prime no");
+    else{
 
+      prime=true
+      // console.log("It is a prime no");
     }
-
   }
-  console.log(`It is a Prime No ${isPrime}`);
-   
+  return prime ? "It is a prime no" : "Not a prime no"
+  
 }
+const isPrimeCheck=primeNo(11);
+console.log("Is Prime",isPrimeCheck);
 
 
-primeNo(11);
 
-
-
-const isPrime = (num, i = 2) => {
-  // if(num <=1)
-  // {
-  //   return false
-  // }
-
-  // if(current == num)
-  // {
-  //   return true
-  // }
-
-  // if(num % current == 0)
-  // {
-  //     return false
-  // }
-  // else{
-  //   return isPrime(num , current+1)
-  // }
-
-  if (num <= 1) {
-    return false;
+const isPrime=(num , i=2)=>{
+  if(num <=1)
+  {
+    return false
   }
-  if (num == i) {
-    return true
+  if(num == i)
+  {
+      return true
   }
-  if (num % i == 0) {
-    return "Not a prime number"
+  if(num %i==0)
+  {
+    return false
   }
-  else {
-    return isPrime(num, i + 1)
+  else{
+    return isPrime(num, i+1)
   }
 }
-
-
-
-const numberToCheck = 23;
+const numberToCheck = 110;
 const result = isPrime(numberToCheck);
 
 console.log(`${numberToCheck} is ${result ? 'prime' : 'not prime'}.`);
