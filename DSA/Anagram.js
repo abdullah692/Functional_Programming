@@ -37,7 +37,7 @@ for(let char of string1)
    console.log("String1",obj);
 for(let char of string2)
    {
-      debugger
+      
       if(!obj[char])
       {
          return "Not an Anagram"
