@@ -42,24 +42,27 @@ const HighestSecondEelement = (arr) => {
   //         // }
   //         // return second;
 
-  let first = -1;
-  let second = -1;
-  for (let i = 0; i < arr.length; i++) {
-    if(arr[i] >first)
+    let first=-1;
+    let second=-1;
+
+    for(let i=0 ;i< arr.length ;i++)
     {
-      second=first;
-      first=arr[i]
+        if(arr[i] > first)
+        {
+          second=first
+          first=arr[i]
+        }
+        else if(arr[i] > second)
+        {
+          second=arr[i]
+        }
     }
-    else if(arr[i] > second)
-    {
-      second=arr[i]
-    }
-  }
-  console.log(second);
-  ;
+    return second
 };
 
-HighestSecondEelement(arr)
+const result=HighestSecondEelement(arr)
+console.log(result,"result");
+
 // const result = HighestSecondEelement(arr);
 // console.log("The second highest value in array is", result);
 

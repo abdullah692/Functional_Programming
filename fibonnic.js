@@ -1,6 +1,6 @@
 //Fibonnic Sequence
 
-// const fibonnic=(num)=>{
+const fibonnic=(num)=>{
 //    let a=0 , b=1 ,next
 //    for(let i=0 ; i<= num ;i++)
 //    {
@@ -9,18 +9,20 @@
 //         a=b;
 //         b=next;
 //    }
-//     let a=0, b=1, next;
-//     for(let i=0 ;i<=num ; i++)
-//     {
-//         console.log(a);
-//         next=a+b;
-//         a=b;
-//         b=next;
-//     }
-// }
 
-// const result=fibonnic(6)
-// console.log(result);
+let a=0 , b=1 ,next;
+
+for(let i=0 ; i<=num ; i++)
+{
+    console.log(a);
+    next=a+b;   //1
+    a=b  
+    b=next
+}   
+}
+
+const result=fibonnic(8)
+console.log(result);
 
 
 // const fibonic=(num)=>{

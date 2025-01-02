@@ -8,15 +8,15 @@ const factorial = (num) => {
     //    }
     //    return fact;
 
-    let fact = 1;
-    for(let i=1; i<=num ; i++)
+    let fact=1;
+    for(let  i=1 ;i<= num ;i++)
     {
-        fact=fact*i
+        fact *=i;
     }
-        return fact;
+    return fact
 }
 
-const result = factorial(5)
+const result = factorial(6)
 console.log(`The factorial is `, result);
 
 //With recursion
@@ -30,16 +30,17 @@ const factorialCheck = (num) => {
     //     {
     //         return num * (factorialCheck(num - 1));
     //     }
-    if(num ==0 || num== 1)
+  
+
+    if(num == 1 || num ==0)
     {
         return 1
-    }
-    else{
-        return num * factorialCheck(num -1)
+    }else{
+        return num * factorialCheck(num-1)
     }
 }
 
-const check = factorialCheck(7)
+const check = factorialCheck(8)
 console.log(check);
 
 
