@@ -33,14 +33,14 @@ const uniqueNum =(arr)=>{
     // }
     // return uniqueNum;
 
-   for(let i=0 ; i< arr.length ;i++)
+   for( let i=0 ; i< arr.length ;i++)
    {
         if(!uniqueNum.includes(arr[i]))
         {
             uniqueNum.push(arr[i])
         }
    }
-   return uniqueNum;
+   return uniqueNum
 }
 
 let arr = [2, 4, 4, 1, 1, 2, 3, 4, 3, 6, 8, 9, 5, 5, 9];
