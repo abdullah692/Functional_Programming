@@ -39,30 +39,50 @@
 
 const SumZero=(arr,target)=>{
 
-    let left=0 ;
+    // let left=0 ;
+    // let right=arr.length -1;
+    // const sortArr=arr.sort((a,b)=>a-b)
+    // while(left < right)
+    // {
+    //     let sum=sortArr[left] + sortArr[right]
+    //     if(sum == target)
+    //     {
+    //         return `The values are ${sortArr[left]} and ${sortArr[right]}`
+    //     }
+    //     else if(sum > target)
+    //     {
+    //         right --;
+    //     }
+    //     else{
+    //         left ++
+    //     }
+    // }
+    // return "No value exists in array"
+
+    let left=0;
     let right=arr.length -1;
     const sortArr=arr.sort((a,b)=>a-b)
     while(left < right)
     {
-        let sum=sortArr[left] + sortArr[right]
+        const sum= sortArr[left] + sortArr[right]
         if(sum == target)
         {
-            return `The values are ${sortArr[left]} and ${sortArr[right]}`
+            return `The values of ${target} are ${arr[left]} and ${arr[right]}`
         }
-        else if(sum > target)
+        else if(sum  > target)
         {
-            right --;
+            right --
         }
         else{
             left ++
         }
     }
-    return "No value exists in array"
+    return "No values are available in the array"
 }
 
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32,-78];
-const result=SumZero(arr,99)
+const result=SumZero(arr,0)
 console.log(result);
 
 
