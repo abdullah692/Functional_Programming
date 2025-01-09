@@ -1,6 +1,6 @@
-let arr=[1,2,3,4,5,6,7,9,12,14]
+let arr = [1, 2, 3, 4, 5, 6, 7, 9, 12, 14]
 
-const missingNum=(arr)=>{
+const missingNum = (arr) => {
     // for(let i=0 ;i<arr.length ;i++)
     // {
     //     if(arr[i +1] !== arr[i]+1)
@@ -9,18 +9,17 @@ const missingNum=(arr)=>{
     //     }
     // }
     // return null;
-    for(let i=0 ; i< arr.length ;i++)
-    {
-        if(arr[i+1] != arr[i]+1)
-        {
-            console.log("Missing nos is:",arr[i] +1);
-            
+    let missingNums = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i + 1] != arr[i] + 1) {
+            missingNums.push(arr[i] + 1)
+
         }
     }
-    return null
-   
-    
+    return missingNums
+
+
 }
 
-const result=missingNum(arr)
+const result = missingNum(arr)
 console.log(result);
