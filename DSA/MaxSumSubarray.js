@@ -30,7 +30,7 @@ const consecutiveSum = (arr, k) => {
             maxSum = Math.max(maxSum, windowSum);
             windowSum -= arr[start]
             start++
-        }
+        } 
     }
     return `maxSum is ${maxSum}`
 }
