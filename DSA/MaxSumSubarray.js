@@ -3,7 +3,7 @@
 
 //     for(let i=0 ; i< arr.length ;i++)
 //     {
-//         windowSum+=arr[i]
+//         windowSum+=arr[i] 
 //         if(i >= k-1)
 //         {
 //             if(maxSum < windowSum)
