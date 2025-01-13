@@ -22,6 +22,13 @@
 //     sum+=data[key]
 //    }
 //    return sum;
+
+//     let sum=0;
+//     for(let key in data)
+//     {
+//         sum+=data[key]
+//     }
+//     return sum
 // }
 
 // const data = {
@@ -36,11 +43,11 @@
 
 // Key Capitalization
 
-// let obj={
-//     name: "Alice",
-//     age: 25,
-//     city: "New York"
-// }
+let obj={
+    name: "Alice",
+    age: 25,
+    city: "New York"
+}
 
 // const Capatalize=(obj)=>{
 //    let capitalObj={}
@@ -54,7 +61,21 @@
 //    console.log(capitalObj);
 // }
 
-// Capatalize(obj);
+
+const Capatalize=(obj)=>{
+    let capitalObj={};
+    for(let key in obj)
+    {
+        let firstLetter=key[0].toUpperCase()
+        let restLetter=key.slice(1);
+        let conCat=firstLetter.concat(restLetter)
+        capitalObj[conCat]=obj[key]
+    }
+    console.log(capitalObj);
+    
+}
+
+Capatalize(obj);
 
 
 //     const newObj={}
@@ -221,16 +242,16 @@
 // const result=ArrayToObj(array)
 // console.log(result);
 
-const obj = { 0: "one", 1: "two", 2: "three", 3: "four" };
+// const obj = { 0: "one", 1: "two", 2: "three", 3: "four" };
 
-const objToArr = (obj) => {
-    let arr=[];
-    for(let key in obj)
-    {
-        arr[key]=obj[key]
-    }
-   return arr
-};
+// const objToArr = (obj) => {
+//     let arr=[];
+//     for(let key in obj)
+//     {
+//         arr[key]=obj[key]
+//     }
+//    return arr
+// };
 
-const result = objToArr(obj);
-console.log(result);
+// const result = objToArr(obj);
+// console.log(result);
