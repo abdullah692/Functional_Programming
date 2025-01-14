@@ -63,15 +63,15 @@ let obj={
 
 
 const Capatalize=(obj)=>{
-    let capitalObj={};
+    let objCap={}
     for(let key in obj)
     {
-        let firstLetter=key[0].toUpperCase()
+        let firstLetter=key[0].toUpperCase();
         let restLetter=key.slice(1);
-        let conCat=firstLetter.concat(restLetter)
-        capitalObj[conCat]=obj[key]
+        let concatLetter=firstLetter.concat(restLetter);
+        objCap[concatLetter]=obj[key]   
     }
-    console.log(capitalObj);
+    console.log(objCap);
     
 }
 
@@ -91,14 +91,13 @@ Capatalize(obj);
 
 //Length of the Keys
 
-// const sampleObject = {
-//     name: "Alice",
-//     age: 25,
-//     city: "New York"
-// };
+const sampleObject = {
+    name: "Alice",
+    age: 25,
+    city: "New York"
+};
 
-// const LengthKey=(obj)=>{
-    // console.log(obj);
+const LengthKey=(obj)=>{
     // const arr=[];
     // for(let key in obj)
     // {
@@ -107,50 +106,62 @@ Capatalize(obj);
     //     arr.push(keyLength);
     // }
     // return arr;
-//     let arr=[];
-//     for(let key in obj)
-//     {
-//         const len=key.length;
-//         arr[key]=len
-//     }
-//     return arr
-// }
+    let arr={}
+    for(let key in obj)
+    {
+        let keyLength=key.length;
+        arr[key]=keyLength
+    }
+    return arr
 
-// const result=LengthKey(sampleObject)
-// console.log(result);
+}
 
+const result=LengthKey(sampleObject)
+console.log(result);
+
+
+// const arrayOfPeople = [
+//     { name: "Alice", age: 30 },
+//     { name: "Bob", age: 25 },
+//     { name: "Charlie", age: 30 },
+//   ];
+  
 //Specified Value
 
-//     let name='Bob';
-//     for(const value of arrayOfPeople)
+    // let name='Bob';
+    // for(const value of arrayOfPeople)
+    // {
+    //     if(value.name === name)
+    //     {
+    //         return value
+    //     }
+    // }
+    // return null;
+
+// const SpecifiedValue=(arr,target)=>{
+//     for(let val of arr)
 //     {
-//         if(value.name === name)
+//         if(val.name == target)
 //         {
-//             return value
+//             // console.log(val);
+            
+//             return val
 //         }
-//     }
-//     return null;
-
-// for(let value of arrayOfPeople)
-// {
-//     const {name}=value;
-//     if(name == Valname)
-//     {
-//         return value
-//     }
-// }
+        
+//     }   
 // }
 
-// const result=SpecifiedValue(arrayOfPeople,"Bob")
-// console.log(result);
+
+// const resultSep=SpecifiedValue(arrayOfPeople,"Bob")
+// console.log(resultSep);
 
 //Group the objects of same age
 
-// const arrayOfPeople = [
-//   { name: "Alice", age: 30 },
-//   { name: "Bob", age: 25 },
-//   { name: "Charlie", age: 30 },
-// ];
+const arrayOfPeople = [
+  { name: "Alice", age: 30 },
+  { name: "Bob", age: 25 },
+  { name: "Charlie", age: 30 },
+];
 
 // const GroupByAge = (arr) => {
 //     let obj={}
@@ -166,8 +177,72 @@ Capatalize(obj);
 //     console.log(obj);
  
 // }
-// const result = GroupByAge(arrayOfPeople);
-// console.log(result);
+
+
+// const GroupByAge = (arr) => {
+//     let obj={}
+//     for(let val of arr)
+//     {
+//         let {age}=val
+//         if(!obj[age])
+//         {
+//             obj[age]=[]
+//         }
+//         obj[age].push(val)
+//     }
+//     console.log(obj);
+    
+ 
+// }
+
+const GroupByAge=(arr1)=>{
+    // let arr={};
+    // for(let value of arr1)
+    // {
+    //     // debugger
+    //     let {age,name}=value;
+    //     if(!arr[age])
+    //     {
+    //         arr[age]=[]
+    //     }
+    //     arr[age].push(name)
+    //     console.log(arr);   
+    // }
+
+    // const convertArray=Object.keys(arr).map((val)=>{
+    //     return{
+    //         age:val,
+    //         names: arr[val]
+    //     }
+    // })
+    // return convertArray
+
+    let obj={}
+    for (let value of arr1)
+    {
+        let {age,name}=value;
+        if(!obj[age])
+        {
+            obj[age]=[]
+        }
+        obj[age].push(name)
+    }
+    const mapArr=Object.keys(obj).map((val)=>{
+        console.log(val);
+        return{
+                age:val,
+                names:obj[val]
+        }
+    })
+    return mapArr
+    
+
+}
+
+
+
+const resultAge= GroupByAge(arrayOfPeople);
+console.log(resultAge);
 
 
 
