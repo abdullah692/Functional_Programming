@@ -1,14 +1,27 @@
 const currencyCount=(arr,amnt)=>{
-    let count={}
-    const sortArr=arr.reverse();
+    // let count={}
+    // const sortArr=arr.reverse();
 
-    for(let i=0; i< sortArr.length ;i++)
+    // for(let i=0; i< sortArr.length ;i++)
+    // {
+    //     if(amnt >= sortArr[i])
+    //     {
+    //         const val=Math.floor(amnt/sortArr[i])
+    //         count[sortArr[i]]=val
+    //         amnt%=sortArr[i]
+    //     }
+    // }
+    // return count
+
+    let count={}
+    const revArr=arr.reverse();
+    for(i=0 ; i< arr.length; i++)
     {
-        if(amnt >= sortArr[i])
+        if(amnt >= revArr[i])
         {
-            const val=Math.floor(amnt/sortArr[i])
-            count[sortArr[i]]=val
-            amnt%=sortArr[i]
+            const val=Math.floor(amnt/revArr[i])
+            count[revArr[i]]=val
+            amnt%=revArr[i]
         }
     }
     return count
@@ -17,7 +30,7 @@ const currencyCount=(arr,amnt)=>{
 }
 
 const arr=[1,2,5,10,20,50,100,500]
-const amount=409
+const amount=589
 const result=currencyCount(arr,amount)
 console.log(result);
 

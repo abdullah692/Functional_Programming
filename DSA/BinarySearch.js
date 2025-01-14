@@ -4,7 +4,7 @@
 //and if larger than in right side of the element 
 //After deciding the side again repeat the process to break it in middle element and left , right side
 
-const arr=[-5,2,4,6,10,15]
+const arr=[-5,2,4,6,10,13,15]
 
 const BinarySearch=(arr,target)=>{
 
@@ -29,29 +29,27 @@ const BinarySearch=(arr,target)=>{
 
     // return -1;
 
-  let leftIndex=0;
-  let rightIndex=arr.length -1;
-
-  while(leftIndex <= rightIndex)
-  {
-    const middleIndex= Math.floor((leftIndex + rightIndex) /2);
-    if(arr[middleIndex] == target)
+    let leftindex=0;
+    let rightIndex=arr.length-1;
+    while(leftindex <= rightIndex)
     {
-      return [middleIndex, target]
+        const middleIndex=Math.floor((leftindex+rightIndex)/2)
+        if(arr[middleIndex] == target)
+        {
+          return `The value ${target} is at index ${middleIndex}`
+        }
+        if(arr[middleIndex] > target)
+        {
+          rightIndex=middleIndex-1;
+        }
+        else{
+          leftindex=middleIndex+1
+        }
     }
-    if(target < arr[middleIndex])
-    {
-      rightIndex=middleIndex-1
-    }
-    else
-    {
-      leftIndex=middleIndex+1
-    }
-  }
-  return -1
+    return -1
 }
 
 
-const result=BinarySearch(arr,6)
+const result=BinarySearch(arr,13)
 console.log(result);
 

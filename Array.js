@@ -10,6 +10,15 @@ const ArrLength=(arr , i=0)=>{
      return ArrLenCount
 }
 
+const reverseArr=(arr)=>{
+     let revArr=[]
+     for(let i=arr.length-1 ; i>=0 ;i--)
+     {
+          revArr.push(arr[i])
+     }
+     return revArr
+}
+
 // const ArrLength=(arr, i=0) => 
 // {
 //     // let counter=0;
@@ -38,5 +47,5 @@ const ArrLength=(arr , i=0)=>{
 
 //      return 1 + ArrLength(arr, i+1)
 // }
-const result=ArrLength(arr)
+const result=reverseArr(arr)
 console.log(result);

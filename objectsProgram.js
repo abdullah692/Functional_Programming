@@ -97,7 +97,7 @@ const sampleObject = {
     city: "New York"
 };
 
-const LengthKey=(obj)=>{
+// const LengthKey=(obj)=>{
     // const arr=[];
     // for(let key in obj)
     // {
@@ -106,18 +106,18 @@ const LengthKey=(obj)=>{
     //     arr.push(keyLength);
     // }
     // return arr;
-    let arr={}
-    for(let key in obj)
-    {
-        let keyLength=key.length;
-        arr[key]=keyLength
-    }
-    return arr
+//     let arr={}
+//     for(let key in obj)
+//     {
+//         let keyLength=key.length;
+//         arr[key]=keyLength
+//     }
+//     return arr
 
-}
+// }
 
-const result=LengthKey(sampleObject)
-console.log(result);
+// const result=LengthKey(sampleObject)
+// console.log(result);
 
 
 // const arrayOfPeople = [
@@ -195,7 +195,7 @@ const arrayOfPeople = [
  
 // }
 
-const GroupByAge=(arr1)=>{
+// const GroupByAge=(arr1)=>{
     // let arr={};
     // for(let value of arr1)
     // {
@@ -216,33 +216,30 @@ const GroupByAge=(arr1)=>{
     //     }
     // })
     // return convertArray
-
-    let obj={}
-    for (let value of arr1)
-    {
-        let {age,name}=value;
-        if(!obj[age])
-        {
-            obj[age]=[]
-        }
-        obj[age].push(name)
-    }
-    const mapArr=Object.keys(obj).map((val)=>{
-        console.log(val);
-        return{
-                age:val,
-                names:obj[val]
-        }
-    })
-    return mapArr
-    
-
-}
+//     let obj={};
+//     for(let value of arr1)
+//     {
+//         let {age,name}=value
+//         if(!obj[age])
+//             {
+//                 obj[age]=[]
+//             }   
+//             obj[age].push(name)
+//     }
+//     console.log(obj);
+//     const mapVal=Object.keys(obj).map((val)=>{
+//         return{
+//             age:val,
+//             names:obj[val]
+//         }
+//     })
+//     return mapVal
+// }
 
 
 
-const resultAge= GroupByAge(arrayOfPeople);
-console.log(resultAge);
+// const resultAge= GroupByAge(arrayOfPeople);
+// console.log(resultAge);
 
 
 
@@ -307,26 +304,46 @@ console.log(resultAge);
 
 // const ArrayToObj=(arr)=>{
     
+    // let obj={}
+    // for(i=0 ; i<arr.length ;i++){
+    //     obj[i]=arr[i]
+    // }
+    // return obj
 //     let obj={}
-//     for(i=0 ; i<arr.length ;i++){
-//         obj[i]=arr[i]
+//     for(let i=0 ;i<= arr.length ;i++)
+//     {
+//         if(i==0)
+//         {
+//         obj[i]="zero" 
+//         }else{
+
+//             obj[i]=arr[i-1]   
+//         }
 //     }
-//     return obj
+//     console.log(obj);
+    
 // }
 
-// const result=ArrayToObj(array)
-// console.log(result);
+// const resultArr=ArrayToObj(array)
+// console.log(resultArr);
 
-// const obj = { 0: "one", 1: "two", 2: "three", 3: "four" };
+const obj1 = { 0: "one", 1: "two", 2: "three", 3: "four" };
 
-// const objToArr = (obj) => {
+const objToArr = (obj) => {
 //     let arr=[];
 //     for(let key in obj)
 //     {
 //         arr[key]=obj[key]
 //     }
 //    return arr
-// };
 
-// const result = objToArr(obj);
-// console.log(result);
+let arr=[]
+for(let key in obj)
+{
+    arr.push(obj[key])
+}
+return arr
+};
+
+const result = objToArr(obj1);
+console.log(result);
