@@ -68,34 +68,16 @@ const matrix=(arr)=>{
     // console.log("leftDiagonal",leftDiagonal);
     // console.log("rightDiagonal",rightDiagonal);
 
-    let leftDiagonal=0;
-    let rightDiagonal=0;
-    let numCol=arr[0].length
-    let numRows=arr.length;
+   let leftDiagonal=0;
+   let rightDiagonal=0;
 
-    if(numCol != numRows)
-    {
-        return `Invalid square matrix`
-    }
-    for(let i=0 ; i<arr.length ;i++)
-    {
-        for(let j=0; j<arr.length ;j++)
-        {
-            if(i==j)
-            {
-                leftDiagonal+=arr[i][j]
-            }
-
-            if(i+j == numCol-1)
-            {
-                rightDiagonal+=arr[i][j]
-            }
-            
-        }
-    }
-    console.log(leftDiagonal,"lefDiagonal");
-    console.log(rightDiagonal,"rightDiagonal");
-    
+   for(let i=0; i< arr.length ;i++)
+   {
+    // debugger
+        leftDiagonal+=arr[i][i]
+        rightDiagonal+=arr[i][arr.length-1-i]
+   }
+    return {leftDiagonal,rightDiagonal}
     
 }
 

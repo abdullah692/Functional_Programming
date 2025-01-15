@@ -4,8 +4,6 @@ const arr = [
     ["b", "b", "w", "w", "w"],
     ["b", "b", "w", "w", "w"],
     ["b", "b", "w", "w", "w"],
-    ["b", "b", "w", "w", "w"],
-
 ]
 
 const Check = (arr) => {
@@ -56,24 +54,25 @@ const Check = (arr) => {
     // }
 
 
-    for(let i=0; i<arr.length ;i++)
+   for(let i=0 ;i<arr.length;i++)
+   {
+    for(let j=0; j<arr[i].length;j++)
     {
-        for(let j=0; j<arr[i].length; j++)
+        if(arr[i][j] == "w")
         {
-            if(arr[i][j]=='w')
+            if(top==0 && left==0)
             {
-                if(top==0 && left==0)
-                {
-                    top=i;
-                    left=j
-                }
-                console.log(i,"i");
-                console.log(j,"j");
-                height=i -top +1
-                width=j-left+1
+                top=i;
+                left=j
             }
+
+            height=i-top+1
+            width=j-left+1
         }
     }
+   
+    
+   }
 
     // for (let i = 0; i < arr.length; i++) {
     //     for (let j = 0; j < arr[i].length; j++) {
