@@ -41,32 +41,62 @@ const matrix=(arr)=>{
     // console.log("diff is",diff);
     // return {leftDiagonal , rightDiagonal}
 
+    // let leftDiagonal=0;
+    // let rightDiagonal=0;
+    // let numCols=arr[0]?.length || 0;
+    // let numRows=arr.length;
+    
+    //  if(numRows != numCols)
+    //  {
+    //     return "Invalid no of rows and columns"
+    //  }
+
+    // for(let i=0 ;i<arr.length ;i++)
+    // {
+    //     for(let j=0 ; j<arr[i].length ;j++)
+    // {
+    //     if( i == j)
+    //     {
+    //         leftDiagonal+=arr[i][j]
+    //     }
+    //     if(i +j == numCols -1)
+    //     {
+    //         rightDiagonal+=arr[i][j]
+    //     }
+    // }
+    // }
+    // console.log("leftDiagonal",leftDiagonal);
+    // console.log("rightDiagonal",rightDiagonal);
+
     let leftDiagonal=0;
     let rightDiagonal=0;
-    let numCols=arr[0]?.length || 0;
+    let numCol=arr[0].length
     let numRows=arr.length;
-    
-     if(numRows != numCols)
-     {
-        return "Invalid no of rows and columns"
-     }
 
-    for(let i=0 ;i<arr.length ;i++)
+    if(numCol != numRows)
     {
-        for(let j=0 ; j<arr[i].length ;j++)
+        return `Invalid square matrix`
+    }
+    for(let i=0 ; i<arr.length ;i++)
     {
-        if( i == j)
+        for(let j=0; j<arr.length ;j++)
         {
-            leftDiagonal+=arr[i][j]
-        }
-        if(i +j == numCols -1)
-        {
-            rightDiagonal+=arr[i][j]
+            if(i==j)
+            {
+                leftDiagonal+=arr[i][j]
+            }
+
+            if(i+j == numCol-1)
+            {
+                rightDiagonal+=arr[i][j]
+            }
+            
         }
     }
-    }
-    console.log("leftDiagonal",leftDiagonal);
-    console.log("rightDiagonal",rightDiagonal);
+    console.log(leftDiagonal,"lefDiagonal");
+    console.log(rightDiagonal,"rightDiagonal");
+    
+    
 }
 
 const result=matrix(exampleMatrix4x4) 
