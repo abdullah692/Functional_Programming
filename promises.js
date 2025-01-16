@@ -11,6 +11,42 @@
 // }
 // sum(10,8,callback)
 
+const sum=(a,b,callback)=>{
+    setTimeout(()=>{
+        callback(a,b) 
+    },2000)
+}
+
+const addition=(x,y)=>{
+    let result=x+y
+    console.log(`The sum is ${result}`);
+     
+}
+sum(10,9,addition)
+// console.log(val);
+
+
+// const fetchCallBack=(callback)=>{
+//     setTimeout(() => {
+//         const data={id:1,name:"Abdullah"}
+//         callback(data,null)
+//     }, 2000);
+// }
+
+// const printCallback=(data,error)=>{
+//     if(data)
+//     {
+//         console.log("Data is fetched",data);
+//     }
+//     else{
+//         console.log("Error occured",error);
+        
+//     }
+// }
+
+
+// fetchCallBack(printCallback)
+
 
 // const sum=(a,b,callback)=>{
 //     setTimeout(()=>{
@@ -27,21 +63,89 @@
 
 //Promise
 
-const sum=(a,b)=>{
+
+//Multiolication
+const multiply=(x,y)=>{
     return new Promise((resolve,reject)=>{
-        let result=a+b;
-        resolve(result);
+        let result=x*y;
+        resolve(result)
     })
 }
 
-const Addition=(x,y)=>{
-    sum(x,y).then((result)=>{
-        console.log("The promise is",result);
-    }).catch((err)=>{
-        console.log("Err",err);
+const Multiplication=(a,b)=>{
+    multiply(a,b).then((res)=>{
+        console.log("THe result is",res);
+    }).catch((error)=>{
+        console.log("THe error occured");
+        
     })
 }
-Addition(10,20)
+
+
+Multiplication(10,15)
+
+
+//CHeck Name
+const fetchData=(data)=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            if(data.name =="Ali")
+            {
+
+                resolve(data)
+            }else{
+
+                reject("Data is not fetched correclty")
+            }
+        }, 2000);
+
+    }
+)
+}
+
+const FetchPromise=(obj)=>{
+    fetchData(obj).then((res)=>{
+        console.log("THe data fetched is",res);
+    }).catch((error)=>{
+        console.log("THe error is :",error);    
+    })
+    
+}
+
+const data={id:1 , name:"AHmed"}
+FetchPromise(data)
+
+
+
+//Even Odd
+const checkEven=(num)=>{
+    return new Promise((resolve,reject)=>{
+        if(num%2 ==0)
+        {
+            return resolve(num)
+        }
+        else{
+           return reject(num);
+            
+        }
+    })
+}
+
+const EvenPromise=(num)=>{
+    return checkEven(num).then((res)=>{
+        // console.log("It is even:",res);
+        return `It is even:${res}`
+
+        
+    }).catch((err)=>{
+        console.log("It is odd",err);
+        
+    })
+}
+
+const val=EvenPromise(46)
+val.then((res)=>console.log(res))
+
 
 // const sum=(a,b)=>{
 //     return new Promise(function(resolve,reject){
@@ -50,15 +154,15 @@ Addition(10,20)
 //     })
 // }
 
-const Val=(a,b)=>{
-    sum(a,b).then((res)=>{
-        console.log("The result is of promise",res);
-    })
-    .catch((err)=>{
-        console.log("Error MEssage is",err);
-    })
-}
-Val(10,15)
+// const Val=(a,b)=>{
+//     sum(a,b).then((res)=>{
+//         console.log("The result is of promise",res);
+//     })
+//     .catch((err)=>{
+//         console.log("Error MEssage is",err);
+//     })
+// }
+// Val(10,15)
 
 // const Addition=async(a,b)=>{
 //         const promise= new Promise((resolve,reject)=>{
@@ -121,34 +225,58 @@ Val(10,15)
 //     })
 // }
 
-const Value=(a,b)=>{
+// const Value=(a,b)=>{
+//     return new Promise((resolve,reject)=>{
+//         let result=a+b;
+//         if(result > 30)
+//         {
+//             resolve(result)
+//         }
+//         else{
+//             reject("Not a valid")
+//         }
+//     })
+// }
+
+// Value(20,15).then((res)=>{
+//     console.log("The promise is resolve",res);
+// }).catch((err)=>{
+//     console.log("The error is",err);
+// })
+
+
+// const Multiplication=async(a,b)=>{
+//     const promise= new Promise((resolve,reject)=>{
+//         let result=a*b;
+//         resolve(result)
+//     })
+
+//     const val=await promise;
+//     console.log(val);
+// }
+
+// Multiplication(10,2)
+
+
+const Sum=(x,y)=>{
     return new Promise((resolve,reject)=>{
-        let result=a+b;
-        if(result > 30)
-        {
-            resolve(result)
-        }
-        else{
-            reject("Not a valid")
-        }
+        setTimeout(() => {
+            let sum=x+y;
+            resolve(sum)
+        }, 4000);
+
+        console.log("It is asynchrous task");
+        
     })
 }
 
-Value(20,15).then((res)=>{
-    console.log("The promise is resolve",res);
-}).catch((err)=>{
-    console.log("The error is",err);
-})
-
-
-const Multiplication=async(a,b)=>{
-    const promise= new Promise((resolve,reject)=>{
-        let result=a*b;
-        resolve(result)
-    })
-
-    const val=await promise;
-    console.log(val);
+const Addition=async(a,b)=>{
+    const result=await Sum(a,b)
+    return `The sum of asyn/await ${result}`
+    
 }
 
-Multiplication(10,2)
+
+const value=Addition(10,30)
+console.log(value);
+
