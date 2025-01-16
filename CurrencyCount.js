@@ -13,19 +13,19 @@ const currencyCount=(arr,amnt)=>{
     // }
     // return count
 
-   let count={}
-   const revArr=arr.reverse();
-   for(let i=0 ;i<revArr.length ;i++)
-   {
-       if(amnt >= revArr[i])
+    let count={}
+    let revArr=arr.reverse();
+    for(let i=0 ; i<revArr.length ;i++)
+    {
+        if(amnt > revArr[i])
         {
-            const val=Math.floor(amnt/revArr[i])
+            let val=Math.floor(amnt/revArr[i])
             count[revArr[i]]=val
             amnt%=revArr[i]
-        } 
-   }
-   return count
+        }
+    }
 
+    return count
 }
 
 const arr=[1,2,5,10,20,50,100,500]

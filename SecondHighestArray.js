@@ -1,4 +1,4 @@
-let arr = [2, 5, 4, 3, 12, 11,89,12, 67, 32, 12, 43, 23, 76];
+let arr = [2, 5, 4, 3, 12, 11, 89, 12, 67, 32, 12, 43, 23, 76];
 
 // const HighestEelement=(arr)=>{
 // let max=0;
@@ -25,27 +25,25 @@ let arr = [2, 5, 4, 3, 12, 11,89,12, 67, 32, 12, 43, 23, 76];
 // console.log('The  highest value in array is' , result);
 
 const HighestSecondEelement = (arr) => {
- 
-  let first=-1;
-  let second=-1;
+  let first = -1;
+  let second = -1;
 
-  for(let i=0 ;i< arr.length ;i++)
-  {
-      if(arr[i] > first)
-      {
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] > first)
+    {
         second=first;
         first=arr[i]
-      }
-      else if(arr[i] > second)
-      {
-        second=arr[i]
-      }
+    }
+    else if(arr[i] > second)
+    {
+      second=arr[i]
+    }
   }
   return second
 };
 
-const result=HighestSecondEelement(arr)
-console.log(result,"result");
+const result = HighestSecondEelement(arr)
+console.log(result, "result");
 
 // const result = HighestSecondEelement(arr);
 // console.log("The second highest value in array is", result);

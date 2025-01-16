@@ -1,21 +1,44 @@
 const isBalanced=(str)=>{
+    // let arr=[]
+    // let map={
+    //     ')': '(',
+    //     '}': '{',
+    //     ']': '['
+    // }
+    // for(let char of str)
+    // {
+    //     if(char== "(" || char == "{" || char== "[")
+    //     {
+    //         arr.push(char)
+    //     }
+    //     else if(char == ")" || char == "}" || char == "]")
+    //     {
+    //         if(arr.pop() !== map[char])
+    //         {
+    //             return false;
+    //         }
+    //     }
+    // }
+    // return true
+
     let arr=[]
     let map={
         ')': '(',
         '}': '{',
         ']': '['
     }
+    
     for(let char of str)
     {
-        if(char== "(" || char == "{" || char== "[")
+        if(char == "(" || char == "{" || char == "[" )
         {
             arr.push(char)
         }
-        else if(char == ")" || char == "}" || char == "]")
+        else if(char == ")" || char == "}" || char == "]" )
         {
-            if(arr.pop() !== map[char])
+            if(arr.pop() != arr[map])
             {
-                return false;
+                return false
             }
         }
     }

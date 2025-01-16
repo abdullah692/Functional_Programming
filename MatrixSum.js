@@ -68,17 +68,28 @@ const matrix=(arr)=>{
     // console.log("leftDiagonal",leftDiagonal);
     // console.log("rightDiagonal",rightDiagonal);
 
-   let leftDiagonal=0;
-   let rightDiagonal=0;
+  //  let leftDiagonal=0;
+  //  let rightDiagonal=0;
 
-   for(let i=0; i< arr.length ;i++)
-   {
-    // debugger
-        leftDiagonal+=arr[i][i]
-        rightDiagonal+=arr[i][arr.length-1-i]
-   }
-    return {leftDiagonal,rightDiagonal}
-    
+  //  for(let i=0; i< arr.length ;i++)
+  //  {
+  //   // debugger
+  //       leftDiagonal+=arr[i][i]
+  //       rightDiagonal+=arr[i][arr.length-1-i]
+  //  }
+  //   return {leftDiagonal,rightDiagonal}
+
+  
+  let leftDiagonal=0;
+  let rightDiagonal=0;
+
+  for(let i=0 ; i<arr.length ;i++)
+  {
+      leftDiagonal+=arr[i][i]
+      rightDiagonal+=arr[i][arr.length-1-i]
+  }
+
+  return {leftDiagonal,rightDiagonal}
 }
 
 const result=matrix(exampleMatrix4x4) 

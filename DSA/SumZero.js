@@ -37,7 +37,7 @@
 
 
 
-const SumZero=(arr,target)=>{
+const SumZero = (arr, target) => {
 
     // let left=0 ;
     // let right=arr.length -1;
@@ -59,30 +59,61 @@ const SumZero=(arr,target)=>{
     // }
     // return "No value exists in array"
 
-    let left=0;
-    let right=arr.length -1;
-    const sortArr=arr.sort((a,b)=>a-b)
-    while(left < right)
-    {
-        const sum= sortArr[left] + sortArr[right]
-        if(sum == target)
-        {
-            return `The values of ${target} are ${arr[left]} and ${arr[right]}`
-        }
-        else if(sum  > target)
-        {
-            right --
-        }
-        else{
-            left ++
+    // let left=0;
+    // let right=arr.length -1;
+    // const sortArr=arr.sort((a,b)=>a-b)
+    // while(left < right)
+    // {
+    //     const sum= sortArr[left] + sortArr[right]
+    //     if(sum == target)
+    //     {
+    //         return `The values of ${target} are ${arr[left]} and ${arr[right]}`
+    //     }
+    //     else if(sum  > target)
+    //     {
+    //         right --
+    //     }
+    //     else{
+    //         left ++
+    //     }
+    // }
+    // return "No values are available in the array"
+
+    //     let left=0;
+    //     let right=arr.length-1
+
+    //     const soertArr=arr.sort((a,b)=>a-b)
+    //    while(left < right)
+    //    {
+    //         const sum=soertArr[left] + soertArr[right]
+    //         if(sum == target)
+    //         {
+    //             return `${soertArr[left]} and ${soertArr[right]}`
+    //         }
+    //         else if(sum > target)
+    //         {
+    //             right--
+    //         }
+    //         else{
+    //             left++
+    //         }
+    //    }
+    //    return "No values is find"
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 1; j < arr.length; j++) {
+            if(arr[i] + arr[j] == target)
+            {
+                return `${arr[i]} and ${arr[j]}`
+            }
         }
     }
-    return "No values are available in the array"
+    return "No value exists"
 }
 
 
-let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32,-78];
-const result=SumZero(arr,0)
+let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32, -78];
+const result = SumZero(arr, 9)
 console.log(result);
 
 
@@ -108,7 +139,7 @@ console.log(result);
 //            if(arr[i] + arr[j]== target)
 //             {
 //                 return [arr[i],arr[j]]
-//             } 
+//             }
 //         }
 //     }
 //     return -1

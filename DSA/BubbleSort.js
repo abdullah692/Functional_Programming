@@ -16,7 +16,7 @@ const sortArr=(arr)=>{
     console.log(arr);
     
 }
-// const BubbleSort = (arr) => {
+const BubbleSort = (arr) => {
     // let swap;
     // do{
     //     swap=false;
@@ -36,25 +36,25 @@ const sortArr=(arr)=>{
 
     // return arr;
 
-//     let swap;
-//     do{
-//         swap=false
-//         for(let i=0 ; i<arr.legth ; i++)
-//         {
-//             if(arr[i] > arr[i+1])
-//             {
-//                 let next=arr[i]
-//                 arr[i]=arr[i+1]
-//                 arr[i+1]=next
-//                 swap=true
-//                 console.log(arr);
-//             }
-//         }
-//     }
-//     while(swap)
+    let swap
+    do{
+        swap =false;
+        for(let i=0; i<arr.length ;i++)
+        {
+            if(arr[i] > arr[i+1])
+            {
+                let next=arr[i]
+                arr[i]=arr[i+1]
+                arr[i+1]=next
+                swap=true
+            }
+        }
+    }
+    while(swap)
 
-//         return arr
-// }
+        return arr
 
-const result = sortArr(arr)
+}
+
+const result = BubbleSort(arr)
 console.log(result);
