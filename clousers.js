@@ -24,7 +24,7 @@ function x(){
             console.log(a)
         }
         return y();
-    a="Hello";
+    
     }
     
     x();
