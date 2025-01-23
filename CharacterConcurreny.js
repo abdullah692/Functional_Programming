@@ -15,17 +15,17 @@
 
 
 const CharacterFreq = (string) => {
-  let obj = {}
-  for (let char of string) {
-    if (!obj[char]) {
-      obj[char] = 1
-    }
-    else {
+  
+  let obj={}
+  for(let char of string)
+  {
+    if(!obj[char])
+    {
+        obj[char]=1
+    }else{
       obj[char]++
     }
   }
-  console.log("frequency", obj);
-
 
 }
 

@@ -16,20 +16,22 @@ const LongestString = (val) => {
     // }
     // return valueChar
 
-    let splitWords=val.split(" ")
-    let maxLength=0
+    let str=val.split(' ')
+    console.log(str);
+    
+    let maxWords=0;
     let word;
-    for(let i=0 ; i<splitWords.length ; i++)
+    for(let char of str)
     {
-        if(splitWords[i].length > maxLength)
+        console.log(char);
+        
+        if(char.length > maxWords)
         {
-            maxLength=splitWords[i].length
-            word=splitWords[i]
+            maxWords=char.length
+            word=char
         }
     }
-
-    return [maxLength,word]
-   
+   return [word, maxWords]
 };
 
 const result = LongestString(string);

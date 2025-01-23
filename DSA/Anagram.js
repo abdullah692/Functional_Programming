@@ -23,32 +23,23 @@ const Anagram = (string1, string2) => {
 //    return "It is an Anagram"
 // }
 
-let obj={};
-  if(string1.length != string2.length)
+   let obj={}
+
+   if(string1.length != string2.length)
    {
       return "Not an Anagram"
-   }   
+   }
    for(let char of string1)
    {
-      if(!obj[char])
-      {
-         obj[char]=1
-      }
-      else{
-         obj[char]++
-      }
+      obj[char]=(obj[char] || 0) +1
    }
-   console.log(obj);
-
    for(let char of string2)
    {
       if(!obj[char])
       {
          return "Not an Anagram"
       }
-      else{
-         obj[char]=obj[char]-1
-      }
+      obj[char=obj[char]-1]
    }
    return "It is an Anagram"
    
