@@ -220,10 +220,10 @@ const GroupByAge = (arr1) => {
     let obj = {}
     for (let value of arr1) {
         let { age, name } = value
-        if (!obj[age]) {
+        if (!obj[age]) { 
             obj[age] = []
         }
-        obj[age].push(name)
+        obj[age].push(name) 
     }
     console.log(obj);
     
