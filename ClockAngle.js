@@ -1,46 +1,68 @@
-const ClockAngle=(hours,min)=>{
-    if(hours >= 12)
-    {
-        hours-=12
-    }
+// const ClockAngle=(hours,min)=>{
+//     if(hours >= 12)
+//     {
+//         hours-=12
+//     }
 
-    let minCal= 360/60;
-    console.log("minCal",minCal);
+//     let minCal= 360/60;
+//     console.log("minCal",minCal);
     
-    let hrsCal= 360/12
-    console.log("hrsCal",hrsCal);
+//     let hrsCal= 360/12
+//     console.log("hrsCal",hrsCal);
 
-    let hrsMinCal = hrsCal/60
-    console.log("hrsMinCal",hrsMinCal);
-    
-
-
-    let minAngle= min * minCal
-    console.log("minAngle",minAngle);
-    
-    let hrsAngle = (hours * hrsCal) + (min * hrsMinCal)
-    console.log(hrsAngle,"hrsAngle");
+//     let hrsMinCal = hrsCal/60
+//     console.log("hrsMinCal",hrsMinCal);
     
 
-    let angle=Math.abs(hrsAngle - minAngle)
-    console.log(angle);
+
+//     let minAngle= min * minCal
+//     console.log("minAngle",minAngle);
+    
+//     let hrsAngle = (hours * hrsCal) + (min * hrsMinCal)
+//     console.log(hrsAngle,"hrsAngle");
     
 
-    if(angle > 180)
-    {
-        angle=360-angle
-    }
-
-    // console.log(angle,"angle");
+//     let angle=Math.abs(hrsAngle - minAngle)
+//     console.log(angle);
     
-    return angle
+
+//     if(angle > 180)
+//     {
+//         angle=360-angle
+//     }
+
+//     // console.log(angle,"angle");
+    
+//     return angle
 
      
 
+// }
+
+const ClockAngle=(hours,min)=>{
+
+    if(hours >= 12)
+    {
+        hours-=12;
+    }
+
+    let minCal=360/60;
+    let hrsCal=360/12
+    let hrsMinCal=hrsCal/60 ;
+
+    let minAngle= min * minCal;
+    let hrsAngle = (hours * hrsCal) + (min * hrsMinCal)
+    
+    let angle=Math.abs(hrsAngle - minAngle)
+    if(angle > 180)
+    {
+        angle=360 -angle
+    }
+    return angle
 }
 
-// console.log(ClockAngle(3, 30));  // Output: 75 degrees
-// console.log(ClockAngle(12, 0));  // Output: 0 degrees
+console.log(ClockAngle(3, 30));  // Output: 75 degrees
+console.log(ClockAngle(12, 0));  // Output: 0 degrees
 console.log(ClockAngle(6, 45));  // Output: 90 degrees
 console.log(ClockAngle(9, 5));
 

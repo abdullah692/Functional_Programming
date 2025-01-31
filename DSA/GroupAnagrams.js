@@ -13,15 +13,17 @@ const groupAnagram=(arr)=>{
     //     return Object.values(obj).map(arr => `[${arr.map(w => `"${w}"`).join(", ")}]`)
 
     let obj={}
+
     for(let word of arr)
     {
-        // debugger
-        let sortWord=word.split("").sort().join("")
+        let sortWord=word.split('').sort().join('')
         obj[sortWord]=obj[sortWord] || []
         obj[sortWord].push(word)
     }
     console.log(obj);
+
     return Object.values(obj)
+    
     // return Object.values(obj).map(arr => `${[arr]}`)
     
 }
