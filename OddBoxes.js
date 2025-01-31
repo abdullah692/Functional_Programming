@@ -11,7 +11,7 @@ const findOddBox = (boxes) => {
         if (count[val] > maxCount) {
             maxCount = count[val]
             majorityKey = val 
-        }
+        } 
     }
     console.log(maxCount, "maxCOunt", majorityKey);
 
