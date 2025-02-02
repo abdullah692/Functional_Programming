@@ -11,12 +11,20 @@ const ArrLength=(arr , i=0)=>{
 }
 
 const reverseArr=(arr)=>{
-     let revArr=[]
-     for(let i=arr.length-1 ; i>=0 ;i--)
+     // let revArr=[]
+     // for(let i=arr.length-1 ; i>=0 ;i--)
+     // {
+     //      revArr.push(arr[i])
+     // }
+     // return revArr
+
+     let reverseArray=[]
+     for(let i=arr.length-1 ; i> 0 ; i--)
      {
-          revArr.push(arr[i])
+          reverseArray.push(arr[i])
      }
-     return revArr
+     return reverseArray     
+     
 }
 
 // const ArrLength=(arr, i=0) => 

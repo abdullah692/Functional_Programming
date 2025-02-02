@@ -15,23 +15,24 @@
 
 
 const CharacterFreq = (string) => {
-  let obj={}
-  for(let char of string)
-  {
-    if(!obj[char])
-    {
-      obj[char]=(obj[char] || 0 ) +1
-    }
-    else{
-      obj[char]=obj[char]+1
-    }
-  }
-  console.log(obj);
-  
+ let obj={}
 
+ for(let char of string)
+ {
+  if(!obj[char])
+  {
+    obj[char]=1
+  }
+  else{
+    obj[char]++
+  }
+ }
+return obj
 }
 
-CharacterFreq('abdullahasasawewe')
+const res=CharacterFreq('abdullahasasawewe')
+console.log(res);
+
 
 
 //With Array

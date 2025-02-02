@@ -16,16 +16,19 @@ const countUnsortedAlphabets=(val)=>{
     // return count
 
     let count=0;
-    const splitVal=val.split('').sort().join('')
-    console.log(splitVal);
-    for(let i=0 ; i<val.length ;i++)
-    {
-        if(val[i] != splitVal[i])
-        {
-          count++
-        }
-    }
-    return `Count is ${count}`
+    let character=[]
+    let sortValue=val.split('').sort().join('')
+
+  for(let i=0 ;i< val.length ;i++)
+  {
+      if(sortValue[i] != val[i])
+      {
+        count++;
+        character.push(val[i])
+      }
+  }
+
+  return `${count} and characters are ${character}`
 
 }
 

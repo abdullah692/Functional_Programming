@@ -13,7 +13,7 @@ const BinarySearch=(arr,target)=>{
     // while(leftindex <= rightIndex)
     // {
     //     const middleIndex=Math.floor((leftindex + rightIndex)/2)
-    //     console.log(middleIndex);
+    //     console.log(middleIndex); 
     //     if(arr[middleIndex] == target)
     //     {
     //         return middleIndex;

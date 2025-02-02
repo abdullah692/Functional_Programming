@@ -26,20 +26,20 @@ let arr = [2, 5, 4, 3, 12, 11, 89, 12, 67, 32, 12, 43, 23, 76];
 
 const HighestSecondEelement = (arr) => {
  
-  let first=-1;
+  let frist=-1;
   let second=-1
 
-  for(let i=0; i<arr.length ;i++)
+  for(let i=0 ; i<arr.length ;i++)
   {
-      if(arr[i] > first)
-      {
-        second=first
-        first=arr[i]
-      }
-      else if(arr[i] > second)
-      {
-        second=arr[i]
-      }
+    if(arr[i] > frist)
+    {
+      second=frist
+      frist=arr[i]
+    }
+    else if(arr[i] > second)
+    {
+      second=arr[i]
+    }
   }
   return second
 };

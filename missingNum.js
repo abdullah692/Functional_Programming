@@ -9,15 +9,16 @@ const missingNum = (arr) => {
     //     }
     // }
     // return null;
-    let missingNums = []
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i + 1] != arr[i] + 1) {
-            missingNums.push(arr[i] + 1)
-
+   
+    let missingNum=[]
+    for(let i=0 ; i<arr.length ;i++)
+    {
+        if(arr[i]+1 != arr[i+1])
+        {
+            missingNum.push(arr[i]+1)
         }
     }
-    return missingNums
-
+    return missingNum
 
 }
 

@@ -86,34 +86,34 @@ Multiplication(10,15)
 
 
 //CHeck Name
-const fetchData=(data)=>{
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            if(data.name =="Ali")
-            {
+// const fetchData=(data)=>{
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             if(data.name =="Ali")
+//             {
 
-                resolve(data)
-            }else{
+//                 resolve(data)
+//             }else{
 
-                reject("Data is not fetched correclty")
-            }
-        }, 2000);
+//                 reject("Data is not fetched correclty")
+//             }
+//         }, 2000);
 
-    }
-)
-}
+//     }
+// )
+// }
 
-const FetchPromise=(obj)=>{
-    fetchData(obj).then((res)=>{
-        console.log("THe data fetched is",res);
-    }).catch((error)=>{
-        console.log("THe error is :",error);    
-    })
+// const FetchPromise=(obj)=>{
+//     fetchData(obj).then((res)=>{
+//         console.log("THe data fetched is",res);
+//     }).catch((error)=>{
+//         console.log("THe error is :",error);    
+//     })
     
-}
+// }
 
-const data={id:1 , name:"AHmed"}
-FetchPromise(data)
+// const data={id:1 , name:"AHmed"}
+// FetchPromise(data)
 
 
 
@@ -279,4 +279,5 @@ const Addition=async(a,b)=>{
 
 const value=Addition(10,30)
 console.log(value);
+
 
