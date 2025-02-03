@@ -1,20 +1,34 @@
-// const consecutiveSum = (arr) => {
-//   let sum=[]
-//   for(let i=0 ;i< arr.length -3 ;i++)
-//   {
-//      sum[i]=arr[i]+arr[i+1]+arr[i+2]
-//   }
-//   console.log("sum",sum);
-//   let maxSum=sum[0]
-//   for(let j=0; j< sum.length ;j++)
-//   {
-//      if(maxSum < sum[j])
-//      {
-//           maxSum=sum[j]
-//      }
-//   }
-//   return maxSum
-// };
+const consecutiveSum = (arr) => {
+    //   let sum=[]
+    //   for(let i=0 ;i< arr.length -3 ;i++)
+    //   {
+    //      sum[i]=arr[i]+arr[i+1]+arr[i+2]
+    //   }
+    //   console.log("sum",sum);
+    //   let maxSum=sum[0]
+    //   for(let j=0; j< sum.length ;j++)
+    //   {
+    //      if(maxSum < sum[j])
+    //      {
+    //           maxSum=sum[j]
+    //      }
+    //   }
+    //   return maxSum
+
+
+    let arr1 = []
+    let sum=0
+    for (let i = 0; i < arr.length-3; i++) {
+        sum+=arr[i]+arr[i+1]+arr[i+2]
+        console.log(sum);
+        
+        arr1.push(sum)
+    }
+
+    console.log(arr1);
+    
+    return Math.max(...arr1)
+};
 
 // const consecutiveSum = (arr) => {
 //   let sum=[];
@@ -36,6 +50,6 @@
 // return highest
 // };
 
-let arr = [2, 5,45, 3, 20,  67, 78, 54, 32];
+let arr = [2, 5, 45, 3, 20, 67, 78, 54, 32];
 const result = consecutiveSum(arr);
-console.log(result,"Max value");
+console.log(result, "Max value");

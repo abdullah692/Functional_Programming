@@ -50,14 +50,14 @@ const deleteArray=(arr,target)=>{
     //loop  method
 
     let index=arr.indexOf(target)
-    
-    for(let i=index ;i< arr.length ;i++)
+
+    // arr.splice(index,1)
+    for(let i=index ;i<arr.length ;i++)
     {
         arr[i]=arr[i+1]
     }
     arr.pop()
     return arr
-    
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];

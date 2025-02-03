@@ -1,4 +1,4 @@
-const groupAnagram=(arr)=>{
+const groupAnagram = (arr) => {
     // let obj={}
     // for(let word of arr)
     //     {
@@ -9,26 +9,24 @@ const groupAnagram=(arr)=>{
     //         obj[sortWords].push(word)
     //     }   
     //     console.log(obj);
-        
+
     //     return Object.values(obj).map(arr => `[${arr.map(w => `"${w}"`).join(", ")}]`)
 
-    let obj={}
+    let obj = {}
 
-    for(let word of arr)
-    {
-        let sortWord=word.split('').sort().join('')
-        obj[sortWord]=obj[sortWord] || []
-        obj[sortWord].push(word)
+    for (let char of arr) {
+        let sortVal = char.split('').sort().join('')
+        obj[sortVal] = obj[sortVal] || []
+        obj[sortVal].push(char)
     }
     console.log(obj);
 
-    return Object.values(obj)
-    
-    // return Object.values(obj).map(arr => `${[arr]}`)
-    
+    // return Object.values(obj)
+    return Object.entries(obj).map(([key,value]) => `id:${key} : value:${value} ]`)
+
 }
 
 
-const arr=["eat", "tea", "tan", "ate", "nat", "bat"]
-const result=groupAnagram(arr)
+const arr = ["eat", "tea", "tan", "ate", "nat", "bat"]
+const result = groupAnagram(arr)
 console.log(result);

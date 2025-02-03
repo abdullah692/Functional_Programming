@@ -14,22 +14,19 @@ const countUnsortedAlphabets=(val)=>{
     // }
 
     // return count
+let count=0;
+let characters=[]
+let splitVal=val.split('').sort().join('');
 
-    let count=0;
-    let character=[]
-    let sortValue=val.split('').sort().join('')
-
-  for(let i=0 ;i< val.length ;i++)
+for(let i=0 ;i<val.length ;i++)
+{
+  if(splitVal[i] !== val[i])
   {
-      if(sortValue[i] != val[i])
-      {
-        count++;
-        character.push(val[i])
-      }
+    count++;
+    characters.push(val[i])
   }
-
-  return `${count} and characters are ${character}`
-
+}
+return {count,characters}
 }
 
 

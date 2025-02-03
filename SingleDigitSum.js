@@ -16,25 +16,22 @@
 // }
 
 
-const singleDigitSum=(digits)=>{
-    if(digits > -10 && digits < 10)
-    {
+const singleDigitSum = (digits) => {
+    if (digits > -10 && digits < 10) {
         return digits
     }
-    else{
-        let sum=0;
-        let splitValue=digits.toString().split("")
-
-        for(let i=0 ;i<splitValue.length ;i++)
-        {
-            sum+=Number(splitValue[i])
+    else {
+        let sum = 0
+        let splitDigits = digits.toString().split("")
+        console.log(splitDigits);
+        
+        for (let i = 0; i < splitDigits.length; i++) {
+            sum+=Number(splitDigits[i])
         }
-        console.log(sum);
 
         return singleDigitSum(sum)
-        
     }
-
+    
 }
 const result = singleDigitSum(4352)
 console.log(result);

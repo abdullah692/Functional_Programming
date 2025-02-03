@@ -32,16 +32,23 @@
 // };
 
 const insertArray = (arr) => {
-  let val=100;
-  let index=4;
-for(let i=arr.length ;i>index; i--)
-{
-    arr[i]=arr[i-1]
-}
-arr[index]=val 
-console.log(arr);
- 
+  // let val = 100;
+  // let index = 4;
+  // for (let i = arr.length; i > index; i--) {
+  //   arr[i] = arr[i - 1]
+  // }
+  // arr[index] = val
+  // console.log(arr);
 
+  let val = 100
+  let index = 3
+
+  for (let i = arr.length; i > index; i--) {
+    arr[i] = arr[i - 1]
+  }
+  arr[index] = val
+  console.log(arr);
+  
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];

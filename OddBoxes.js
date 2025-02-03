@@ -43,29 +43,41 @@
 
 
 const findOddBox=(boxes)=>{
-    let count={}
-    let maxCount=0
+    let count=0;
+    let obj={}
+    let maxCount=0;
+
     for(let val of boxes)
     {
-        let key =`${val.type}-${val.color}-${val.weight}`
-        if(!count[key])
-        {
-            count[key]=(count[key] || 0) +1
-        }
-        else{
-            count[key]++
-        }
+        let key=`${val.type}-${val.color}-${val.weight}`
+        obj[key]=(obj[key] || 0)+1
     }
-    console.log(count);
     
-    for(let key in count)
+    console.log(obj);
+    
+    for(let val in obj)
     {
-        if(count[key] > maxCount)
+        if(obj[val] > maxCount)
         {
-            maxCount=count[key]
+            maxCount=obj[val]
         }
     }
-    console.log(maxCount,"maxCount");
+
+    console.log(Object.values(obj));
+    
+    let maxValue=Math.max(...Object.values(obj))
+    console.log(maxValue);
+    
+
+    // return Object.keys(obj).filter(val => obj[val] !=maxValue)
+
+    return Object.entries(obj).filter(([key,value]) => obj[key] !=maxValue)
+    .map(([key,value])=>({
+        id:key,
+        count:value
+    }))
+    
+    
 
     //Values return
     // return Object.values(count).filter(val => maxCount != val
@@ -80,11 +92,11 @@ const findOddBox=(boxes)=>{
 
     //Return in array of objects
 
-    return Object.entries(count).filter(([key,value]) => count[key] != maxCount)
-    .map(([key,value])=> ({
-        id:key,
-        count:value
-    }))
+    // return Object.entries(count).filter(([key,value]) => count[key] != maxCount)
+    // .map(([key,value])=> ({
+    //     id:key,
+    //     count:value
+    // }))
     
     
 }

@@ -1,4 +1,4 @@
-const isBalanced=(str)=>{
+const isBalanced = (str) => {
     // let arr=[]
     // let map={
     //     ')': '(',
@@ -21,29 +21,25 @@ const isBalanced=(str)=>{
     // }
     // return true
 
-   let arr=[]
-   let obj={
-    ")":"(",
-    "}":"{",
-    ']':'['
-   }
+    let arr = []
+    let obj = {
+        ")": "(",
+        "}": "{",
+        ']': '['
+    }
 
-   for(let bracket of str)
-   {
-        if(bracket == "(" || bracket == "{" || bracket == "[" )
+    for (let char of str) {
+        if (char == "(" || char == "{" || char == "[") {
+            arr.push(char)
+        }else if(char == ")" || char == "}" || char == "]")
         {
-            arr.push(bracket)
-        }
-        else if(bracket == ")" || bracket == "}" || bracket == "]" )
-        {
-            if(obj[bracket] != arr.pop())
+            if(obj[char] != char)
             {
                 return false
             }
         }
-   }
-return true
-    
+    }
+    return true
 }
 
 
@@ -51,39 +47,37 @@ return true
 function isBalanceds(str) {
     const stack = [];
     const pairs = {
-      '(': ')',
-      '{': '}',
-      '[': ']'
+        '(': ')',
+        '{': '}',
+        '[': ']'
     };
-  
+
 
     for(let char of str)
     {
         if(pairs[char])
             {
                 stack.push(char)
-            }
-            else if(Object.values(pairs).includes(char))
-            {
-                if(pairs[stack.pop()] != char)
+            }   
+
+            
+            else if(char == ")" || char == "}" || char == "]")
                 {
+                    // console.log(stack);
+                if(pairs[stack.pop()] != char){
                     return false
                 }
-            }
+             }
     }
-
-    return true
-    console.log(stack);
-    
-    
-
+return true
 }
-  
-  // Example usage
-  console.log(isBalanceds("(){}[]")); // true
-  console.log(isBalanceds("({[)]}")); // false
-  console.log(isBalanceds("({[]})")); // true
-  
+
+
+// Example usage
+console.log(isBalanceds("(){}[]")); // true
+console.log(isBalanceds("({[)]}")); // false
+console.log(isBalanceds("({[]})")); // true
+
 // console.log(isBalanced("({[]})")); // Output: true
 // console.log(isBalanced("{[(])}"));
 // console.log(isBalanced("(){}[]"));
