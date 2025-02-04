@@ -156,12 +156,6 @@ const sampleObject = {
 
 //Group the objects of same age
 
-const arrayOfPeople = [
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 },
-    { name: "Charlie", age: 30 },
-];
-
 // const GroupByAge = (arr) => {
 //     let obj={}
 //     for(let values of arr)
@@ -216,6 +210,12 @@ const GroupByAge = (arr1) => {
     // })
     // return convertArray
 
+    const arrayOfPeople = [
+        { name: "Alice", age: 30 },
+        { name: "Bob", age: 25 },
+        { name: "Charlie", age: 30 },
+    ];
+    
 
     let obj = {}
     for (let value of arr1) {

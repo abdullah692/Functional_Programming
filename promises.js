@@ -48,6 +48,27 @@ sum(10,9,addition)
 // fetchCallBack(printCallback)
 
 
+const fetchCallBack=(callback)=>{
+    setTimeout(() => {
+        let data={id:1, "name":"ali"}
+        callback(data,null)
+    }, 2000);
+}
+
+
+const printCallback=(data,err)=>{
+    if(data)
+    {
+        console.log("data is fetched");
+    }
+    else{
+        console.log("Eror pccured");
+        
+    }
+}
+fetchCallBack(printCallback)
+
+
 // const sum=(a,b,callback)=>{
 //     setTimeout(()=>{
 //            return callback(a,b) 
@@ -65,22 +86,45 @@ sum(10,9,addition)
 
 
 //Multiolication
-const multiply=(x,y)=>{
+// const multiply=(x,y)=>{
+//     return new Promise((resolve,reject)=>{
+//         let result=x*y;
+//         resolve(result)
+//     })
+// }
+
+// const Multiplication=(a,b)=>{
+//     multiply(a,b).then((res)=>{
+//         console.log("THe result is",res);
+//     }).catch((error)=>{
+//         console.log("THe error occured");
+        
+//     })
+// }
+
+
+// Multiplication(10,15)
+
+const mulltiply=(a,b)=>{
     return new Promise((resolve,reject)=>{
-        let result=x*y;
-        resolve(result)
+        let result=a*b
+        if(result>20)
+        {
+            resolve(result)
+        }else{
+            reject("Error")
+        }
     })
 }
 
 const Multiplication=(a,b)=>{
-    multiply(a,b).then((res)=>{
-        console.log("THe result is",res);
-    }).catch((error)=>{
-        console.log("THe error occured");
+    mulltiply(x,y).then((res)=>{
+        console.log("The res is",res);
+    }).catch((err)=>{
+        console.log("tHE err is",err);
         
     })
 }
-
 
 Multiplication(10,15)
 

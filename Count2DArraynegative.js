@@ -6,31 +6,33 @@ const arr=
 
 
  //Basic method
-// const countNegative=(arr)=>{
-//     let count=0;
-//     for(let i=0 ; i<arr.length; i++)
-//     {
-//         for(let j=0 ; j<arr.length ;j++)
-//         {
-//             // debugger.
-//             if(arr[i][j] < 0)
-//             {
-//                 count++
-//             }
-//         }
+const countNegative=(arr)=>{
+    let count=0;
+    // for(let i=0 ; i<arr.length; i++)
+    // {
+    //     for(let j=0 ; j<arr.length ;j++)
+    //     {
+    //         // debugger.
+    //         if(arr[i][j] < 0)
+    //         {
+    //             count++
+    //         }
+    //     }
 
-//     }
-//     return count
-// }
+    // }
+    // return count
+
+    return arr.flat().filter(val => val < 0).length
+}
 
 //Flat method
 
-const countNegative=(arr)=>{
-    // return arr.flat().filter(val => val < 0).length   
+// const countNegative=(arr)=>{
+//     // return arr.flat().filter(val => val < 0).length   
 
-    return arr.reduce((total,row)=> total+ row.filter(num => num <0).length ,0)
+//     return arr.reduce((total,row)=> total+ row.filter(num => num <0).length ,0)
 
-}
+// }
 
  const result=countNegative(arr)
  console.log(result);

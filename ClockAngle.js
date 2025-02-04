@@ -40,23 +40,41 @@
 // }
 
 const ClockAngle = (hours, min) => {
-    if (hours >= 12) {
-        hours -= 12
+    if(hours >= 12)
+    {
+        hours-=12
     }
 
-    let minCal=360/60;
+    let minCal=360/60
     let hrsCal=360/12
-    let hrsMin=hrsCal/60
+    let hrsMinCal=hrsCal/60
 
     let minAngle=min * minCal
-    let hrsAngle= (hours * hrsCal)+(min * hrsMin)
+    let hrsAngle=(hours * hrsCal) + (min * hrsMinCal)
 
-    let angle= Math.abs(hrsAngle - minAngle)
+    let angle=Math.abs(hrsAngle-minAngle)
     if(angle > 180)
     {
         angle=360-angle
     }
     return angle
+    // if (hours >= 12) {
+    //     hours -= 12
+    // }
+
+    // let minCal=360/60;
+    // let hrsCal=360/12
+    // let hrsMin=hrsCal/60
+
+    // let minAngle=min * minCal
+    // let hrsAngle= (hours * hrsCal)+(min * hrsMin)
+
+    // let angle= Math.abs(hrsAngle - minAngle)
+    // if(angle > 180)
+    // {
+    //     angle=360-angle
+    // }
+    // return angle
 }
 
 console.log(ClockAngle(3, 30));  // Output: 75 degrees
