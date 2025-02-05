@@ -322,6 +322,6 @@ const Addition=async(a,b)=>{
 
 
 const value=Addition(10,30)
-console.log(value);
+console.log(value); 
 
 
