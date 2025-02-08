@@ -71,37 +71,30 @@ const atmCurrency = (amnt) => {
     let count5000 = 0
     let count1000 = 0
     let count500 = 0
-
-    while (amnt > 0) {
-        if (amnt > 5000) {
-            amnt -= 5000
+    let conversionAmnt=amnt
+    while (conversionAmnt > 0) { // Change condition to prevent infinite loop
+        if ((conversionAmnt - 5000) > 0) { // Fix condition to >=
+            conversionAmnt -= 5000;
             count5000++;
-            count[5000]=count5000;
-        }
-        else if (amnt > 1000) {
-            amnt -= 1000
+            count[5000] = count5000;
+        } 
+        else if ((conversionAmnt - 1000)> 0) { // Fix condition to >=
+            conversionAmnt -= 1000;
             count1000++;
-            count[1000]=count1000
-        }
-        else if (amnt > 500) {
-            amnt -= 500
+            count[1000] = count1000;
+        } 
+        else if ((conversionAmnt -  500) >= 0) { // Fix condition to >=
+            conversionAmnt -= 500;
             count500++;
-            count[500]=count500
+            count[500] = count500;
         }
-      
     }
 
     return count
-    // console.log(count5000, "count5000");
-    // console.log(amnt, "amnt");
-
-
-
-
 }
 
 
 
-const amount = 5000
+let amount = 23000
 const result = atmCurrency(amount)
 console.log(result);
