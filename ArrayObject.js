@@ -347,7 +347,7 @@ const movies = [
   { title: "The Notebook", genre: "Romance" },
   { title: "Avengers", genre: "Action" }
 ];
-
+ 
 // {
 //   "Sci-Fi": ["Inception", "Interstellar"],
 //   "Romance": ["Titanic", "The Notebook"],
