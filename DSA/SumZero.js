@@ -119,29 +119,56 @@
 
 
 
+// const SumZero = (arr, target) => {
+//     //     // for(let i=0 ;i< arr.length ;i++)
+//     //     // {
+//     //     //     for(let j=i+1 ; j< arr.length ;j++)
+//     //     //     {
+//     //     //         if(arr[i] + arr[j] == target)
+//     //     //         {
+//     //     //             return [arr[i] ,arr[j] , i,j]
+//     //     //         }
+//     //     //     }
+//     //     // }
+//     //     // return -1;
+
+//     for(let i=0 ;i< arr.length;i++)
+//     {
+//         for(let j=i+1; j< arr.length; j++)
+//         {
+//             if(arr[i] + arr[j] == target)
+//             {
+//                 return [arr[i], arr[j]]
+//             }
+//         }
+//     }
+//     return "No value exists"
+// }
+
+
 const SumZero = (arr, target) => {
-    //     // for(let i=0 ;i< arr.length ;i++)
-    //     // {
-    //     //     for(let j=i+1 ; j< arr.length ;j++)
-    //     //     {
-    //     //         if(arr[i] + arr[j] == target)
-    //     //         {
-    //     //             return [arr[i] ,arr[j] , i,j]
-    //     //         }
-    //     //     }
-    //     // }
-    //     // return -1;
-
-
-    for (let i = 0; i < arr.length; i++)
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] + arr[j] == target) {
-                return `The values are:${arr[i]} and ${arr[j]}`
-            }
+    
+    let right=arr.length-1
+    let left=0
+    let sortArr=arr.sort((a,b)=>a-b)
+    while(left < right)
+    {
+        let sum=sortArr[left] + sortArr[right]
+        if(sum == target)
+        {
+            return [sortArr[left] , sortArr[right]]
         }
+        else if(sum > target)
+        {
+            right--
+        }
+        else{
+            left++
+        }
+    }
+
     return "No value exists"
 }
-
 
 const arr = [2, 4, 6, 5, 10, 7, 2]
 const result = SumZero(arr, 9)

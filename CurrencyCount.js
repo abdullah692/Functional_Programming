@@ -13,23 +13,23 @@
 //     // }
 //     // return count
 
-//     let count={};
-//     let arrRev=arr.reverse()
-//     for(let i=0 ; i<arrRev.length; i++)
+// let count={}
+// let reverseArr=arr.reverse()
+// for(let i=0; i< reverseArr.length; i++)
+// {
+//     if(amnt >= arr[i])
 //     {
-//         if(amnt >= arrRev[i])
-//         {
-//             let val=Math.floor(amnt / arrRev[i]);
-//             count[arrRev[i]]=val
-//             amnt %= arrRev[i]
-//         }
+//         let val=Math.floor(amnt/arr[i])
+//         count[arr[i]]=val
+//         amnt%=arr[i]
 //     }
-//     return count
-
 // }
 
-// const arr=[1,2,5,10,20,50,100,500]
-// const amount=999
+// return count
+// }
+
+// const arr=[1,2,5,10,20,50,100,500, 5000]
+// const amount=5000
 // const result=currencyCount(arr,amount)
 // console.log(result);
 
@@ -66,40 +66,66 @@
 
 
 const atmCurrency = (amnt) => {
-    let count = {}
-    // let arr=[5000,1000.,500]
-    let count5000 = 0
-    let count1000 = 0
-    let count500 = 0
-    // let amnt=amnt
+    // let count = {}
+    // // let arr=[5000,1000.,500]
+    // let count5000 = 0
+    // let count1000 = 0
+    // let count500 = 0
+    // // let amnt=amnt
 
-    if(amnt % 500 !=0)
-    {
-        return  'Invalid amount entered'
-    }
-    while (amnt > 0) { // Change condition to prevent infinite loop
-        if ((amnt - 5000) > 0) { // Fix condition to >=
-            amnt -= 5000;
+    // if(amnt % 500 !=0)
+    // {
+    //     return  'Invalid amount entered'
+    // }
+    // while (amnt > 0) { // Change condition to prevent infinite loop
+    //     if ((amnt - 5000) > 0) { // Fix condition to >=
+    //         amnt -= 5000;
+    //         count5000++;
+    //         count[5000] = count5000;
+    //     } 
+    //     else if ((amnt - 1000)> 0) { // Fix condition to >=
+    //         amnt -= 1000;
+    //         count1000++;
+    //         count[1000] = count1000;
+    //     } 
+    //     else if ((amnt -  500) >= 0) { // Fix condition to >=
+    //         amnt -= 500;
+    //         count500++;
+    //         count[500] = count500;
+    //     }
+    // }
+
+    // return count
+
+
+    let count5000 = 0
+    let count1000 = 0;
+    let count500 = 0
+    let count = {}
+
+    while (amnt > 0) {
+        if ((amnt - 5000) > 0) {
+            amnt -= 5000
             count5000++;
-            count[5000] = count5000;
-        } 
-        else if ((amnt - 1000)> 0) { // Fix condition to >=
-            amnt -= 1000;
+            count[5000] = count5000
+        }
+
+        else if((amnt - 1000) > 0) {
+            amnt -= 1000
             count1000++;
-            count[1000] = count1000;
-        } 
-        else if ((amnt -  500) >= 0) { // Fix condition to >=
-            amnt -= 500;
+            count[1000] = count1000
+        }
+        else if ((amnt - 500) >= 0) {
+            amnt -= 500
             count500++;
-            count[500] = count500;
+            count[500] = count500
         }
     }
 
     return count
+
 }
 
-
-
-let amount = 3000
+let amount = 23500
 const result = atmCurrency(amount)
 console.log(result);
