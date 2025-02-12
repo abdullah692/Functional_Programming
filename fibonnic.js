@@ -1,27 +1,26 @@
 //Fibonnic Sequence
 
-const fibonnic=(num)=>{
-//    let a=0 , b=1 ,next
-//    for(let i=0 ; i<= num ;i++)
-//    {
-//         console.log(a);
-//         next=a+b;
-//         a=b;
-//         b=next;
-//    }
+const fibonnic = (num) => {
+    //    let a=0 , b=1 ,next
+    //    for(let i=0 ; i<= num ;i++)
+    //    {
+    //         console.log(a);
+    //         next=a+b;
+    //         a=b;
+    //         b=next;
+    //    }
 
-let a=0 , b=1 ,next;
+    let a = 0, b = 1, next;
 
-for(let i=0 ; i<=num ; i++)
-{
-    console.log(a);
-    next=a+b;   //1
-    a=b  
-    b=next
-}   
+    for (let i = 0; i <= num; i++) {
+        console.log(a);
+        next = a + b;   //1
+        a = b
+        b = next
+    }
 }
 
-const result=fibonnic(8)
+const result = fibonnic(8)
 console.log(result);
 
 
@@ -82,10 +81,27 @@ console.log(result);
 //     } else if (n === 1) {
 //         return 1;  // Base case
 //     } else {
-        
+
 //         return fibonacci(n - 1) + fibonacci(n - 2);  // Recursive case
 //     }
 // }
 
 // const result = fibonacci(6);  // Get the 6th number in Fibonacci sequence
 // console.log(result);  // Output: 8
+
+
+function prefixSum(arr) {
+    let result = []
+    let sum = 0
+    for(let i=0 ; i<arr.length; i++)
+    {
+        sum+=arr[i]
+        result.push(sum)
+    }
+
+    return result
+}
+
+// Example:
+console.log(prefixSum([1, 2, 3, 4]));
+// Output: [1, 3, 6, 10]

@@ -33,9 +33,8 @@ function flattenArray(arr) {
         }else{
             result.push(current)
         }
-
     }
-return result
+    return result
 
 }
 

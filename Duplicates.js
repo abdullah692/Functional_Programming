@@ -85,20 +85,49 @@ const findDuplicates = (arr) => {
 
     // return [...duplicate]
 
+    // let seen=new Set()
+    // let duplicate=new Set()
+
+    // for(let val of arr)
+    // {   
+    //     if(!seen.has(val))
+    //     {
+    //         seen.add(val)
+    //     }else{
+    //         duplicate.add(val)
+    //     }
+    // }
+    // return [...duplicate]
+
+    // let seen={}
+    // let duplicate=[]
+    // for(let val of arr)
+    // {
+    //     if(!seen[val])
+    //     {
+    //         seen[val]=(seen[val] || 0)+1
+    //     }
+    //     else if(!duplicate.includes(val)){
+    //         duplicate.push(val)
+    //     }
+    // }
+
+    // return duplicate
+
     let seen=new Set()
     let duplicate=new Set()
 
     for(let val of arr)
-    {   
+    {
         if(!seen.has(val))
         {
             seen.add(val)
-        }else{
+        }
+        else{
             duplicate.add(val)
         }
     }
     return [...duplicate]
-
 }
 
 

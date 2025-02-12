@@ -30,50 +30,71 @@ const exampleMatrix = [
 
   // return [leftDiagonal,rightDiagonal]
 
-//   let leftDiagonal = 0; let rightDiagonal = 0
-//   let numCols = (arr[0].length || 0)
+//   let leftDiagonal = 0;
+//   let rightDiagonal = 0
+//   let numCols=arr[0].length || 0
 
 //   for (let i = 0; i < arr.length; i++) {
 //     for (let j = 0; j < arr.length; j++) {
-//       if(i ==j)
+
+//       if(i==j)
 //       {
 //         leftDiagonal+=arr[i][j]
 //       }
-//       if(i + j == numCols-1)
+
+//       if(i+j == numCols-1)
 //       {
 //         rightDiagonal+=arr[i][j]
 //       }
+
 //     }
+
 //   }
-//   return [rightDiagonal,leftDiagonal]
+
+//   return {leftDiagonal,rightDiagonal}
+
 // }
 
 
 //With one loop
 
- const matrix=(arr)=>{
+//  const matrix=(arr)=>{
 
-  let leftDiagonal=0; 
-  let rightDiagonal=0;
-  // console.log(arr[0]);
+//   let leftDiagonal=0; 
+//   let rightDiagonal=0;
+//   // console.log(arr[0]);
 
-  // for(let i=0 ; i< arr.length ;i++)
-  // {
-  //   leftDiagonal+=arr[i][i]
-  //   rightDiagonal+=arr[i][arr.length -1 -i]
+//   // for(let i=0 ; i< arr.length ;i++)
+//   // {
+//   //   leftDiagonal+=arr[i][i]
+//   //   rightDiagonal+=arr[i][arr.length -1 -i]
 
-  // }  
-  // return [leftDiagonal,rightDiagonal]
+//   // }  
+//   // return [leftDiagonal,rightDiagonal]
 
-  for(let i=0 ; i<arr.length ; i++)
+//   for(let i=0 ; i<arr.length ; i++)
+//   {
+//       leftDiagonal+=arr[i][i]
+//       rightDiagonal+=arr[i][arr.length -1 -i]
+//   }
+//   return [rightDiagonal,leftDiagonal]
+
+
+//  }
+
+
+const matrix=(arr)=>{
+  let leftDiagonal=0
+  let rightDiagonal=0
+
+  for(let i=0 ; i<arr.length; i++)
   {
-      leftDiagonal+=arr[i][i]
-      rightDiagonal+=arr[i][arr.length -1 -i]
+    leftDiagonal+=arr[i][i]
+    rightDiagonal+=arr[i][arr.length -1-i]
   }
-  return [rightDiagonal,leftDiagonal]
 
-
- }
+  return {leftDiagonal,rightDiagonal}
+}
 
 
 

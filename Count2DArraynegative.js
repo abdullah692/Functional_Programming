@@ -8,21 +8,19 @@ const arr=
  //Basic method
 const countNegative=(arr)=>{
     let count=0;
-    // for(let i=0 ; i<arr.length; i++)
-    // {
-    //     for(let j=0 ; j<arr.length ;j++)
-    //     {
-    //         // debugger.
-    //         if(arr[i][j] < 0)
-    //         {
-    //             count++
-    //         }
-    //     }
+    for(let i=0 ;i< arr.length; i++)
+    {
+        for(j=0 ; j<arr.length; j++)
+        {
+            if(arr[i][j] < 0)
+            {
+                count++
+            }
+        }
+    }
 
-    // }
-    // return count
-
-    return arr.flat().filter(val => val < 0).length
+    return count
+    // return arr.flat().filter(val => val < 0).length
 }
 
 //Flat method
