@@ -151,18 +151,20 @@ const SumZero = (arr, target) => {
     let right=arr.length-1
     let left=0
     let sortArr=arr.sort((a,b)=>a-b)
+
     while(left < right)
     {
         let sum=sortArr[left] + sortArr[right]
         if(sum == target)
         {
-            return [sortArr[left] , sortArr[right]]
+            return `The values of ${target} are ${arr[left]} and ${arr[right]}`
         }
         else if(sum > target)
         {
             right--
         }
-        else{
+        else
+        {
             left++
         }
     }

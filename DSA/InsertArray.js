@@ -43,10 +43,18 @@ const insertArray = (arr) => {
   let val = 100
   let index = 3
 
-  for (let i = arr.length; i > index; i--) {
-    arr[i] = arr[i - 1]
+  // for (let i = arr.length; i > index; i--) {
+  //   arr[i] = arr[i - 1]
+  // }
+  // arr[index] = val
+  // console.log(arr);
+
+  for(let i=arr.length; i > index; i--)
+  {
+      arr[i]=arr[i-1]
   }
-  arr[index] = val
+  arr[index]=val
+
   console.log(arr);
   
 }

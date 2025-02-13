@@ -11,14 +11,13 @@ const Anagram = (string1, string2) => {
   }
   for(let char of string2)
   {
-   if(!obj[char])
-   {
-      return "not an anagram"
-   }
-   obj[char]=obj[char]-1
+      if(!obj[char])
+      {
+         return "Not an Anagram"
+      }
+      obj[char] --
   }
-  return "It is an anagram"
-  console.log(obj);
+  return "It is an Anagram"
   
 }
 
