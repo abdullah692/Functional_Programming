@@ -27,21 +27,25 @@ const convertDeliveries = (deliveries) => {
   // }
   // return obj;
 
-  let obj = {}
-  let maxPackages = 0;
-  let maxCity = null
-  for (let { city, packages } of deliveries) {
-    if (!obj[city]) {
-      obj[city] = { totalPackages: 0 }
+  let obj={}
+  let maxCount=0;
+  let maxCity=null
+  for(let {city,packages} of deliveries)
+  {
+    if(!obj[city])
+    {
+      obj[city]={totalPackages:0}
     }
-    obj[city].totalPackages += packages
-
-    if (obj[city].totalPackages > maxPackages) {
-      maxPackages = obj[city].totalPackages
-      maxCity = city
+    obj[city].totalPackages+=packages
+    // console.log(obj);
+    if(maxCount < obj[city].totalPackages)
+    {
+      maxCount=obj[city].totalPackages
+      maxCity=city
     }
+    
   }
-  return { city: maxCity, ...obj[maxCity] }
+  return { city: maxCity , ...obj[maxCity]}
   // return Object.entries(obj).filter(([key,value])=> Math.max(value))
 }
 
@@ -57,7 +61,11 @@ const players = [
   { name: "Bob", score: 1200 },
   { name: "Charlie", score: 450 },
   { name: "John", score: 400 },
-  { name: "David", score: 2000 }
+  { name: "David", score: 2000 },
+  { name: "Ahmed", score: 1300 },
+  { name: "Ahmedd", score: 100 },
+  { name: "Ahmedsa", score: 300 },
+
 ];
 
 //   Output
@@ -87,25 +95,35 @@ const playerFind = (player) => {
   // }
   // return { categories: obj, highestScorer: highestScore }
 
-  let obj = {}
-  let highestScore = 0
-  let maxLevel = null
-  for (let { name, score } of player) {
-    let levels = score <= 500 ? "Beginner" :
-      score <= 1500 ? "Intermediate" : "Advanced"
+  let obj={}
+  let highestScore=0
+  let maxLevel=null
+  for(let {name,score} of player)
+  {
+    let levels=score <= 500 ? "Begineer" :
+    score <= 1500 ? "Intermediate" : "Advanced"
 
-    if (!obj[levels]) {
-      obj[levels] = []
+    if(!obj[levels])
+    {
+      obj[levels]=[]
     }
     obj[levels].push(name)
 
-    if (score > highestScore) {
-      highestScore = score
-      maxLevel = levels
+    // if(score > highestScore)
+    // {
+    //   highestScore=score
+    //   maxLevel=levels
+    // }
+    if(obj[levels].length > highestScore)
+    {
+      highestScore=obj[levels].length
+      maxLevel=obj[levels]
     }
   }
-  console.log(obj, "levels");
-  return Object.fromEntries(Object.entries(obj).filter(([key, value]) => key == maxLevel))
+
+  console.log(obj,"players");
+  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> value == maxLevel))
+  
 
 }
 
