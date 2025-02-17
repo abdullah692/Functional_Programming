@@ -35,14 +35,14 @@ console.log(res);
 //With Array
 
 const CharacterCheck = (arr1) => {
-  let arr = []
+  let arr=[]
+
   for(let char of arr1)
   {
-    if(!arr[char])
+    if(!arr.includes(char))
     {
-      arr[char]=1
-    }
-    else{
+      arr[char]=(arr[char] || 0)+1
+    }else{
       arr[char]++
     }
   }

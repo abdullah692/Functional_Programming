@@ -28,21 +28,21 @@ const consecutiveSum = (arr) => {
     // console.log(arr1);
     
     // return Math.max(...arr1)
+let sum=0
+let arr1=[]
+let maxSum=0
 
-    let arr1=[]
-    let maxSum=0
-    let sum=0
-    for(let i=0 ; i< arr.length -3; i++)
+for(let i=0 ;i< arr.length-3; i++)
+{
+    sum+=arr[i]+arr[i+1] + arr[i+2]
+    arr1.push(sum)
+    if(sum > maxSum)
     {
-        sum+=arr[i] + arr[i+1] +arr[i+2]
-        arr1.push(sum)  
-        
-        if(sum >maxSum)
-        {
-            maxSum=sum
-        }
+        maxSum=sum
     }
-    return {arr1,maxSum}
+}
+
+return {arr1,maxSum}
 };
 
 // const consecutiveSum = (arr) => {

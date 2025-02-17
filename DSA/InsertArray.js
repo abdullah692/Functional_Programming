@@ -49,14 +49,16 @@ const insertArray = (arr) => {
   // arr[index] = val
   // console.log(arr);
 
-  for(let i=arr.length; i > index; i--)
-  {
-      arr[i]=arr[i-1]
-  }
-  arr[index]=val
+    // for(let i=arr.length; i>index; i--)
+    // {
+    //     arr[i]=arr[i-1]
+    // }
+    // arr[index]=val
 
-  console.log(arr);
-  
+    // console.log(arr);
+    
+    let value=arr.splice(index,0,100)
+   console.log(arr) 
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];

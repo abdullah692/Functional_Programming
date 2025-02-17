@@ -1,13 +1,14 @@
 const arr=[1,4,6,2,5,-2,6,4,12,11,15]
 
-const Arrlength=(arr,i=0)=>{
-   let count=0
-   while(arr[i] != undefined)
-     
+const ArrLength=(arr,i=0)=>
+{
+     let count=0
+     while(arr[i] != undefined)
      {
           count++
           i++
      }
+
      return count
 }
 
@@ -19,13 +20,14 @@ const reverseArr=(arr)=>{
      // }
      // return revArr
 
-     let revArr=[]
-     for(let i=arr.length-1; i> 0; i--)
-     {
+    let revArr=[]
+    for(let i=arr.length-1 ; i> 0; i--)
+    {
           revArr.push(arr[i])
-     }
-     return revArr
+    }
+    return revArr
 }
+
 
 // const ArrLength=(arr, i=0) => 
 // {
@@ -55,5 +57,5 @@ const reverseArr=(arr)=>{
 
 //      return 1 + ArrLength(arr, i+1)
 // }
-const result=Arrlength(arr)
+const result=ArrLength(arr)
 console.log(result);

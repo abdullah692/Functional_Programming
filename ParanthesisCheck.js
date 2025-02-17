@@ -78,10 +78,11 @@ function isBalanceds(str) {
 
     for(let char of str)
     {
-        if(char == "(" || char == "{" || char == "[")
+        if(map[char])
         {
-            arr.push(char)   
-        }else if(char == ")" || char == "}" || char == "]")
+            arr.push(char)
+        }
+        else if(char == ")" || char == "}" || char == "]")
         {
             if(map[arr.pop()] != char)
             {
@@ -90,9 +91,7 @@ function isBalanceds(str) {
         }
     }
 
-    return arr.length==0
-
-
+    return arr.length == 0
 }
 
 
