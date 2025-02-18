@@ -164,21 +164,25 @@ const flightsRes = (flights) => {
   // }
   // return { flights: obj, highestFlights }
 
-  let obj = {}
-  let highestFlights = null
-  let maxFlight = 0
-  for (let { flight, airline, time } of flights) {
-    if (!obj[airline]) {
-      obj[airline] = []
-    }
-    obj[airline].push(`${flight} (${time})`)
-
-    if (obj[airline].length > maxFlight) {
-      maxFlight = obj[airline].length
-      highestFlights = airline
-    }
+  let obj={}
+  let maxFlight=0
+  for(let {flight,airline,time} of flights)
+  {
+      if(!obj[airline])
+      {
+        obj[airline]=[]
+      }
+      obj[airline].push(`${flight} (${time})`)
+      if(obj[airline].length > maxFlight)
+      {
+        maxFlight=airline
+      }
   }
-  return { airline: highestFlights, flights: obj[highestFlights] }
+  console.log(obj);
+
+  return {convertFlights:obj , maxFlight}
+  
+ 
 }
 
 const resultFlight = flightsRes(flights)
@@ -217,26 +221,29 @@ const footPlayer = (players) => {
 
   // return {obj, maxGoals}
 
-  let obj = {}
-  let highestGoals = 0
-  let WinningTeam = null
-  for (let { name, team, goals } of players) {
-    if (!obj[team]) {
-      obj[team] = { players: [], totalGoals: 0 }
+  let obj={}
+  let maxGoals=0
+  let teamGoals=null
+
+  for(let {name,team, goals} of players)
+  {
+      if(!obj[team])
+      {
+        obj[team]={players:[], totalGoals:0}
+      }
+      obj[team].players.push(name)
+      obj[team].totalGoals+=goals
+
+      if(obj[team].totalGoals > maxGoals)
+      {
+        maxGoals=obj[team].totalGoals
+        teamGoals=team
+      }
+      
     }
-
-    obj[team].players.push(name)
-    obj[team].totalGoals += goals
-
-    if (obj[team].totalGoals > highestGoals) {
-      highestGoals = obj[team].totalGoals
-      WinningTeam = team
-    }
-
-  }
-  console.log(obj);
-
-  return { team: WinningTeam, goals: highestGoals, players: obj[WinningTeam].players }
+    console.log(obj);
+  
+  // return { team: WinningTeam, goals: highestGoals, players: obj[WinningTeam].players }
 
 }
 const valFootlball = footPlayer(Footballplayers)
@@ -267,15 +274,18 @@ const Books = (books) => {
   // }
   // return Object.fromEntries(Object.entries(obj).sort((a,b)=>a.title-b.title))
 
-  let obj = {}
-  for (let { title, author } of books) {
-    if (!obj[author]) {
-      obj[author] = []
-    }
-    obj[author].push(title)
-  }
 
-  return Object.fromEntries(Object.entries(obj).sort((a, b) => a.title - b.title))
+  let obj={}
+  for(let {title,author} of books)
+  {
+      if(!obj[author])
+      {
+        obj[author]=[]
+      }
+      obj[author].push(title)
+  }
+  return Object.fromEntries(Object.entries(obj).sort((a,b)=> a.title - b.title))
+  
 }
 const results = Books(books)
 console.log(results, "books");
@@ -309,17 +319,20 @@ const convertPost = (post) => {
   //   } 
   // return obj
 
-  let obj = {}
-  for (let { hashtags, user } of post) {
-    for (let tags of hashtags) {
-      if (!obj[tags]) {
-        obj[tags] = []
-      }
-      obj[tags].push(user)
+  let obj={}
+  for(let {user,hashtags} of post)
+  {
+    for(let tags of hashtags)
+    {
+        if(!obj[tags])
+        {
+          obj[tags]=[]
+        }
+        obj[tags].push(user)
     }
   }
-  return obj
 
+  return obj
 }
 const reusltPost = convertPost(posts)
 console.log(reusltPost, "reusltPost");
@@ -373,18 +386,32 @@ const movies = [
 // }
 
 const moviesConvert = (movie) => {
-  let obj = {}
-  let genreCount = {}
+  // let obj = {}
+  // let genreCount = {}
 
-  for (let { title, genre } of movie) {
-    if (!obj[genre]) {
-      obj[genre] = []
-    }
-    obj[genre].push(title)
-    genreCount[genre] = (genreCount[genre] || 0) + 1
+  // for (let { title, genre } of movie) {
+  //   if (!obj[genre]) {
+  //     obj[genre] = []
+  //   }
+  //   obj[genre].push(title)
+  //   genreCount[genre] = (genreCount[genre] || 0) + 1
 
+  // }
+  // return { obj, genreCount }
+
+  let obj={}
+  let genreCount={}
+  for(let {title,genre} of movie)
+  {
+      if(!obj[genre])
+      {
+        obj[genre]=[]
+      }
+      obj[genre].push(title)
+      genreCount[genre]=(genreCount[genre] || 0) +1
   }
-  return { obj, genreCount }
+
+  return {obj, genreCount}
 }
 
 const moviesResult = moviesConvert(movies)
@@ -405,13 +432,25 @@ const peoples = [
 // }
 
 const peopleGroup = (arr) => {
-  let obj = {}
-  for (let { name, age } of arr) {
-    if (!obj[age]) {
-      obj[age] = []
+  // let obj = {}
+  // for (let { name, age } of arr) {
+  //   if (!obj[age]) {
+  //     obj[age] = []
+  //   }
+  //   obj[age].push({ name, age })
+  // }
+  // return obj
+
+  let obj={}
+  for(let {name , age} of arr)
+  {
+    if(!obj[age])
+    {
+      obj[age]=[]
     }
-    obj[age].push({ name, age })
+    obj[age].push({name,age})
   }
+
   return obj
 }
 
@@ -469,21 +508,36 @@ const employees = [
 
 
 const employeesFetch = (employee) => {
+  // let obj={}
+  // for(let {department,name,age,position,salary} of employee)
+  // {
+  //   if(!obj[department])
+  //   {
+  //       obj[department]={}
+  //   }
+  //   obj[department][name]={age,position,salary}
+
+  // }
+  // console.log(obj);
+
   let obj={}
   for(let {department,name,age,position,salary} of employee)
   {
     if(!obj[department])
     {
-        obj[department]={}
+      obj[department]={}
     }
-    obj[department][name]={age,position,salary}
 
+    obj[department][name]={age,position,salary}
   }
-  console.log(obj);
+
+return obj
   
 }
 
 const employeeResult = employeesFetch(employees)
+console.log(employeeResult);
+
 
 //-------------------------------------------------------------------------
 
