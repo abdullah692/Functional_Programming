@@ -1,12 +1,12 @@
-const arr=
-[[4, 3, 2, -1],
- [3, 2, 1, -2], 
- [1, 1, -1, -3],
- [-1, 2, -3, -4]]
+const arr =
+    [[4, 3, 2, -1],
+    [3, 2, 1, -2],
+    [1, 1, -1, -3],
+    [-1, 2, -3, -4]]
 
 
- //Basic method
-const countNegative=(arr)=>{
+//Basic method
+const countNegative = (arr) => {
     // let count=0;
     // for(let i=0 ;i< arr.length; i++)
     // {
@@ -46,27 +46,35 @@ const countNegative=(arr)=>{
 
 // }
 
- const result=countNegative(arr)
- console.log(result);
- 
+const result = countNegative(arr)
+console.log(result);
 
- const transposeMatrix = (matrix) => {
+
+const transposeMatrix = (matrix) => {
     // debugger
-    let result = [];
-    console.log(matrix[0]);
-    
-    for (let i = 0; i < matrix[0].length; i++) {
-        let row = [];
-        for (let j = 0; j < matrix.length; j++) {
-            row.push(matrix[j][i]);
-            // console.log(matrix[j],"j");
-            
-        }
-        console.log(row);
-        
-        // result.push(row);
+    // let result = [];
+    // console.log(matrix[0]);
+
+    // for (let i = 0; i < matrix[0].length; i++) {
+    //     let row = [];
+    //     for (let j = 0; j < matrix.length; j++) {
+    //         row.push(matrix[j][i]);
+    //         // console.log(matrix[j],"j");
+
+    //     }
+    //     console.log(row);
+
+    //     // result.push(row);
+    // }
+    // // return result;
+
+    let result = []
+    for (let i = 0; i < matrix[0].length; i++)
+    {
+        result.push(matrix.map((val)=> val[i]))
     }
-    // return result;
+
+    return result
 };
 
 // Example usage:

@@ -33,16 +33,28 @@ function x(){
 
 
 const createCounter=()=>{
-    let count=0;
+    // let count=0;
 
-    function counter(){
-        count++;
-        console.log(count);
+    // function counter(){
+    //     count++;
+    //     console.log(count);
+    // }
+    // return counter;
+
+    let counter=0;
+
+ return  function count(){
+            counter++
+            console.log(counter);
+            
     }
-    return counter;
 }
 
-    const incrementClouser=createCounter();
+    // const incrementClouser=createCounter();
 
-    incrementClouser()
-    incrementClouser()
+    // incrementClouser()
+    // incrementClouser()
+
+    const incrementCount=createCounter()
+    incrementCount()
+    incrementCount()
