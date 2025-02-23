@@ -602,3 +602,47 @@ const resultMost=mostOrder(orders)
 console.log(resultMost);
 
 
+const files= [
+  "C:/Users/MakTech/Documents/fileA.txt",
+  "C:/Users/MakTech/Documents/fileB.txt",
+  "D:/Projects/fileA.txt",
+  "D:/Projects/fileV.txt",
+  "D:/Projects/fileN.txt",
+  "D:/Projects/fileA.txt",
+  "A:/Projects/fileC.txt",
+  "E:/Backups/fileC.txt",
+  "C:/Users/MakTech/Downloads/fileB.txt",
+  "C:/Users/Mak Tech/OneDrive/Documents/Projects/Functional_Programming",
+  "C:/Users/Mak Tech/OneDrive/Documents/Projects/Functional_Programming",
+  "C:/Users/Mak Tech/OneDrive/Documents/Projects/Functional",
+];
+
+
+
+const  systems=(files)=>{
+  let obj={}
+  let countFile=0
+  for(let val of files)
+  {
+    let lastIndexVal=val.lastIndexOf("/")
+    let fileName=val.slice(lastIndexVal+1)
+    let restName=val.slice(0,lastIndexVal)
+    // console.log(restName);
+    if(!obj[fileName])
+    {
+      obj[fileName]=[]
+    }
+    obj[fileName].push(restName)
+
+    if(obj[fileName].length > countFile)
+    {
+      countFile=obj[fileName].length
+    }
+  }
+  
+  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> value.length > 1))
+  
+}
+
+const reusltFiles=systems(files)
+console.log(reusltFiles);
