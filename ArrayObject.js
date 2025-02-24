@@ -27,25 +27,22 @@ const convertDeliveries = (deliveries) => {
   // }
   // return obj;
 
-  let obj={}
-  let maxCount=0;
-  let maxCity=null
-  for(let {city,packages} of deliveries)
-  {
-    if(!obj[city])
-    {
-      obj[city]={totalPackages:0}
+  let obj = {}
+  let maxCount = 0;
+  let maxCity = null
+  for (let { city, packages } of deliveries) {
+    if (!obj[city]) {
+      obj[city] = { totalPackages: 0 }
     }
-    obj[city].totalPackages+=packages
+    obj[city].totalPackages += packages
     // console.log(obj);
-    if(maxCount < obj[city].totalPackages)
-    {
-      maxCount=obj[city].totalPackages
-      maxCity=city
+    if (maxCount < obj[city].totalPackages) {
+      maxCount = obj[city].totalPackages
+      maxCity = city
     }
-    
+
   }
-  return { city: maxCity , ...obj[maxCity]}
+  return { city: maxCity, ...obj[maxCity] }
   // return Object.entries(obj).filter(([key,value])=> Math.max(value))
 }
 
@@ -95,17 +92,15 @@ const playerFind = (player) => {
   // }
   // return { categories: obj, highestScorer: highestScore }
 
-  let obj={}
-  let highestScore=0
-  let maxLevel=null
-  for(let {name,score} of player)
-  {
-    let levels=score <= 500 ? "Begineer" :
-    score <= 1500 ? "Intermediate" : "Advanced"
+  let obj = {}
+  let highestScore = 0
+  let maxLevel = null
+  for (let { name, score } of player) {
+    let levels = score <= 500 ? "Begineer" :
+      score <= 1500 ? "Intermediate" : "Advanced"
 
-    if(!obj[levels])
-    {
-      obj[levels]=[]
+    if (!obj[levels]) {
+      obj[levels] = []
     }
     obj[levels].push(name)
 
@@ -114,16 +109,15 @@ const playerFind = (player) => {
     //   highestScore=score
     //   maxLevel=levels
     // }
-    if(obj[levels].length > highestScore)
-    {
-      highestScore=obj[levels].length
-      maxLevel=obj[levels]
+    if (obj[levels].length > highestScore) {
+      highestScore = obj[levels].length
+      maxLevel = obj[levels]
     }
   }
 
-  console.log(obj,"players");
-  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> value == maxLevel))
-  
+  console.log(obj, "players");
+  return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value == maxLevel))
+
 
 }
 
@@ -164,25 +158,22 @@ const flightsRes = (flights) => {
   // }
   // return { flights: obj, highestFlights }
 
-  let obj={}
-  let maxFlight=0
-  for(let {flight,airline,time} of flights)
-  {
-      if(!obj[airline])
-      {
-        obj[airline]=[]
-      }
-      obj[airline].push(`${flight} (${time})`)
-      if(obj[airline].length > maxFlight)
-      {
-        maxFlight=airline
-      }
+  let obj = {}
+  let maxFlight = 0
+  for (let { flight, airline, time } of flights) {
+    if (!obj[airline]) {
+      obj[airline] = []
+    }
+    obj[airline].push(`${flight} (${time})`)
+    if (obj[airline].length > maxFlight) {
+      maxFlight = airline
+    }
   }
   console.log(obj);
 
-  return {convertFlights:obj , maxFlight}
-  
- 
+  return { convertFlights: obj, maxFlight }
+
+
 }
 
 const resultFlight = flightsRes(flights)
@@ -221,28 +212,25 @@ const footPlayer = (players) => {
 
   // return {obj, maxGoals}
 
-  let obj={}
-  let maxGoals=0
-  let teamGoals=null
+  let obj = {}
+  let maxGoals = 0
+  let teamGoals = null
 
-  for(let {name,team, goals} of players)
-  {
-      if(!obj[team])
-      {
-        obj[team]={players:[], totalGoals:0}
-      }
-      obj[team].players.push(name)
-      obj[team].totalGoals+=goals
-
-      if(obj[team].totalGoals > maxGoals)
-      {
-        maxGoals=obj[team].totalGoals
-        teamGoals=team
-      }
-      
+  for (let { name, team, goals } of players) {
+    if (!obj[team]) {
+      obj[team] = { players: [], totalGoals: 0 }
     }
-    console.log(obj);
-  
+    obj[team].players.push(name)
+    obj[team].totalGoals += goals
+
+    if (obj[team].totalGoals > maxGoals) {
+      maxGoals = obj[team].totalGoals
+      teamGoals = team
+    }
+
+  }
+  console.log(obj);
+
   // return { team: WinningTeam, goals: highestGoals, players: obj[WinningTeam].players }
 
 }
@@ -275,17 +263,15 @@ const Books = (books) => {
   // return Object.fromEntries(Object.entries(obj).sort((a,b)=>a.title-b.title))
 
 
-  let obj={}
-  for(let {title,author} of books)
-  {
-      if(!obj[author])
-      {
-        obj[author]=[]
-      }
-      obj[author].push(title)
+  let obj = {}
+  for (let { title, author } of books) {
+    if (!obj[author]) {
+      obj[author] = []
+    }
+    obj[author].push(title)
   }
-  return Object.fromEntries(Object.entries(obj).sort((a,b)=> a.title - b.title))
-  
+  return Object.fromEntries(Object.entries(obj).sort((a, b) => a.title - b.title))
+
 }
 const results = Books(books)
 console.log(results, "books");
@@ -319,16 +305,13 @@ const convertPost = (post) => {
   //   } 
   // return obj
 
-  let obj={}
-  for(let {user,hashtags} of post)
-  {
-    for(let tags of hashtags)
-    {
-        if(!obj[tags])
-        {
-          obj[tags]=[]
-        }
-        obj[tags].push(user)
+  let obj = {}
+  for (let { user, hashtags } of post) {
+    for (let tags of hashtags) {
+      if (!obj[tags]) {
+        obj[tags] = []
+      }
+      obj[tags].push(user)
     }
   }
 
@@ -378,7 +361,7 @@ const movies = [
   { title: "The Notebook", genre: "Romance" },
   { title: "Avengers", genre: "Action" }
 ];
- 
+
 // {
 //   "Sci-Fi": ["Inception", "Interstellar"],
 //   "Romance": ["Titanic", "The Notebook"],
@@ -399,19 +382,17 @@ const moviesConvert = (movie) => {
   // }
   // return { obj, genreCount }
 
-  let obj={}
-  let genreCount={}
-  for(let {title,genre} of movie)
-  {
-      if(!obj[genre])
-      {
-        obj[genre]=[]
-      }
-      obj[genre].push(title)
-      genreCount[genre]=(genreCount[genre] || 0) +1
+  let obj = {}
+  let genreCount = {}
+  for (let { title, genre } of movie) {
+    if (!obj[genre]) {
+      obj[genre] = []
+    }
+    obj[genre].push(title)
+    genreCount[genre] = (genreCount[genre] || 0) + 1
   }
 
-  return {obj, genreCount}
+  return { obj, genreCount }
 }
 
 const moviesResult = moviesConvert(movies)
@@ -441,14 +422,12 @@ const peopleGroup = (arr) => {
   // }
   // return obj
 
-  let obj={}
-  for(let {name , age} of arr)
-  {
-    if(!obj[age])
-    {
-      obj[age]=[]
+  let obj = {}
+  for (let { name, age } of arr) {
+    if (!obj[age]) {
+      obj[age] = []
     }
-    obj[age].push({name,age})
+    obj[age].push({ name, age })
   }
 
   return obj
@@ -520,19 +499,17 @@ const employeesFetch = (employee) => {
   // }
   // console.log(obj);
 
-  let obj={}
-  for(let {department,name,age,position,salary} of employee)
-  {
-    if(!obj[department])
-    {
-      obj[department]={}
+  let obj = {}
+  for (let { department, name, age, position, salary } of employee) {
+    if (!obj[department]) {
+      obj[department] = {}
     }
 
-    obj[department][name]={age,position,salary}
+    obj[department][name] = { age, position, salary }
   }
 
-return obj
-  
+  return obj
+
 }
 
 const employeeResult = employeesFetch(employees)
@@ -549,21 +526,19 @@ const data = [
 
 // { 1: { value: 30 }, 2: { value: 15 } }
 
-const mergeObj=(data)=>{
-  let obj={}
-  for(let {id,value} of data)
-  {
-    if(!obj[id])
-    {
-      obj[id]={value:0}
+const mergeObj = (data) => {
+  let obj = {}
+  for (let { id, value } of data) {
+    if (!obj[id]) {
+      obj[id] = { value: 0 }
     }
-    obj[id].value+=value
+    obj[id].value += value
   }
   console.log(obj);
-  
+
 }
 
-const resultMerge=mergeObj(data)
+const resultMerge = mergeObj(data)
 console.log(resultMerge);
 
 
@@ -580,29 +555,27 @@ const orders = [
 
 //Most purchased item: "Phone"
 
-const mostOrder=(orders)=>{
-  let obj={}
-  let mostItem=null
-  let itemCount=0
+const mostOrder = (orders) => {
+  let obj = {}
+  let mostItem = null
+  let itemCount = 0
 
-  for(let {item} of orders)
-  {
-    obj[item]=(obj[item] || 0)+1
-    if(obj[item] > itemCount)
-    {
-      itemCount=obj[item]
-      mostItem=item
+  for (let { item } of orders) {
+    obj[item] = (obj[item] || 0) + 1
+    if (obj[item] > itemCount) {
+      itemCount = obj[item]
+      mostItem = item
     }
   }
-  
+
   return `Most purchased item:${mostItem} and its count is ${itemCount}`
 }
 
-const resultMost=mostOrder(orders)
+const resultMost = mostOrder(orders)
 console.log(resultMost);
 
 
-const files= [
+const files = [
   "C:/Users/MakTech/Documents/fileA.txt",
   "C:/Users/MakTech/Documents/fileB.txt",
   "D:/Projects/fileA.txt",
@@ -619,30 +592,188 @@ const files= [
 
 
 
-const  systems=(files)=>{
-  let obj={}
-  let countFile=0
-  for(let val of files)
-  {
-    let lastIndexVal=val.lastIndexOf("/")
-    let fileName=val.slice(lastIndexVal+1)
-    let restName=val.slice(0,lastIndexVal)
+const systems = (files) => {
+  let obj = {}
+  let countFile = 0
+  for (let val of files) {
+    let lastIndexVal = val.lastIndexOf("/")
+    let fileName = val.slice(lastIndexVal + 1)
+    let restName = val.slice(0, lastIndexVal)
     // console.log(restName);
-    if(!obj[fileName])
-    {
-      obj[fileName]=[]
+    if (!obj[fileName]) {
+      obj[fileName] = []
     }
     obj[fileName].push(restName)
 
-    if(obj[fileName].length > countFile)
-    {
-      countFile=obj[fileName].length
+    if (obj[fileName].length > countFile) {
+      countFile = obj[fileName].length
     }
   }
-  
-  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> value.length > 1))
-  
+
+  return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value.length > 1))
+
 }
 
-const reusltFiles=systems(files)
+const reusltFiles = systems(files)
 console.log(reusltFiles);
+
+
+const people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 29 }
+];
+
+// { name: "Bob", age: 30 }
+
+const findOld = (people) => {
+  let oldAge = 0;
+  for (let val of people) {
+    if (val.age > oldAge) {
+      oldAge = val.age
+    }
+  }
+
+  return people.filter((val) => val.age == oldAge)
+}
+
+const resultOld = findOld(people)
+console.log(resultOld);
+
+
+const users = [
+  { id: 101, name: "Alice", age: 25 },
+  { id: 102, name: "Bob", age: 30 },
+  { id: 103, name: "Charlie", age: 29 }
+];
+
+// {
+//   "101": { name: "Alice", age: 25 },
+//   "102": { name: "Bob", age: 30 },
+//   "103": { name: "Charlie", age: 29 }
+// }
+
+const userId = (users) => {
+  let obj = {}
+  for (let val of users) {
+    if (!obj[val.id]) {
+      obj[val.id] = { name: val.name, age: val.age }
+    }
+
+  }
+  console.log(obj);
+}
+
+const resultUsers = userId(users)
+console.log(resultUsers);
+
+
+
+const employeesCheck = [
+  { name: "Alice", departments: ["HR", "Finance"] },
+  { name: "Bob", departments: ["IT"] },
+  { name: "Charlie", departments: ["IT", "HR"] }
+];
+
+// ["Alice", "Charlie"] // Employees with more than one department
+
+const checkEmp = (employees) => {
+  let arr = []
+  for (let val of employees) {
+    if (val.departments.length > 1) {
+      arr.push(val.name)
+    }
+  }
+  return arr
+}
+
+
+const resultEmp = checkEmp(employeesCheck)
+console.log(resultEmp);
+
+
+
+const dataIds = [
+  { id: 1, value: 10 },
+  { id: 2, value: 15 },
+  { id: 1, value: 20 },
+  { id: 3, value: 30 }
+];
+
+// [
+//   { id: 1, value: 30 },
+//   { id: 2, value: 15 },
+//   { id: 3, value: 30 }
+// ]
+
+const mergeId = (arr) => {
+  let mergeArr = []
+  let obj = {}
+  for (let { id, value } of arr) {
+    if (!obj[id]) {
+        obj[id]={id,value:0}
+    }
+    obj[id].value+=value
+  }
+  // console.log(obj);
+  return Object.values(obj)
+}
+
+const resultIds = mergeId(dataIds)
+console.log(resultIds);
+
+//---------------------------------------------------------------
+
+//Input
+const categories = [
+  { id: 1, name: "Electronics", parentId: null },
+  { id: 2, name: "Laptops", parentId: 1 },
+  { id: 3, name: "Phones", parentId: 1 },
+  { id: 4, name: "Gaming Laptops", parentId: 2 }
+];
+
+//Output
+
+// [
+//   {
+//     id: 1,
+//     name: "Electronics",
+//     children: [
+//       {
+//         id: 2,
+//         name: "Laptops",
+//         children: [{ id: 4, name: "Gaming Laptops", children: [] }]
+//       },
+//       { id: 3, name: "Phones", children: [] }
+//     ]
+//   }
+// ]
+
+
+// const categories = [
+//   { id: 1, name: "Electronics", parentId: null },
+//   { id: 2, name: "Laptops", parentId: 1 },
+//   { id: 3, name: "Phones", parentId: 1 },
+//   { id: 4, name: "Gaming Laptops", parentId: 2 }
+// ];
+
+const buildTree = (categories) => {
+    let categoryMap = {}, tree = [];
+
+
+    categories.forEach(cat => {
+      debugger
+        categoryMap[cat.id] = { ...cat, children: categoryMap[cat.id]?.children || [] };
+
+        if (cat.parentId !== null) {
+            categoryMap[cat.parentId] = categoryMap[cat.parentId] || { children: [] };
+            categoryMap[cat.parentId].children.push(categoryMap[cat.id]);
+        } else {
+            tree.push(categoryMap[cat.id]);
+        }
+    });
+
+    return tree;
+};
+
+console.log(buildTree(categories));
