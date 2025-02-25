@@ -711,9 +711,9 @@ const mergeId = (arr) => {
   let obj = {}
   for (let { id, value } of arr) {
     if (!obj[id]) {
-        obj[id]={id,value:0}
+      obj[id] = { id, value: 0 }
     }
-    obj[id].value+=value
+    obj[id].value += value
   }
   // console.log(obj);
   return Object.values(obj)
@@ -758,22 +758,93 @@ const categories = [
 // ];
 
 const buildTree = (categories) => {
-    let categoryMap = {}, tree = [];
+  let categoryMap = {}, tree = [];
 
 
-    categories.forEach(cat => {
-      debugger
-        categoryMap[cat.id] = { ...cat, children: categoryMap[cat.id]?.children || [] };
+  categories.forEach(cat => {
+    // debugger
+    categoryMap[cat.id] = { ...cat, children: categoryMap[cat.id]?.children || [] };
 
-        if (cat.parentId !== null) {
-            categoryMap[cat.parentId] = categoryMap[cat.parentId] || { children: [] };
-            categoryMap[cat.parentId].children.push(categoryMap[cat.id]);
-        } else {
-            tree.push(categoryMap[cat.id]);
-        }
-    });
+    if (cat.parentId !== null) {
+      categoryMap[cat.parentId] = categoryMap[cat.parentId] || { children: [] };
+      categoryMap[cat.parentId].children.push(categoryMap[cat.id]);
+    } else {
+      tree.push(categoryMap[cat.id]);
+    }
+  });
 
-    return tree;
+  return tree;
 };
 
 console.log(buildTree(categories));
+
+
+
+const reviews = [
+  { product: "Laptop", rating: 4 },
+  { product: "Laptop", rating: 5 },
+  { product: "Phone", rating: 3 },
+  { product: "Phone", rating: 4 },
+  { product: "Tablet", rating: 5 }
+];
+
+
+// {
+//   "Laptop": 4.5,
+//   "Phone": 3.5,
+//   "Tablet": 5
+// }
+
+const averageReviews = (reviews) => {
+  let obj = {}
+  // let count=0
+  for (let val of reviews) {
+    if (!obj[val.product]) {
+      obj[val.product] = obj[val.product] || { sum: 0, count: 0 }
+    }
+
+    obj[val.product].sum += val.rating
+    obj[val.product].count += 1
+
+  }
+  console.log(obj);
+
+  return  Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
+}
+
+const resulReviews = averageReviews(reviews)
+console.log(resulReviews, "reviews");
+
+
+const sentences = [
+  "The quick brown fox",
+  "JavaScript is awesome",
+  "I love coding challenges"
+];
+
+
+// ["quick", "JavaScript", "challenges"]
+
+
+const countSent = (sentences) => {
+  let arr = []
+  
+  for (let val of sentences) {
+    let splitVal = val.split(" ")
+    let maxCount = 0;
+  let maxWord = null
+    console.log(splitVal);
+
+    splitVal.forEach((value) => {
+      if (value.length > maxCount) {
+        maxCount = value.length
+        maxWord = value
+      }
+    })
+    arr.push(maxWord)
+
+  }
+  console.log(arr);
+
+}
+const resultSentence = countSent(sentences)

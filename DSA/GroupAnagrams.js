@@ -25,16 +25,20 @@ const groupAnagram = (arr) => {
     // return Object.entries(obj).map(([key,value]) => `id:${key} : value:${value} ]`)
 
     let obj={}
-    for(let char of arr)
+
+    for(let val of arr)
     {
-        let sortArr=char.split('').sort().join('')
-        if(!obj[sortArr])
+        let sortVal=val.split('').sort().join('')
+        if(!obj[sortVal])
         {
-            obj[sortArr]=[]
+            obj[sortVal]=[]
         }
-        obj[sortArr].push(char)
+        obj[sortVal].push(val)
     }
-    return obj
+
+    console.log(obj);
+    return Object.values(obj)
+    
 }
 
 

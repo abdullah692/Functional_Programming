@@ -48,26 +48,25 @@ const BinarySearch=(arr,target)=>{
     // }
     // return -1
 
-    let leftindex=0
+    let leftindex=0;
     let rightIndex=arr.length-1
-    
+
     while(leftindex <= rightIndex)
     {
         let middleIndex=Math.floor((leftindex+rightIndex)/2)
         if(arr[middleIndex] == target)
         {
-          return `Value found at ${middleIndex}`
+          return `The value ${target} is at index ${middleIndex}`
         }
         else if(arr[middleIndex] > target)
         {
-          rightIndex=middleIndex-1
+          rightIndex=middleIndex -1
         }
         else{
           leftindex=middleIndex+1
         }
     }
-  
-    return "No value eists"
+    return "No value exists"
   }
 
 

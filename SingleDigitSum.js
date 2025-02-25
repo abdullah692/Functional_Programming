@@ -17,14 +17,16 @@
 
 
 const singleDigitSum = (digits) => {
-     if (digits > -10 && digits < 10) {
+     if(digits > -10 && digits < 10)
+     {
           return digits
      }
-     else {
-          let sum = 0
-          let valSplit = digits.toString().split('')
-          for (let val of valSplit) {
-               sum += Number(val)
+     else{
+          let sum=0
+          let splitDigits=digits.toString().split('')
+          for(let val of splitDigits)
+          {
+               sum+=Number(val)
           }
           return singleDigitSum(sum)
      }

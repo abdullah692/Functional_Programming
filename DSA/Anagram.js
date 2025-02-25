@@ -5,21 +5,20 @@ const Anagram = (string1, string2) => {
       return false
    }
    
-   for(let char of string1)
-   {
+  for(let char of string1)
+  {
       obj[char]=(obj[char] || 0)+1
-   }
-   for(let char of string2)
-   {
+  }
+  for(let char of string2)
+  {
       if(!obj[char])
       {
-         return "not an anagram"
+         return "Not an Anagram"
       }
-      obj[char]--
-   }
+      obj[char]=obj[char]-1
+  }
 
-   return "It is an anagram"
-  
+  return "It is an anagram"
 }
 
 //   let obj={}

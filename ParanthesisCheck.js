@@ -82,13 +82,13 @@ function isBalanceds(str) {
         {
             arr.push(char)
         }
-        else if(char == ")" || char == "}" || char == "]")
-        {
-            if(map[arr.pop()] != char)
+        else if(char==")" || char=="}" || char=="]")
             {
-                return false
-            }
-        }
+                if(map[arr.pop()] != char)
+                {
+                    return false
+                }
+            } 
     }
 
     return arr.length == 0
