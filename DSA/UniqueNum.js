@@ -66,15 +66,11 @@ const findUniques=(arr1)=>{
     let obj={}
     for(let val of arr1)
     {
-      // console.log(val);
-      
-        if(!obj[val])
-        {
-          obj[val] = (obj[val] || 0)+1
-        }
-        
-      }
-      return Object.keys(obj).filter(val => obj[val] == 1)
+      obj[val]=(obj[val] || 0)+1
+    }
+
+    return Object.keys(obj).filter((val) => obj[val] == 1)
+
 }
 
 

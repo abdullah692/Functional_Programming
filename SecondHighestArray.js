@@ -29,18 +29,20 @@ const HighestSecondEelement = (arr) => {
   let frist=-1;
   let second=-1
 
-  for(let i=0 ; i<arr.length ;i++)
+ 
+  for(let i=0 ;i< arr.length; i++)
   {
-    if(arr[i] > frist)
-    {
-      second=frist
-      frist=arr[i]
-    }
-    else if(arr[i] > second)
-    {
-      second=arr[i]
-    }
+     if(arr[i] > frist)
+     {
+       second=frist
+       frist=arr[i]
+     }
+     else if(arr[i] > second)
+     {
+        second=arr[i]
+     }
   }
+
   return second
 };
 

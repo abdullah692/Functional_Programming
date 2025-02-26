@@ -1,4 +1,4 @@
-// const findDuplicates=(arr)=>{
+const findDuplicates=(arr)=>{
     // let seen=[]
     // let dup=[]
 
@@ -14,22 +14,37 @@
     // }
     // return dup
 
-//     let seen={}
-//     let dup=[] 
+    // let seen={}
+    // let dup=[]
 
-//     for(let char of arr)
-//     {
-//         if(!seen[char])
-//         {
-//             seen[char]=(seen[char] || 0)+1
-//         }else if(!dup.includes(char))
-//         {
-//             dup.push(char)
-//         }
-//     }
+    // for(let val of arr)
+    // {
+    //     if(!seen[val])
+    //     {
+    //         seen[val]=val
+    //     }else if(!dup.includes(val))
+    //     {
+    //         dup.push(val)
+    //     }
+    // }
 
-//     return dup
-// }
+    // return dup
+
+    let seen=new Set()
+    let dup=new Set()
+
+    for(let val of arr)
+    {
+        if(!seen.has(val))
+        {
+            seen.add(val)
+        }
+        else{
+            dup.add(val)
+        }
+    }
+    return [...dup]
+}
 
 //Another Approach
 
@@ -71,7 +86,7 @@
 
 //With set
 
-const findDuplicates = (arr) => {
+// const findDuplicates = (arr) => {
     // let seen = new Set()
     // let duplicate = new Set()
 
@@ -116,21 +131,21 @@ const findDuplicates = (arr) => {
     // return duplicate
 
 
-    let seen=new Set()
-    let dup=new Set()
+//     let seen=new Set()
+//     let dup=new Set()
 
-    for(let char of arr)
-    {
-        if(!seen.has(char))
-        {
-            seen.add(char)
-        }
-        else{
-            dup.add(char)
-        }
-    }
-    return [...dup]
-}
+//     for(let char of arr)
+//     {
+//         if(!seen.has(char))
+//         {
+//             seen.add(char)
+//         }
+//         else{
+//             dup.add(char)
+//         }
+//     }
+//     return [...dup]
+// }
 
 
 console.log(findDuplicates([1, 2, 3, 1, 2, 4]));
