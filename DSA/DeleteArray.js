@@ -67,7 +67,7 @@ const deleteArray=(arr,target)=>{
         arr[i]=arr[i+1]
     }
     arr.pop()
-    return arr
+    return arr 
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];
