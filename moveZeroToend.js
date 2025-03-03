@@ -54,9 +54,9 @@ const moveZeroToEnd = (arr) => {
 
     let nonZeorIndex =0;
 
-    for(let i=0 ; i< arr.length; i++)
+    for(let i=0 ; i<arr.length ;i++)
     {
-        if(arr[i] !=0 )
+        if(arr[i] != 0)
         {
             let next=arr[nonZeorIndex]
             arr[nonZeorIndex]=arr[i]
@@ -64,7 +64,6 @@ const moveZeroToEnd = (arr) => {
             nonZeorIndex++
         }
     }
-
     return arr
     //With two loops
 
