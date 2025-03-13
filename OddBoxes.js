@@ -170,7 +170,7 @@ const findOddBox = (boxes) => {
         let key=`${val.type}-${val.color}-${val.weight}`
         obj[key]=(obj[key] || 0)+1
         if(obj[key] > maxCount)
-        {
+        { 
             maxCount=obj[key]
             maxVal=key
         }
