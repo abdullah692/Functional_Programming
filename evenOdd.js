@@ -1,14 +1,14 @@
 
 //without %
 const evenOdd=(num)=>{
-    if((num & 1) == 0)
-    {
-      console.log("It is Even");
-    }
-    else{
-      console.log("It is odd");
-      
-    }
+  if((num & 1) == 0)
+  {
+    console.log("It is even");
+  }
+  else{
+    console.log("It is odd");
+    
+  }
 
 //    if((num & 1) == 0)
 //    {
@@ -19,7 +19,7 @@ const evenOdd=(num)=>{
 //    }
 }
 
-const result=evenOdd(15)
+const result=evenOdd(12)
 console.log(result);
 
 
