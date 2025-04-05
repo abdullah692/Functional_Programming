@@ -161,19 +161,22 @@ const findOddBox = (boxes) => {
     // // return {maxBox ,maxCount}
     // return Object.fromEntries(Object.entries(obj).filter(([key,value]) => obj[key] != maxCount))
 
-   let obj={}
-   let maxCount=0
-   for(let val of boxes)
-   {
-        let key=`${val.type}-${val.color}-${val.weight}`
-        obj[key]=(obj[key] || 0)+1
-        if(obj[key] > maxCount)
-        {
-            maxCount=obj[key]
-        }
-   }
+    let obj={}
+    let maxCount=0
 
-   return Object.entries(obj).filter(([key,value])=> value!=maxCount)
+    for(let val of boxes)
+    {
+        let keys=`${val.type}-${val.color}-${val.weight}`
+        obj[keys]=(obj[keys] ||0)+1
+
+        if(obj[keys] > maxCount)
+        {
+            maxCount=obj[keys]
+        }
+
+    }
+    
+    return Object.fromEntries(Object.entries(obj).filter(([keys,values])=> obj[keys] != maxCount))
 }
 
 
