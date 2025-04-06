@@ -22,14 +22,16 @@ const singleDigitSum = (digits) => {
           return digits
      }
      else{
+          let splitNum=digits.toString().split('')
           let sum=0
-          let splitDigits=digits.toString().split('')
-          for(let val of splitDigits)
+          for(let val of splitNum)
           {
                sum+=Number(val)
           }
+          
           return singleDigitSum(sum)
      }
+
 }
-const result = singleDigitSum(4352)
+const result = singleDigitSum(4352421)
 console.log(result);

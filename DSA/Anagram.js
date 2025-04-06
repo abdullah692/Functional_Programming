@@ -5,19 +5,19 @@ const Anagram = (string1, string2) => {
    {
       return "Not an Anagram"
    }
-
-   for(let char of string1)
+   for(let val of string1)
    {
-      obj[char]=(obj[char] || 0)+1
+      obj[val]=(obj[val] || 0)+1
    }
-   for(let char of string2)
+   for(let val of string2)
    {
-      if(!obj[char])
+      if(!obj[val])
       {
          return "Not an Anagram"
       }
-      obj[char]=obj[char]-1
+      obj[val]--
    }
+
    return "It is an Anagram"
 }
 
