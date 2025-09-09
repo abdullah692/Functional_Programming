@@ -17,21 +17,34 @@
 
 
 const singleDigitSum = (digits) => {
+     // if(digits > -10 && digits < 10)
+     // {
+     //      return digits
+     // }
+     // else{
+     //      let splitNum=digits.toString().split('')
+     //      let sum=0
+     //      for(let val of splitNum)
+     //      {
+     //           sum+=Number(val)
+     //      }
+          
+     //      return singleDigitSum(sum)
+     // }
      if(digits > -10 && digits < 10)
      {
           return digits
      }
-     else{
-          let splitNum=digits.toString().split('')
-          let sum=0
-          for(let val of splitNum)
-          {
-               sum+=Number(val)
-          }
-          
-          return singleDigitSum(sum)
+
+     let sum=0;
+     let splitNum=digits.toString().split('')
+     for(let val of splitNum)
+     {
+          sum+=Number(val)
      }
+     return singleDigitSum(sum)
+     
 
 }
-const result = singleDigitSum(4352421)
+const result = singleDigitSum(43521)
 console.log(result);
