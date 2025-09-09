@@ -1,24 +1,50 @@
 const Anagram = (string1, string2) => {
 
+   // let obj={}
+   // if(string1.length != string2.length)
+   // {
+   //    return "Not an Anagram"
+   // }
+   // for(let val of string1)
+   // {
+   //    obj[val]=(obj[val] || 0)+1
+   // }
+   // for(let val of string2)
+   // {
+   //    if(!obj[val])
+   //    {
+   //       return "Not an Anagram"
+   //    }
+   //    obj[val]--
+   // }
+
+   // return "It is an Anagram"
+
    let obj={}
    if(string1.length != string2.length)
    {
       return "Not an Anagram"
    }
-   for(let val of string1)
+   for(let char of string1)
    {
-      obj[val]=(obj[val] || 0)+1
+      obj[char] = (obj[char] || 0) +1
    }
-   for(let val of string2)
+   console.log(obj);
+
+   debugger
+   for(let char of string2)
    {
-      if(!obj[val])
+      if(!obj[char])
       {
          return "Not an Anagram"
       }
-      obj[val]--
+      else{
+         obj[char]-=1
+      }
    }
 
    return "It is an Anagram"
+   
 }
 
 //   let obj={}
@@ -43,7 +69,7 @@ const Anagram = (string1, string2) => {
 //   return "It is an anagram"
 // }
 
-const result=Anagram('abdullahsidd','abdullasiddh')
+const result=Anagram('abdullahsidd','abdullasiddv')
 console.log(result);
 
 
