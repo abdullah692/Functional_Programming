@@ -148,31 +148,53 @@
 
 const SumZero = (arr, target) => {
     
-let left=0
-let right=arr.length -1;
-let sortArr=arr.sort((a,b)=> a-b)
+// let left=0
+// let right=arr.length -1;
+// let sortArr=arr.sort((a,b)=> a-b)
+
+// while(left <= right)
+// {
+//     let sum=sortArr[left]+sortArr[right]
+
+//     if(sum == target)
+//     {
+//         return `${left} and ${right} indexses adn value is ${arr[left]} and ${arr[right]}`
+//     }
+//     else if(sum > target)
+//     {
+//         right--
+//     }
+//     else{ 
+//         left++
+//     }
+// }
+
+// return "No value exists"
+
+let left=0; 
+let right=arr.length -1 ;
+let sortArr=arr.sort((a,b)=>a-b)
 
 while(left <= right)
 {
-    let sum=sortArr[left]+sortArr[right]
-
+    let sum=sortArr[left] + sortArr[right]
     if(sum == target)
     {
-        return `${left} and ${right} indexses adn value is ${arr[left]} and ${arr[right]}`
+        return `The target value ${target} is the values of ${sortArr[left]} and ${sortArr[right]}`
     }
     else if(sum > target)
     {
-        right--
+        right --
     }
-    else{ 
-        left++
+    else{
+        left ++
     }
 }
 
 return "No value exists"
 }
-const arr = [2, 4, 6, 5, 10, 7, -2]
-const result = SumZero(arr, 0)
+const arr = [2, 4, 6, 5, 10, 8, -2]
+const result = SumZero(arr, 10)
 console.log(result);
 
 
