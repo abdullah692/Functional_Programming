@@ -164,7 +164,7 @@ while(left <= right)
     {
         right--
     }
-    else{
+    else{ 
         left++
     }
 }
