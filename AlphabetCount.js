@@ -15,20 +15,34 @@ const countUnsortedAlphabets=(val)=>{
 
     // return count
     
-    let count=0;
-    let alphabets=[]
-    let sortAlphabets=val.split('').sort().join('')
+    // let count=0;
+    // let alphabets=[]
+    // let sortAlphabets=val.split('').sort().join('')
 
+    // for(let i=0; i< val.length; i++)
+    // {
+    //     if(sortAlphabets[i] != val[i])
+    //     {
+    //        count++;
+    //        alphabets.push(val[i])
+    //     }
+    // }
+
+    // return {count,alphabets}
+
+    let count =0;
+    let alphabets=[]
+    let sortVal=val.split('').sort().join('')
     for(let i=0; i< val.length; i++)
     {
-        if(sortAlphabets[i] != val[i])
+        if(val[i] != sortVal[i])
         {
-           count++;
-           alphabets.push(val[i])
+            count++;
+            alphabets.push(val[i])
         }
     }
 
-    return {count,alphabets}
+    return {alphabets,count}
 }
 
 

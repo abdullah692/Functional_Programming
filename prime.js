@@ -49,29 +49,30 @@ const primeNo = (num) => {
 
   // }
   // return prime ? "It is a prime no" : "Not a prime no"
-  
-  let isPrime=false
-  for(let i=2 ;i< num ;i++)
-  {
-    debugger
-    if(num % i==0 )
-    {
-      isPrime=false
-      break
-    }
-    else{
 
-      isPrime=true
-    }
+  let isPrime = false;
+  if (num == 0 || num == 1) {
+    return "0 & 1 is neither prime nor composite number.";
   }
-  return isPrime
+  else {
+      for(let i=2 ; i < num ; i++)
+      {
+        if(num % i == 0)
+        {
+          return isPrime=false
+        }
+      }
+
+      return isPrime=true
+  }
+
 }
-const isPrimeCheck=primeNo(11);
-console.log("Is Prime",isPrimeCheck);
+const isPrimeCheck = primeNo(7);
+console.log("Is Prime", isPrimeCheck);
 
 
 
-const isPrime=(num , i=2)=>{
+const isPrime = (num, i = 2) => {
   // if(num <=1)
   // {
   //   return false
@@ -87,20 +88,17 @@ const isPrime=(num , i=2)=>{
   // else{
   //   return isPrime(num, i+1)
   // }
-  if(num <= 1)
-  {
+  if (num <= 1) {
     return false
   }
-  if(num == i)
-  {
+  if (num == i) {
     return true
   }
-  if(num % i ==0)
-  {
+  if (num % i == 0) {
     return false
   }
-  else{
-    return isPrime(num ,i+1)
+  else {
+    return isPrime(num, i + 1)
   }
 }
 const numberToCheck = 110;

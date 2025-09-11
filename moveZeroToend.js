@@ -52,18 +52,57 @@ const moveZeroToEnd = (arr) => {
     //  } 
     //  return arr
 
+//     let nonZeorIndex=0;
+//     for(let i=0 ;i<arr.length; i++)
+//     {
+//         if(arr[i] != 0)
+//         {
+//             let next=arr[nonZeorIndex]
+//             arr[nonZeorIndex]=arr[i]
+//             arr[i]=next
+//             nonZeorIndex++;
+//         }
+//     }
+// return arr
+
+
+
+
+// const arr = [0, 0, 2, 4, 0, 12, 14, 0, 6, 0, 0, 4, 5, 8, 0]
+
     let nonZeorIndex=0;
-    for(let i=0 ;i<arr.length; i++)
+    for(let i=0; i< arr.length ; i++)
     {
-        if(arr[i] != 0)
+        if(arr[i] == 0)
         {
-            let next=arr[nonZeorIndex]
-            arr[nonZeorIndex]=arr[i]
-            arr[i]=next
-            nonZeorIndex++;
+            let next=arr[i]
+            arr[i]=arr[nonZeorIndex]
+            arr[nonZeorIndex]=next
+            nonZeorIndex++
         }
     }
-return arr
+
+    // return arr
+
+    // let nonZeorIndex=0
+
+    // for(let i=0; i<arr.length ; i++)
+    // {
+    //     if(arr[i] != 0)
+    //     {
+    //         arr[nonZeorIndex]=arr[i]
+    //         nonZeorIndex++
+    //     }
+    // }
+
+    // for(let i=nonZeorIndex; i< arr.length ;i++)
+    // {
+    //     arr[i]=0
+    // }
+    return arr
+
+
+
     //With two loops
 
     // let nonZeorIndex = 0;
