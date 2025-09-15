@@ -69,29 +69,29 @@ function isBalanceds(str) {
     //     }
     // return true
 
-    let arr = []
-    let map = {
-        '(': ')',
-        '{': '}',
-        '[': ']'
+    let stack = []
+    let mapped={
+        '(':')',
+        '{':'}',
+        '[':']',
     }
-
-    for(let char of str)
-    {
-        if(map[char])
-        {
-            arr.push(char)
+    for (let val of str) {
+        if (val == '(' || val == '{' || val == '[') {
+            stack.push(val)
+            console.log(stack);
+            // debugger
+            
         }
-        else if(char==")" || char=="}" || char=="]")
+        else if (val != mapped[val]) {
+            if(mapped[stack.pop()] != val)
             {
-                if(map[arr.pop()] != char)
-                {
-                    return false
-                }
-            } 
+                return false
+            }
+        }
+
     }
 
-    return arr.length == 0
+    return stack.length == 0
 }
 
 
