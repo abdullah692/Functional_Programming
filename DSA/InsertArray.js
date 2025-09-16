@@ -41,8 +41,19 @@ const insertArray = (arr) => {
   // console.log(arr);
 
   let val = 100
-  let index = 3
+  let index = 5
 
+debugger
+  for(let i=arr.length-1 ; i >= index ;i--)
+  {
+      arr[i+1]=arr[i]
+      if(i == index)
+      {
+        arr[i]=val
+      }
+  }
+
+  return arr
   // for (let i = arr.length; i > index; i--) {
   //   arr[i] = arr[i - 1]
   // }
@@ -56,10 +67,17 @@ const insertArray = (arr) => {
     // arr[index]=val
 
     // console.log(arr);
+
+
     
-    let value=arr.splice(index,0,100)
-   console.log(arr) 
+  //   let value=arr.splice(index,0,100)
+  //  console.log(arr) 
+
+
+
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];
-insertArray(arr);
+const result=insertArray(arr);
+console.log(result);
+

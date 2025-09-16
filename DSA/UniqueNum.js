@@ -63,13 +63,42 @@ const findUniques=(arr1)=>{
     // .filter(key => obj[key] === 1)
     // .map(Number); 
 
-    let obj={}
-    for(let val of arr1)
-    {
-      obj[val]=(obj[val] || 0)+1
-    }
+    // let obj={}
+    // for(let val of arr1)
+    // {
+    //   obj[val]=(obj[val] || 0)+1
+    // }
 
-    return Object.keys(obj).filter((val) => obj[val] == 1)
+    // return Object.keys(obj).filter((val) => obj[val] == 1)
+
+
+//     let obj={}
+
+//     for(let val of arr1)
+//     {
+//       if(!obj[val])
+//       {
+//         obj[val] = (obj[val] || 0) + 1
+//       }
+//       else{
+//         obj[val] ++
+//       }
+//     }
+// console.log(obj);
+
+// return Object.keys(obj).filter((key)=> obj[key] == 1)
+
+let uniqueArr=[]
+
+for(let val of arr1)
+{
+  if(!uniqueArr.includes(val))
+  {
+    uniqueArr.push(val)
+  }
+}
+
+console.log(uniqueArr);
 
 }
 

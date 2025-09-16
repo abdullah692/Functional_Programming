@@ -59,15 +59,28 @@ const deleteArray=(arr,target)=>{
     // arr.pop()
     // return arr
 
-    let index=arr.indexOf(target)
-    //  arr.splice(index,1)
-    //  return arr
-    for(let i=index ;i<arr.length; i++)
+    // let index=arr.indexOf(target)
+    // //  arr.splice(index,1)
+    // //  return arr
+    // for(let i=index ;i<arr.length; i++)
+    // {
+    //     arr[i]=arr[i+1]
+    // }
+    // arr.pop()
+    // return arr 
+
+    let indexTarget=arr.indexOf(target)
+    console.log(indexTarget);
+    for(let i=indexTarget ; i < arr.length ; i++)
     {
         arr[i]=arr[i+1]
     }
     arr.pop()
-    return arr 
+
+    return arr
+    
+
+
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];
