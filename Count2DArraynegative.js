@@ -19,6 +19,20 @@ const countNegative = (arr) => {
     //     }
     // }
 
+    //     let count=0
+    //     for(let i=0; i< arr.length; i++)
+    //     {
+    //         for(let j=0; j< arr.length; j++)
+    //         {
+    //             if(arr[i][j] < 0)
+    //             {
+    //                 count++
+    //             }
+    //         }
+    //     }
+    // return count
+
+    // return arr.flat().filter((val) => val < 0).length
     // return count
 
     // let count=0;
@@ -33,7 +47,7 @@ const countNegative = (arr) => {
     //     }
     // }
     // return count
-    return arr.flat().filter(val => val < 0).length
+    // return arr.flat().filter(val => val < 0).length
     // return arr.flat().filter(val => val < 0).length
 }
 
@@ -66,15 +80,41 @@ const transposeMatrix = (matrix) => {
 
     //     // result.push(row);
     // }
+
     // // return result;
 
-    let result = []
-    for (let i = 0; i < matrix[0].length; i++)
-    {
-        result.push(matrix.map((val)=> val[i]))
-    }
+    // let result = []
+    // for (let i = 0; i < matrix.length; i++) {
+    //     let row = []
 
+    //     for (let j = 0; j < matrix[i].length; j++) {
+    //         console.log(matrix[j][i]);
+    //         row.push(matrix[j][i])
+
+    //     }
+    //     result.push(row)
+
+    // }
+    // return result
+
+    // let result = []
+    // for (let i = 0; i < matrix[0].length; i++)
+    // {
+    //     result.push(matrix.map((val)=> val[i]))
+    // }
+
+    // return result
+
+    let result = []
+
+    for (let i = 0; i < matrix.length; i++) {
+        console.log(matrix.map((val)=> val[i]));
+        result.push(matrix.map((val)=> val[i]))
+        
+    }
     return result
+
+
 };
 
 // Example usage:

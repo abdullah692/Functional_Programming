@@ -13,20 +13,32 @@ const currencyCount = (arr, amnt) => {
     // }
     // return count
 
+    // let count = {}
+    // const revArr = arr.reverse();
+    // for (let i = 0; i < revArr.length; i++) {
+    //     if (amnt > revArr[i]) {
+    //         let val = Math.floor(amnt / revArr[i])
+    //         count[revArr[i]] = val
+    //         amnt %= revArr[i]
+    //     }
+    // }
+    // return countfor*
+
     let count = {}
-    const revArr = arr.reverse();
-    for (let i = 0; i < revArr.length; i++) {
-        if (amnt > revArr[i]) {
-            let val = Math.floor(amnt / revArr[i])
-            count[revArr[i]] = val
-            amnt %= revArr[i]
+    let reverseArr = arr.reverse()
+    for (let i = 0; i < reverseArr.length; i++) {
+        if (amnt >= reverseArr[i]) {
+            let val = Math.floor(amnt / reverseArr[i])
+            count[reverseArr[i]] = val
+            amnt %= reverseArr[i]
         }
     }
     return count
+
 }
 
 // const arr = [1, 2, 5, 10, 20, 50, 100, 500, 1000, 5000]
-// const amount = 5000
+// const amount = 23450
 // const result = currencyCount(arr, amount)
 // console.log(result);
 
@@ -94,35 +106,64 @@ const atmCurrency = (amnt) => {
 
     // return count
 
+    // let count = {}
+    // let count5000 = 0
+    // let count1000 = 0
+    // let count500 = 0
+
+    // if (amnt % 500 != 0) {
+    //     return "Invalid amount input"
+    // }
+
+    // while (amnt > 0) {
+    //     if ((amnt - 5000) > 0) {
+    //         amnt -= 5000
+    //         count5000++
+    //         count[5000] = count5000
+    //     }
+    //     else if ((amnt - 1000) > 0) {
+    //         amnt -= 1000
+    //         count1000++
+    //         count[1000] = count1000
+    //     }
+    //     else if((amnt - 500) >= 0) {
+    //         amnt -= 500
+    //         count500++
+    //         count[500] = count500
+    //     }
+    // }
+
+    // return count
+
     let count = {}
     let count5000 = 0
     let count1000 = 0
     let count500 = 0
 
     if (amnt % 500 != 0) {
-        return "Invalid amount input"
+        return 'Invalid amount entered'
     }
 
     while (amnt > 0) {
         if ((amnt - 5000) > 0) {
-            amnt -= 5000
-            count5000++
+            amnt -= 5000;
+            count5000++;
             count[5000] = count5000
         }
         else if ((amnt - 1000) > 0) {
-            amnt -= 1000
-            count1000++
+            amnt -= 1000;
+            count1000++;
             count[1000] = count1000
         }
-        else if((amnt - 500) >= 0) {
-            amnt -= 500
-            count500++
+        else if ((amnt - 500) >= 0) {
+            amnt -= 500;
+            count500++;
             count[500] = count500
         }
+
     }
 
     return count
-
 }
 
 let amount = 20000
