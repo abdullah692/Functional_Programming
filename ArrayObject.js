@@ -27,23 +27,51 @@ const convertDeliveries = (deliveries) => {
   // }
   // return obj;
 
-  let obj = {}
-  let maxCount = 0;
-  let maxCity = null
-  for (let { city, packages } of deliveries) {
-    if (!obj[city]) {
-      obj[city] = { totalPackages: 0 }
-    }
-    obj[city].totalPackages += packages
-    // console.log(obj);
-    if (maxCount < obj[city].totalPackages) {
-      maxCount = obj[city].totalPackages
-      maxCity = city
-    }
+  // let obj = {}
+  // let maxCount = 0;
+  // let maxCity = null
+  // for (let { city, packages } of deliveries) {
+  //   if (!obj[city]) {
+  //     obj[city] = { totalPackages: 0 }
+  //   }
+  //   obj[city].totalPackages += packages
+  //   // console.log(obj);
+  //   if (maxCount < obj[city].totalPackages) {
+  //     maxCount = obj[city].totalPackages
+  //     maxCity = city
+  //   }
 
-  }
-  return { city: maxCity, ...obj[maxCity] }
+  // }
+  // return { city: maxCity, ...obj[maxCity] }
   // return Object.entries(obj).filter(([key,value])=> Math.max(value))
+
+  //   {
+//     "New York": { totalPackages: 8 },
+//     "Los Angeles": { totalPackages: 12 },
+//     "Chicago": { totalPackages: 7 }
+//   }
+
+
+
+  let count ={}
+  let maxCount=0
+  let maxCity=null
+  for(let {city, packages} of deliveries)
+  {
+    if(!count[city])
+    {
+      count[city]={totalPackages : 0}
+    }
+    count[city].totalPackages+=packages
+    if(count[city].totalPackages > maxCount)
+    {
+      maxCount=count[city].totalPackages
+      maxCity=city
+    }
+  }
+
+  return {...count[maxCity] ,maxCity, maxCount}
+
 }
 
 
