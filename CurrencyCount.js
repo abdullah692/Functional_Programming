@@ -23,25 +23,20 @@ const currencyCount = (arr, amnt) => {
     //     }
     // }
     // return countfor*
-
     let count = {}
-    let reverseArr = arr.reverse()
-    for (let i = 0; i < reverseArr.length; i++) {
-        if (amnt >= reverseArr[i]) {
-            let val = Math.floor(amnt / reverseArr[i])
-            count[reverseArr[i]] = val
-            amnt %= reverseArr[i]
+    let reverseArr = arr.reverse();
+
+    for (let val of reverseArr) {
+        if (amnt >= val) {
+            let countVal = Math.floor(amnt / val)
+            count[val] = countVal
+            amnt %= val
         }
     }
     return count
 
 }
-
-// const arr = [1, 2, 5, 10, 20, 50, 100, 500, 1000, 5000]
-// const amount = 23450
-// const result = currencyCount(arr, amount)
-// console.log(result);
-
+z
 //Net solution
 
 // function countCurrencyNotes(currency, denominations) {
@@ -166,6 +161,6 @@ const atmCurrency = (amnt) => {
     return count
 }
 
-let amount = 20000
-const result = atmCurrency(amount)
-console.log(result);
+// let amount = 20000
+// const result = atmCurrency(amount)
+// console.log(result);
