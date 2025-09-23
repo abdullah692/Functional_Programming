@@ -568,15 +568,13 @@ const peopleGroup = (arr) => {
 
   // return obj
 
-  let obj={}
-  for(let {name, age} of arr)
-  {
-    if(!obj[age])
-      {
-        obj[age]=[]
-      } 
+  let obj = {}
+  for (let { name, age } of arr) {
+    if (!obj[age]) {
+      obj[age] = []
+    }
 
-      obj[age].push({name, age})
+    obj[age].push({ name, age })
   }
 
   return obj
@@ -636,28 +634,29 @@ const employees = [
 
 
 const employeesFetch = (employee) => {
-  // let obj={}
-  // for(let {department,name,age,position,salary} of employee)
-  // {
-  //   if(!obj[department])
-  //   {
-  //       obj[department]={}
-  //   }
-  //   obj[department][name]={age,position,salary}
-
-  // }
-  // console.log(obj);
-
-  let obj = {}
-  for (let { department, name, age, position, salary } of employee) {
-    if (!obj[department]) {
-      obj[department] = {}
+  
+  let obj={}
+  for(let {department, name, age , position, salary} of employee)
+  {
+    if(!obj[department])
+    {
+      obj[department]={}
     }
 
-    obj[department][name] = { age, position, salary }
+    obj[department][name]={age,position,salary}    
   }
-
   return obj
+
+  // let obj = {}
+  // for (let { department, name, age, position, salary } of employee) {
+  //   if (!obj[department]) {
+  //     obj[department] = {}
+  //   }
+
+  //   obj[department][name] = { age, position, salary }
+  // }
+
+  // return obj
 
 }
 
@@ -676,15 +675,26 @@ const data = [
 // { 1: { value: 30 }, 2: { value: 15 } }
 
 const mergeObj = (data) => {
-  let obj = {}
-  for (let { id, value } of data) {
-    if (!obj[id]) {
-      obj[id] = { value: 0 }
+  // let obj = {}
+  // for (let { id, value } of data) {
+  //   if (!obj[id]) {
+  //     obj[id] = { value: 0 }
+  //   }
+  //   obj[id].value += value
+  // }
+  // console.log(obj);
+
+  let obj={}
+  for(let {id, value} of data)
+  {
+    if(!obj[id])
+    {
+      obj[id]={value : 0}
     }
     obj[id].value += value
   }
-  console.log(obj);
 
+  return obj
 }
 
 const resultMerge = mergeObj(data)
@@ -705,19 +715,58 @@ const orders = [
 //Most purchased item: "Phone"
 
 const mostOrder = (orders) => {
-  let obj = {}
+  // let obj = {}
+  // let mostItem = null
+  // let itemCount = 0
+
+  // for (let { item } of orders) {
+  //   obj[item] = (obj[item] || 0) + 1
+  //   if (obj[item] > itemCount) {
+  //     itemCount = obj[item]
+  //     mostItem = item
+  //   }
+  // }
+
+  // return `Most purchased item:${mostItem} and its count is ${itemCount}`
+
+    let obj = {}
   let mostItem = null
   let itemCount = 0
 
-  for (let { item } of orders) {
-    obj[item] = (obj[item] || 0) + 1
-    if (obj[item] > itemCount) {
-      itemCount = obj[item]
-      mostItem = item
-    }
+  for(let {item} of orders)
+  {
+      obj[item] =(obj[item] || 0)+1
+      if(obj[item] > itemCount)
+      {
+        itemCount=obj[item]
+        mostItem=item
+      }
   }
 
-  return `Most purchased item:${mostItem} and its count is ${itemCount}`
+    return `Most purchased item:${mostItem} and its count is ${itemCount}`
+
+  // let obj={}
+  // let maxPurchase=0;
+  // let maxItem=null
+
+  // for(let {customer,item} of orders)
+  // {
+  //     if(!obj[item])
+  //     {
+  //       obj[item]=(obj[item] || 0) +1
+  //     }
+  //     else{
+  //       obj[item]+=1
+  //     }
+  //     if(obj[item] > maxPurchase)
+  //     {
+  //       maxPurchase=obj[item]
+  //       maxItem=item
+  //     }
+
+  // }
+
+  // return `Most purchased item ${maxItem} with the count of ${maxPurchase}`
 }
 
 const resultMost = mostOrder(orders)
