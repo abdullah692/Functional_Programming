@@ -788,7 +788,18 @@ const files = [
   "C:/Users/Mak Tech/OneDrive/Documents/Projects/Functional",
 ];
 
-
+// Functional_Programming
+// : 
+// (2) ['C:/Users/Mak Tech/OneDrive/Documents/Projects', 'C:/Users/Mak Tech/OneDrive/Documents/Projects']
+// fileA.txt
+// : 
+// (3) ['C:/Users/MakTech/Documents', 'D:/Projects', 'D:/Projects']
+// fileB.txt
+// : 
+// (2) ['C:/Users/MakTech/Documents', 'C:/Users/MakTech/Downloads']
+// fileC.txt
+// : 
+// (2) ['A:/Projects', 'E:/Backups']
 
 const systems = (files) => {
   let obj = {}
@@ -809,6 +820,29 @@ const systems = (files) => {
   }
 
   return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value.length > 1))
+
+  // let obj={}
+
+  // for(let val of files)
+  // {
+  //   // let lastFile=val.split("/").pop()
+  //   // console.log(lastFile);
+  //   let lastIndexOf=val.lastIndexOf("/")
+  //   // console.log(lastIndexOf);
+  //   let lastIndexVal=val.slice(lastIndexOf +1)
+  //   // console.log("lastindex",lastIndexVal);
+  //   let restName=val.slice(0,lastIndexOf)
+  //   // console.log("restname",restName);
+  //   if(!obj[lastIndexVal])
+  //   {
+  //     obj[lastIndexVal]=[]
+  //   }
+  //   obj[lastIndexVal].push(restName)
+  // }
+  // // console.log(obj);
+
+  // return Object.fromEntries(Object.entries(obj).filter(([key,value]) => value.length > 1))
+  
 
 }
 
