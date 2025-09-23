@@ -46,31 +46,28 @@ const convertDeliveries = (deliveries) => {
   // return Object.entries(obj).filter(([key,value])=> Math.max(value))
 
   //   {
-//     "New York": { totalPackages: 8 },
-//     "Los Angeles": { totalPackages: 12 },
-//     "Chicago": { totalPackages: 7 }
-//   }
+  //     "New York": { totalPackages: 8 },
+  //     "Los Angeles": { totalPackages: 12 },
+  //     "Chicago": { totalPackages: 7 }
+  //   }
 
 
 
-  let count ={}
-  let maxCount=0
-  let maxCity=null
-  for(let {city, packages} of deliveries)
-  {
-    if(!count[city])
-    {
-      count[city]={totalPackages : 0}
+  let count = {}
+  let maxCount = 0
+  let maxCity = null
+  for (let { city, packages } of deliveries) {
+    if (!count[city]) {
+      count[city] = { totalPackages: 0 }
     }
-    count[city].totalPackages+=packages
-    if(count[city].totalPackages > maxCount)
-    {
-      maxCount=count[city].totalPackages
-      maxCity=city
+    count[city].totalPackages += packages
+    if (count[city].totalPackages > maxCount) {
+      maxCount = count[city].totalPackages
+      maxCity = city
     }
   }
 
-  return {...count[maxCity] ,maxCity, maxCount}
+  return { ...count[maxCity], maxCity, maxCount }
 
 }
 
@@ -93,12 +90,7 @@ const players = [
 
 ];
 
-//   Output
-//   {
-//     "Beginner": ["Charlie"],
-//     "Intermediate": ["Alice", "Bob"],
-//     "Advanced": ["David"]
-//   }
+
 
 const playerFind = (player) => {
   // let obj = {}
@@ -120,32 +112,57 @@ const playerFind = (player) => {
   // }
   // return { categories: obj, highestScorer: highestScore }
 
+  // let obj = {}
+  // let highestScore = 0
+  // let maxLevel = null
+  // for (let { name, score } of player) {
+  //   let levels = score <= 500 ? "Begineer" :
+  //     score <= 1500 ? "Intermediate" : "Advanced"
+
+  //   if (!obj[levels]) {
+  //     obj[levels] = []
+  //   }
+  //   obj[levels].push(name)
+
+  //   // if(score > highestScore)
+  //   // {
+  //   //   highestScore=score
+  //   //   maxLevel=levels
+  //   // }
+  //   if (obj[levels].length > highestScore) {
+  //     highestScore = obj[levels].length
+  //     maxLevel = obj[levels]
+  //   }
+  // }
+
+  // console.log(obj, "players");
+  // return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value == maxLevel))
+
+  //   Output
+  //   {
+  //     "Beginner": ["Charlie"],
+  //     "Intermediate": ["Alice", "Bob"],
+  //     "Advanced": ["David"]
+  //   }
+
   let obj = {}
-  let highestScore = 0
+  let highestScore = 0;
   let maxLevel = null
+
   for (let { name, score } of player) {
-    let levels = score <= 500 ? "Begineer" :
-      score <= 1500 ? "Intermediate" : "Advanced"
-
-    if (!obj[levels]) {
-      obj[levels] = []
+    let level = score <= 500 ? "Beginner" : score <= 1500 ? "Intermediate" : "Advanced"
+    // console.log("levels", level);
+    if (!obj[level]) {
+      obj[level] = []
     }
-    obj[levels].push(name)
-
-    // if(score > highestScore)
-    // {
-    //   highestScore=score
-    //   maxLevel=levels
-    // }
-    if (obj[levels].length > highestScore) {
-      highestScore = obj[levels].length
-      maxLevel = obj[levels]
+    obj[level].push(name)
+    if (score > highestScore) {
+      highestScore = score
     }
+
+
   }
-
-  console.log(obj, "players");
-  return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value == maxLevel))
-
+  return { obj, highestScore }
 
 }
 
@@ -158,7 +175,9 @@ const flights = [
   { flight: "UA202", airline: "United Airlines", time: "11:30 AM" },
   { flight: "AA303", airline: "American Airlines", time: "1:45 PM" },
   { flight: "UA404", airline: "United Airlines", time: "3:20 PM" },
-  { flight: "UA405", airline: "United Airlines", time: "4:20 PM" }
+  { flight: "UA405", airline: "United Airlines", time: "4:20 PM" },
+  { flight: "PIA125", airline: "PIA Airlines", time: "4:20 AM" }
+
 ];
 
 // {
@@ -186,8 +205,29 @@ const flightsRes = (flights) => {
   // }
   // return { flights: obj, highestFlights }
 
+  // let obj = {}
+  // let maxFlight = 0
+  // for (let { flight, airline, time } of flights) {
+  //   if (!obj[airline]) {
+  //     obj[airline] = []
+  //   }
+  //   obj[airline].push(`${flight} (${time})`)
+  //   if (obj[airline].length > maxFlight) {
+  //     maxFlight = airline
+  //   }
+  // }
+  // console.log(obj);
+
+  // return { convertFlights: obj, maxFlight }
+
+  // {
+  //   "American Airlines": ["AA101 (10:00 AM)", "AA303 (1:45 PM)"],
+  //   "United Airlines": ["UA202 (11:30 AM)", "UA404 (3:20 PM)"]
+  // }
+
   let obj = {}
-  let maxFlight = 0
+  let maxFlight = 0;
+
   for (let { flight, airline, time } of flights) {
     if (!obj[airline]) {
       obj[airline] = []
@@ -197,10 +237,7 @@ const flightsRes = (flights) => {
       maxFlight = airline
     }
   }
-  console.log(obj);
-
   return { convertFlights: obj, maxFlight }
-
 
 }
 
@@ -240,27 +277,45 @@ const footPlayer = (players) => {
 
   // return {obj, maxGoals}
 
-  let obj = {}
-  let maxGoals = 0
-  let teamGoals = null
 
+
+  // {
+  //   "PSG": { players: ["Messi", "Neymar"], totalGoals: 45 },
+  //   "Man Utd": { players: ["Ronaldo", "Bruno"], totalGoals: 35 }
+  // }
+
+
+  // let obj = {}
+  // let maxGoals = 0
+  // let teamGoals = null
+
+  // for (let { name, team, goals } of players) {
+  //   if (!obj[team]) {
+  //     obj[team] = { players: [], totalGoals: 0 }
+  //   }
+  //   obj[team].players.push(name)
+  //   obj[team].totalGoals += goals
+
+  //   if (obj[team].totalGoals > maxGoals) {
+  //     maxGoals = obj[team].totalGoals
+  //     teamGoals = team
+  //   }
+
+  // }
+  // console.log(obj);
+
+  // // return { team: WinningTeam, goals: highestGoals, players: obj[WinningTeam].players }
+
+  let obj = {}
   for (let { name, team, goals } of players) {
     if (!obj[team]) {
       obj[team] = { players: [], totalGoals: 0 }
     }
     obj[team].players.push(name)
     obj[team].totalGoals += goals
-
-    if (obj[team].totalGoals > maxGoals) {
-      maxGoals = obj[team].totalGoals
-      teamGoals = team
-    }
-
   }
-  console.log(obj);
 
-  // return { team: WinningTeam, goals: highestGoals, players: obj[WinningTeam].players }
-
+  return obj
 }
 const valFootlball = footPlayer(Footballplayers)
 console.log(valFootlball);
@@ -291,6 +346,20 @@ const Books = (books) => {
   // return Object.fromEntries(Object.entries(obj).sort((a,b)=>a.title-b.title))
 
 
+  // let obj = {}
+  // for (let { title, author } of books) {
+  //   if (!obj[author]) {
+  //     obj[author] = []
+  //   }
+  //   obj[author].push(title)
+  // }
+  // return Object.fromEntries(Object.entries(obj).sort((a, b) => a.title - b.title))
+
+  // {
+  //   "J.R.R. Tolkien": ["The Hobbit", "The Lord of the Rings"],
+  //   "George Orwell": ["1984", "Animal Farm"]
+  // }
+
   let obj = {}
   for (let { title, author } of books) {
     if (!obj[author]) {
@@ -298,8 +367,9 @@ const Books = (books) => {
     }
     obj[author].push(title)
   }
-  return Object.fromEntries(Object.entries(obj).sort((a, b) => a.title - b.title))
+  return obj
 
+  // return Object.fromEntries(Object.entries(obj).sort((a,b)=> a.title - b.title))
 }
 const results = Books(books)
 console.log(results, "books");
@@ -333,6 +403,25 @@ const convertPost = (post) => {
   //   } 
   // return obj
 
+  // {
+  //   "#food": ["Alice", "Charlie"],
+  //   "#travel": ["Alice", "Bob"],
+  //   "#fitness": ["Bob"],
+  //   "#health": ["Charlie"]
+  // }
+
+  // let obj = {}
+  // for (let { user, hashtags } of post) {
+  //   for (let tags of hashtags) {
+  //     if (!obj[tags]) {
+  //       obj[tags] = []
+  //     }
+  //     obj[tags].push(user)
+  //   }
+  // }
+
+  // return obj
+
   let obj = {}
   for (let { user, hashtags } of post) {
     for (let tags of hashtags) {
@@ -342,7 +431,6 @@ const convertPost = (post) => {
       obj[tags].push(user)
     }
   }
-
   return obj
 }
 const reusltPost = convertPost(posts)
@@ -410,12 +498,32 @@ const moviesConvert = (movie) => {
   // }
   // return { obj, genreCount }
 
+  // let obj = {}
+  // let genreCount = {}
+  // for (let { title, genre } of movie) {
+  //   if (!obj[genre]) {
+  //     obj[genre] = []
+  //   }
+  //   obj[genre].push(title)
+  //   genreCount[genre] = (genreCount[genre] || 0) + 1
+  // }
+
+  // return { obj, genreCount }
+
+
+  // {
+  //   "Sci-Fi": ["Inception", "Interstellar"],
+  //   "Romance": ["Titanic", "The Notebook"],
+  //   "Action": ["Avengers"]
+  // }
+
   let obj = {}
   let genreCount = {}
   for (let { title, genre } of movie) {
     if (!obj[genre]) {
       obj[genre] = []
     }
+
     obj[genre].push(title)
     genreCount[genre] = (genreCount[genre] || 0) + 1
   }
@@ -450,12 +558,25 @@ const peopleGroup = (arr) => {
   // }
   // return obj
 
-  let obj = {}
-  for (let { name, age } of arr) {
-    if (!obj[age]) {
-      obj[age] = []
-    }
-    obj[age].push({ name, age })
+  // let obj = {}
+  // for (let { name, age } of arr) {
+  //   if (!obj[age]) {
+  //     obj[age] = []
+  //   }
+  //   obj[age].push({ name, age })
+  // }
+
+  // return obj
+
+  let obj={}
+  for(let {name, age} of arr)
+  {
+    if(!obj[age])
+      {
+        obj[age]=[]
+      } 
+
+      obj[age].push({name, age})
   }
 
   return obj
@@ -837,7 +958,7 @@ const averageReviews = (reviews) => {
   }
   console.log(obj);
 
-  return  Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
+  return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
 }
 
 const resulReviews = averageReviews(reviews)
@@ -856,11 +977,11 @@ const sentences = [
 
 const countSent = (sentences) => {
   let arr = []
-  
+
   for (let val of sentences) {
     let splitVal = val.split(" ")
     let maxCount = 0;
-  let maxWord = null
+    let maxWord = null
     console.log(splitVal);
 
     splitVal.forEach((value) => {
@@ -872,7 +993,8 @@ const countSent = (sentences) => {
     arr.push(maxWord)
 
   }
-  console.log(arr);
+  // console.log(arr);
 
+  return arr
 }
 const resultSentence = countSent(sentences)
