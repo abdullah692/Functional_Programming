@@ -802,25 +802,42 @@ const files = [
 // (2) ['A:/Projects', 'E:/Backups']
 
 const systems = (files) => {
-  let obj = {}
-  let countFile = 0
-  for (let val of files) {
-    let lastIndexVal = val.lastIndexOf("/")
-    let fileName = val.slice(lastIndexVal + 1)
-    let restName = val.slice(0, lastIndexVal)
-    // console.log(restName);
-    if (!obj[fileName]) {
-      obj[fileName] = []
-    }
-    obj[fileName].push(restName)
+  // let obj = {}
+  // let countFile = 0
+  // for (let val of files) {
+  //   let lastIndexVal = val.lastIndexOf("/")
+  //   let fileName = val.slice(lastIndexVal + 1)
+  //   let restName = val.slice(0, lastIndexVal)
+  //   // console.log(restName);
+  //   if (!obj[fileName]) {
+  //     obj[fileName] = []
+  //   }
+  //   obj[fileName].push(restName)
 
-    if (obj[fileName].length > countFile) {
-      countFile = obj[fileName].length
+  //   if (obj[fileName].length > countFile) {
+  //     countFile = obj[fileName].length
+  //   }
+  // }
+
+  // return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value.length > 1))
+
+
+  let obj={}
+  for(let val of files)
+  {
+    let lastIndexOf=val.lastIndexOf("/")
+    let lastIndexVal=val.slice(lastIndexOf + 1)
+    let restWords=val.slice(0,lastIndexOf)
+    console.log("restWords",restWords);
+    if(!obj[lastIndexVal])
+    {
+      obj[lastIndexVal]=[]
     }
+    obj[lastIndexVal].push(restWords)
   }
-
-  return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value.length > 1))
-
+  // console.log(obj);
+  
+  return Object.fromEntries(Object.entries(obj).filter(([key,values]) => values.length > 1))
   // let obj={}  
 
   // for(let val of files)
