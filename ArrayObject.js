@@ -1045,21 +1045,39 @@ const reviews = [
 // }
 
 const averageReviews = (reviews) => {
-  let obj = {}
-  // let count=0
-  for (let val of reviews) {
-    if (!obj[val.product]) {
-      obj[val.product] = obj[val.product] || { sum: 0, count: 0 }
+  // let obj = {}
+  // // let count=0
+  // for (let val of reviews) {
+  //   if (!obj[val.product]) {
+  //     obj[val.product] = obj[val.product] || { sum: 0, count: 0 }
+  //   }
+
+  //   obj[val.product].sum += val.rating
+  //   obj[val.product].count += 1
+
+  // }
+  // console.log(obj);
+
+  // return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
+
+  let obj={}
+  // let count=0;
+  for(let val of reviews)
+  {
+    if(!obj[val.product])
+    {
+      obj[val.product] = {sum:0 , count :0}
     }
-
-    obj[val.product].sum += val.rating
-    obj[val.product].count += 1
-
+    obj[val.product].sum+=val.rating
+    obj[val.product].count+=1 
   }
-  console.log(obj);
+    // return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
 
-  return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
+  
+    
+  
 }
+
 
 const resulReviews = averageReviews(reviews)
 console.log(resulReviews, "reviews");
