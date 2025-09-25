@@ -18,9 +18,9 @@ const ArrLength=(arr,i=0)=>{
      {
           count++;
           i++
-     }
+     } 
 
-     return count
+     return count  
 }
 
 const reverseArr=(arr)=>{

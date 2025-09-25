@@ -6,7 +6,7 @@
 // }
 
 // let person2={
-//     name:"Abdullah"
+//     name:"Abdullah" 
 // }
 
 

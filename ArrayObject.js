@@ -835,10 +835,10 @@ const systems = (files) => {
     }
     obj[lastIndexVal].push(restWords)
   }
-  // console.log(obj);
+  console.log(obj);
   
   return Object.fromEntries(Object.entries(obj).filter(([key,values]) => values.length > 1))
-  // let obj={}  
+  // let obj={}     
   
   // for(let val of files)
   // {
