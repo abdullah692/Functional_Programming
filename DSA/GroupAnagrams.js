@@ -39,17 +39,19 @@ const groupAnagram = (arr) => {
     // return Object.values(obj)
 
     let obj={}
-    for(let val of arr)
+
+    for(let char of arr)
     {
-        let sortVal=val.split('').sort().join('');
-        console.log(sortVal);
+        let sortVal=char.split('').sort().join('')
         if(!obj[sortVal])
         {
             obj[sortVal]=[]
         }
-        obj[sortVal].push(val)
+        obj[sortVal].push(char)
     }
-    console.log(obj);
+
+    return obj
+
     
 }
 

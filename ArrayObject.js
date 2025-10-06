@@ -822,22 +822,40 @@ const systems = (files) => {
   // return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value.length > 1))
 
 
+  // let obj={}
+  // for(let val of files)
+  // {
+  //   let lastIndexOf=val.lastIndexOf("/")
+  //   let lastIndexVal=val.slice(lastIndexOf + 1)
+  //   let restWords=val.slice(0,lastIndexOf)
+  //   console.log("restWords",restWords);
+  //   if(!obj[lastIndexVal])
+  //   {
+  //     obj[lastIndexVal]=[]
+  //   }
+  //   obj[lastIndexVal].push(restWords)
+  // }
+  // console.log(obj);
+  
+  // return Object.fromEntries(Object.entries(obj).filter(([key,values]) => values.length > 1))
+
   let obj={}
+
   for(let val of files)
   {
-    let lastIndexOf=val.lastIndexOf("/")
-    let lastIndexVal=val.slice(lastIndexOf + 1)
-    let restWords=val.slice(0,lastIndexOf)
-    console.log("restWords",restWords);
-    if(!obj[lastIndexVal])
-    {
-      obj[lastIndexVal]=[]
+      let splitIndex=val.lastIndexOf("/")
+      let splitVal=val.slice(splitIndex +1 )
+      let restVal=val.slice(0,splitIndex)
+      if(!obj[splitVal])
+      {
+        obj[splitVal]=[]
+      }
+      obj[splitVal].push(restVal)
+      
     }
-    obj[lastIndexVal].push(restWords)
-  }
-  console.log(obj);
-  
-  return Object.fromEntries(Object.entries(obj).filter(([key,values]) => values.length > 1))
+
+    return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
+
   // let obj={}     
   
   // for(let val of files)
