@@ -23,18 +23,32 @@ const currencyCount = (arr, amnt) => {
     //     }
     // }
     // return countfor*
-    let count = {}
-    let reverseArr = arr.reverse();
+    // let count = {}
+    // let reverseArr = arr.reverse();
 
-    for (let val of reverseArr) {
-        if (amnt >= val) {
-            let countVal = Math.floor(amnt / val)
-            count[val] = countVal
-            amnt %= val
+    // for (let val of reverseArr) {
+    //     if (amnt >= val) {
+    //         let countVal = Math.floor(amnt / val)
+    //         count[val] = countVal
+    //         amnt %= val
+    //     }
+    // }
+    // return count
+
+    let count ={}
+    let reverseArr=arr.reverse()
+
+    for(let val of arr)
+    {
+        if(amnt > val)
+        {
+            let countVal= Math.floor((amnt/val))
+            count[val]=countVal
+            amnt%=val
         }
     }
-    return count
 
+    return count
 }
 
 //Net solution

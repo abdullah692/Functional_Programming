@@ -29,25 +29,62 @@ const matrix = (arr) => {
   // }
 
   // return [leftDiagonal,rightDiagonal]
-let leftDiagonal=0
-let rightDiagonal=0
-let numCols=arr[0].length || 0
-for(let i=0 ;i<arr.length; i++)
-{
-  for(let j=0 ;j< arr.length; j++)
-  {
-      if(i == j)
-      {
-        leftDiagonal+=arr[i][j]
-      }
-      if(i+j == numCols-1)
-      {
-        rightDiagonal+=arr[i][j]
-      }
-  }
-}
+  // let leftDiagonal=0
+  // let rightDiagonal=0
+  // let numCols=arr[0].length || 0
+  // for(let i=0 ;i<arr.length; i++)
+  // {
+  //   for(let j=0 ;j< arr.length; j++)
+  //   {
+  //       if(i == j)
+  //       {
+  //         leftDiagonal+=arr[i][j]
+  //       }
+  //       if(i+j == numCols-1)
+  //       {
+  //         rightDiagonal+=arr[i][j]
+  //       }
+  //   }
+  // }
 
-return {leftDiagonal , rightDiagonal}
+  // return {leftDiagonal , rightDiagonal}
+
+  // let leftDiagonal = 0;
+  // let rightDiagonal = 0;
+  // let numCols = arr[0].length || 0
+  // console.log(numCols, "numCols");
+
+
+  // for (let i = 0; i < arr.length; i++)
+  //   for (let j = 0; j < arr[i].length; j++) {
+  //     if (i == j) {
+  //       leftDiagonal += arr[i][j]
+  //     }
+  //     if (i + j == numCols - 1) {
+  //       rightDiagonal += arr[i][j]
+  //     }
+  //   }
+
+  // console.log(leftDiagonal, "leftDiagonal");
+  // console.log(rightDiagonal, "rightDiagonal");
+
+
+  let leftDiagonal=0;
+  let rightDiagonal=0;
+
+  for(let i=0 ; i< arr.length; i++)
+  {
+    // debugger
+    console.log(arr[i]);
+    leftDiagonal+=arr[i][i]
+    rightDiagonal+=arr[i][arr.length - 1 -i]
+    
+  }
+  console.log(leftDiagonal,"leftDiagonal");
+  console.log(rightDiagonal,"rightDiagonal");
+
+  
+
 }
 
 

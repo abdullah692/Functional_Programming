@@ -29,20 +29,35 @@ const countUnsortedAlphabets=(val)=>{
     // }
 
     // return {count,alphabets}
-    let count =0;
+    // let count =0;
+    // let alphabets=[]
+    // let sortWords=val.split('').sort().join('')
+    // for(let i=0; i< val.length; i++)
+    // {
+    //     if(val[i] != sortWords[i])
+    //     {
+    //         count++
+    //         alphabets.push(val[i])
+    //     }
+    // }
+    
+    // return {count,alphabets}
+
+    let count=0;
     let alphabets=[]
-    let sortWords=val.split('').sort().join('')
+    let sortVal=val.split('').sort().join('')
+    console.log(sortVal);
+    
     for(let i=0; i< val.length; i++)
     {
-        if(val[i] != sortWords[i])
+        if(sortVal[i] != val[i])
         {
             count++
             alphabets.push(val[i])
         }
     }
-    
-    return {count,alphabets}
 
+    return {count,alphabets}
 }
 
 
