@@ -21,26 +21,50 @@ const isBalanced = (str) => {
     // }
     // return true
 
-    let arr = []
-    let obj = {
-        ")": "(",
-        "}": "{",
-        ']': '['
+    // let arr = []
+    // let obj = {
+    //     ")": "(",
+    //     "}": "{",
+    //     ']': '['
+    // }
+
+    // for (let char of str) {
+    //     if (char == "(" || char == "{" || char == "[") {
+    //         arr.push(char)
+    //     } else if (char == ")" || char == "}" || char == "]") {
+    //         if (obj[char] != char) {
+    //             return false
+    //         }
+    //     }
+    // }
+    // return true
+
+    let stack = []
+    let map = {
+        "(": ")",
+        "{": "}",
+        "[": "]",
     }
 
     for (let char of str) {
         if (char == "(" || char == "{" || char == "[") {
-            arr.push(char)
-        } else if (char == ")" || char == "}" || char == "]") {
-            if (obj[char] != char) {
+            stack.push(char)
+            console.log(stack);
+            
+        }
+        else if (char != map[char]) {
+            if(char != map[stack.pop()])
+            {
                 return false
             }
         }
     }
-    return true
+            console.log(stack,"stack");
+
+    return stack.length == 0
 }
 
-
+//"({[")); // false
 
 function isBalanceds(str) {
     //     const stack = [];
@@ -69,39 +93,38 @@ function isBalanceds(str) {
     //     }
     // return true
 
-    let stack = []
-    let mapped={
-        '(':')',
-        '{':'}',
-        '[':']',
-    }
-    for (let val of str) {
-        if (val == '(' || val == '{' || val == '[') {
-            stack.push(val)
-            console.log(stack);
-            // debugger
-            
-        }
-        else if (val != mapped[val]) {
-            if(mapped[stack.pop()] != val)
-            {
-                return false
-            }
-        }
+    // let stack = []
+    // let mapped = {
+    //     '(': ')',
+    //     '{': '}',
+    //     '[': ']',
+    // }
+    // for (let val of str) {
+    //     if (val == '(' || val == '{' || val == '[') {
+    //         stack.push(val)
+    //         console.log(stack);
+    //         // debugger
 
-    }
+    //     }
+    //     else if (val != mapped[val]) {
+    //         if (mapped[stack.pop()] != val) {
+    //             return false
+    //         }
+    //     }
 
-    return stack.length == 0
+    // }
+
+    // return stack.length == 0
 }
 
 
 
 // Example usage
-console.log(isBalanceds("(){}[]")); // true
-console.log(isBalanceds("({[)]}")); // false
-console.log(isBalanceds("({[]})")); // true
-console.log(isBalanceds("({[")); // false
-console.log(isBalanceds("")); // true
+console.log(isBalanced("(){}[]")); // true
+console.log(isBalanced("({[)]}")); // false
+console.log(isBalanced("({[]})")); // true
+console.log(isBalanced("({[")); // false
+console.log(isBalanced("")); // true
 
 
 
