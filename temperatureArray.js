@@ -25,7 +25,7 @@ const temperatureCheck = (arr) => {
     // console.log(temp);
 
     let temp = []
-
+  
     for (let i = 0; i < arr.length; i++) {
         let count = 0
         let found=false;
