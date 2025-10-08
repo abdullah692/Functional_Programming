@@ -9,7 +9,7 @@ const countVowels=(str)=>{
             count++;
 
         }
-        
+         
     }
 
     return count
