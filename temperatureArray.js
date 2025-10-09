@@ -24,19 +24,44 @@ const temperatureCheck = (arr) => {
 
     // console.log(temp);
 
-    let temp = []
+    // let temp = []
   
-    for (let i = 0; i < arr.length; i++) {
-        let count = 0
-        let found=false;
+    // for (let i = 0; i < arr.length; i++) {
+    //     let count = 0
+    //     let found=false;
 
-        for (let j =i+1; j < arr.length; j++) {
-            // debugger
+    //     for (let j =i+1; j < arr.length; j++) {
+    //         // debugger
+    //         count++
+    //         if (arr[i] < arr[j]) {
+    //             temp.push(count)
+    //             found=true;
+    //             break;
+    //         }
+    //     }
+
+    //     if(!found)
+    //     {
+    //         temp.push(0)
+    //     }
+    // }
+    // return temp
+
+
+    let temp=[]
+
+    for(let i=0; i< arr.length; i++)
+    {
+        let count=0;
+        let found=false
+        for(let j=i+1; j< arr.length; j++)
+        {
             count++
-            if (arr[i] < arr[j]) {
+            if(arr[i] < arr[j])
+            {
                 temp.push(count)
-                found=true;
-                break;
+                found=true
+                break
             }
         }
 
@@ -47,7 +72,6 @@ const temperatureCheck = (arr) => {
     }
 
     return temp
-
 
 }
 

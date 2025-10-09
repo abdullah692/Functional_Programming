@@ -144,41 +144,45 @@ const atmCurrency = (amnt) => {
 
     // return count
 
-    let count ={}
-    let count5000=0;
+    let count={}
+    let count5000=0
     let count1000=0
     let count500=0
 
-    if(amnt % 500 != 0)
-    {
-        return "Invalid amount entered"
-    }
-    while(amnt != 0)
-    {
-        if((amnt - 5000) > 0)
-        {
-            amnt-=5000
-            count5000++;
-            count[5000]=count5000
-        }
-        else if((amnt - 1000) > 0)
-        {
-            amnt-=1000
-            count1000++;
-            count[1000]=count1000
-        }
-        else if((amnt - 500) >= 0)
-        {
-            amnt-=500
-            count500++;
-            count[500]=count500
-        }
-    }
 
+    while(amnt > 0)
+    {
+        if(amnt % 500  != 0)
+        {
+            return `Invalid amount entered`
+        }
+        else{
+            if((amnt - 5000) > 0)
+            {
+                count5000++;
+                amnt-=5000;
+                count[5000]=count5000
+            }
+            else if((amnt - 1000) > 0)
+            {
+                count1000++;
+                amnt-=1000;
+                count[1000]=count1000
+            }
+            else if((amnt - 500) >= 0)
+            {
+                count500++;
+                amnt-=500;
+                count[500]=count500
+            }
+            
+        }
+
+    }
     return count
 
 }
 
-let amount = 25000
+let amount = 1800
 const result = atmCurrency(amount)
 console.log(result);

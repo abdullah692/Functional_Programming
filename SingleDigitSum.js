@@ -31,20 +31,36 @@ const singleDigitSum = (digits) => {
           
      //      return singleDigitSum(sum)
      // }
+     // if(digits > -10 && digits < 10)
+     // {
+     //      return digits
+     // }
+
+     // let sum=0;
+     // let splitNum=digits.toString().split('')
+     // for(let val of splitNum)
+     // {
+     //      sum+=Number(val)
+     // }
+     // return singleDigitSum(sum)
+
      if(digits > -10 && digits < 10)
      {
           return digits
      }
+     else{
+          let sum=0;
+          let splitNum=digits.toString().split('')
+          for(let val of splitNum)
+          {
+               sum+=Number(val)
+          }
 
-     let sum=0;
-     let splitNum=digits.toString().split('')
-     for(let val of splitNum)
-     {
-          sum+=Number(val)
+          return singleDigitSum(sum)
      }
-     return singleDigitSum(sum)
+
      
 
 }
-const result = singleDigitSum(43521)
+const result = singleDigitSum(43561)
 console.log(result);
