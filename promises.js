@@ -11,18 +11,108 @@
 // }
 // sum(10,8,callback)
 
-const sum=(a,b,callback)=>{
-    setTimeout(()=>{
-        callback(a,b) 
-    },2000)
+const sum = (a, b, callback) => {
+    setTimeout(() => {
+        const result = a + b;
+        callback(result); // Pass the result to the callback
+    }, 2000);
+};
+
+// Callback that handles the result and uses it elsewhere
+const handleResult = (result) => {
+    console.log(`The sum is ${result}`); // Use the result here
+
+    anotherFunction(result);
+    // return result
+    // Pass it to another function, for example:
+};
+
+// Another function that uses the result
+const anotherFunction = (value) => {
+    console.log(`Using the result in another function: ${value * 2}`);
+};
+
+// // Call the sum function
+// sum(10, 5, handleResult).then((res)=>{
+//     console.log("The result is",res);
+    
+// });
+
+
+const Sum1 = (x, y) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let sum = x + y;
+            resolve(sum);
+        }, 4000);
+        console.log("It is an asynchronous task");
+    });
+};
+
+const Addition1 = async (a, b) => {
+    const result = await Sum1(a, b);
+    return `The sum of async/await is ${result}`;
+};
+
+const displayResult=Addition1(10, 30);
+console.log("displayResult",displayResult);
+
+
+// // Use an async function to log the result after the promise is resolved
+// const displayResult = async () => {
+//     const value = await Addition1(10, 30);
+//     console.log(value); // This will log the resolved value after 4 seconds
+// };
+
+// displayResult();
+
+
+
+
+//Even Odd
+const checkEven=(num)=>{
+    return new Promise((resolve,reject)=>{
+        if(num%2 ==0)
+        {
+             resolve(num)
+        }
+        else{
+            reject(num);
+            
+        }
+    })
 }
 
-const addition=(x,y)=>{
-    let result=x+y
-    console.log(`The sum is ${result}`);
-     
+const EvenPromise=(num)=>{
+    return checkEven(num).then((res)=>{
+        // console.log("It is even:",res);
+        return `It is even:${res}`
+
+        
+    }).catch((err)=>{
+        console.log("It is odd",err);
+        
+    })
 }
-sum(10,9,addition)
+
+const val=EvenPromise(46)
+val.then((res)=>console.log(res))
+
+
+
+
+// const sum=(a,b,callback)=>{
+//     setTimeout(()=>{
+//         callback(a,b) 
+//     },2000)
+// }
+
+// const addition=(x,y)=>{
+//     let result=x+y
+//     console.log(`The sum is ${result}`);
+     
+// }
+// sum(10,9,addition)
 // console.log(val);
 
 
@@ -161,34 +251,6 @@ Multiplication(10,15)
 
 
 
-//Even Odd
-const checkEven=(num)=>{
-    return new Promise((resolve,reject)=>{
-        if(num%2 ==0)
-        {
-            return resolve(num)
-        }
-        else{
-           return reject(num);
-            
-        }
-    })
-}
-
-const EvenPromise=(num)=>{
-    return checkEven(num).then((res)=>{
-        // console.log("It is even:",res);
-        return `It is even:${res}`
-
-        
-    }).catch((err)=>{
-        console.log("It is odd",err);
-        
-    })
-}
-
-const val=EvenPromise(46)
-val.then((res)=>console.log(res))
 
 
 // const sum=(a,b)=>{

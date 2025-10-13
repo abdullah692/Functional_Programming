@@ -7,6 +7,9 @@ const arr =
 
 //Basic method
 const countNegative = (arr) => {
+
+    let count =0;
+    
     // let count=0;
     // for(let i=0 ;i< arr.length; i++)
     // {
