@@ -16,21 +16,36 @@ const LongestString = (val) => {
     // }
     // return valueChar
 
+    let maxChar=0
+    let maxWord=null;
 
-    let maxChar=0;
-    let maxWord=null
-    let sortWords=val.split(' ')
+    let splitStr=val.split(' ');
 
-    for(let char of sortWords)
+    for(let word of splitStr)
     {
-        if(char.length >= maxChar)
+        if(word.length > maxChar)
         {
-            maxChar=char.length;
-            maxWord=char
+            maxChar=word.length;
+            maxWord=word
         }
     }
 
-    return [maxChar, maxWord]
+    return [maxChar,maxWord]
+
+    // let maxChar=0;
+    // let maxWord=null
+    // let sortWords=val.split(' ')
+
+    // for(let char of sortWords)
+    // {
+    //     if(char.length >= maxChar)
+    //     {
+    //         maxChar=char.length;
+    //         maxWord=char
+    //     }
+    // }
+
+    // return [maxChar, maxWord]
 };
 
 const result = LongestString(string);
