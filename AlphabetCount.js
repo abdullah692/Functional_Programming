@@ -66,7 +66,7 @@ const countUnsortedAlphabets=(val)=>{
     for(let i=0; i< val.length; i++)
     {
         if(val[i] != sortVal[i])
-        {
+        { 
             count++;
             alphbets.push(val[i])
         }
