@@ -52,6 +52,23 @@
 
 
 
+const removeDuplicates=(arr)=>{
+  let  obj={}
+  
+  for(let val of arr)
+  {
+    if(!obj[val])
+    {
+      obj[val] = (obj[val] || 0)+1
+    }else{
+      obj[val]++
+    }
+  }
+
+  return Object.keys(obj).filter(keys => obj[keys] ==1)
+
+}
+
 
 const findUniques=(arr1)=>{
     // let obj={}
@@ -88,17 +105,29 @@ const findUniques=(arr1)=>{
 
 // return Object.keys(obj).filter((key)=> obj[key] == 1)
 
-let uniqueArr=[]
+// let uniqueArr=[]
 
-for(let val of arr1)
-{
-  if(!uniqueArr.includes(val))
+// for(let val of arr1)
+// {
+//   if(!uniqueArr.includes(val))
+//   {
+//     uniqueArr.push(val)
+//   }
+// }
+
+// console.log(uniqueArr);
+
+  let uniqueNum=[]
+  
+  for(let val of arr1)
   {
-    uniqueArr.push(val)
+      if(!uniqueNum.includes(val))
+      {
+        uniqueNum.push(val)
+      }
   }
-}
 
-console.log(uniqueArr);
+  return uniqueNum
 
 }
 
@@ -116,6 +145,6 @@ console.log(uniqueArr);
 // }
 let arr1 = [2, 4, 1, 1, 2, 3, 4, 3, 6, 8, 5, 5, 9];
 
-const result = findUniques(arr1);
+const result = removeDuplicates(arr1);
 console.log(result);
 

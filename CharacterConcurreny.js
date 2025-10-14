@@ -27,17 +27,26 @@ const CharacterFreq = (string) => {
   //     }
   // }
 
+  // let obj={}
+  // for(let char of string)
+  // {
+  //   if(!obj[char])
+  //   {
+  //     obj[char]=(obj[char] || 0) +1
+  //   }
+  //   else{
+  //     obj[char]++
+  //   }
+  // }
+  // return obj
+
   let obj={}
-  for(let char of string)
+
+  for(let val of string)
   {
-    if(!obj[char])
-    {
-      obj[char]=(obj[char] || 0) +1
-    }
-    else{
-      obj[char]++
-    }
+      obj[val]=(obj[val] || 0)+1
   }
+
   return obj
 }
 

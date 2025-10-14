@@ -16,16 +16,20 @@
 //Merge Array
 
 const mergeArray = (arr, arr1, arr2) => {
-  for (let i = 0; i < arr.length; i++) {
-    arr2[i] = arr[i];
-  }
+  // for (let i = 0; i < arr.length; i++) {
+  //   arr2[i] = arr[i];
+  // }
+  // console.log(arr2);
+  // console.log(arr.length);
+  // for (let i = 0; i < arr1.length; i++) {
+  //   console.log(i);
+  //   arr2[arr.length + i] = arr1[i];
+  // }
+  // console.log(arr2);
+
+  arr2=[...arr, ...arr1]
   console.log(arr2);
-  console.log(arr.length);
-  for (let i = 0; i < arr1.length; i++) {
-    console.log(i);
-    arr2[arr.length + i] = arr1[i];
-  }
-  console.log(arr2);
+  
 };
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];

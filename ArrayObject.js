@@ -839,22 +839,42 @@ const systems = (files) => {
   
   // return Object.fromEntries(Object.entries(obj).filter(([key,values]) => values.length > 1))
 
+  // let obj={}
+
+  // for(let val of files)
+  // {
+  //     let splitIndex=val.lastIndexOf("/")
+  //     let splitVal=val.slice(splitIndex +1 )
+  //     let restVal=val.slice(0,splitIndex)
+  //     if(!obj[splitVal])
+  //     {
+  //       obj[splitVal]=[]
+  //     }
+  //     obj[splitVal].push(restVal)
+      
+  //   }
+
+  //   return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
+
   let obj={}
 
   for(let val of files)
   {
-      let splitIndex=val.lastIndexOf("/")
-      let splitVal=val.slice(splitIndex +1 )
-      let restVal=val.slice(0,splitIndex)
-      if(!obj[splitVal])
+      let splitIndex= val.lastIndexOf("/");
+      let lastFileName= val.slice(splitIndex + 1)
+      let restElements= val.slice(0,splitIndex)
+      console.log(restElements);
+      if(!obj[lastFileName])
       {
-        obj[splitVal]=[]
+        obj[lastFileName]=[]
       }
-      obj[splitVal].push(restVal)
-      
-    }
 
-    return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
+      obj[lastFileName].push(restElements)
+      
+  }
+
+  // return obj
+  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
 
   // let obj={}     
   

@@ -48,22 +48,46 @@ const BinarySearch=(arr,target)=>{
     // }
     // return -1
 
-    let leftindex=0
-    let rightIndex=arr.length -1
+    // let leftindex=0
+    // let rightIndex=arr.length -1
+
+    // while(leftindex <= rightIndex)
+    // {
+    //   let midIndex=Math.floor((leftindex + rightIndex)/2)
+    //   if(arr[midIndex] == target)
+    //   {
+    //     return `The value ${target} is on index ${midIndex}`
+    //   }
+    //   else if(target > arr[midIndex])
+    //   {
+    //     leftindex=midIndex +1
+    //   }
+    //   else{
+    //     rightIndex=midIndex -1
+    //   }
+    // }
+
+    // return -1
+
+    let leftindex=0;
+    let rightIndex=arr.length -1; 
 
     while(leftindex <= rightIndex)
     {
-      let midIndex=Math.floor((leftindex + rightIndex)/2)
-      if(arr[midIndex] == target)
+      let middleIndex= Math.floor((leftindex+rightIndex)/2)
+      console.log(middleIndex,"middleIndex");
+      
+      if(arr[middleIndex] == target)
       {
-        return `The value ${target} is on index ${midIndex}`
+        return `The value ${target} is on index ${middleIndex}`
       }
-      else if(target > arr[midIndex])
+      else if(arr[middleIndex] > target)
       {
-        leftindex=midIndex +1
+        rightIndex=middleIndex-1
       }
       else{
-        rightIndex=midIndex -1
+        leftindex=middleIndex-1
+
       }
     }
 

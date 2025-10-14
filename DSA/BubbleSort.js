@@ -12,6 +12,17 @@ const sortArr = (arr) => {
     // }
 
     // return arr
+    // for (let i = 0; i < arr.length; i++) {
+    //     for (let j = i + 1; j < arr.length; j++) {
+    //         if (arr[i] > arr[j]) {
+    //             let next = arr[i]
+    //             arr[i] = arr[j]
+    //             arr[j] = next
+    //         }
+    //     }
+    // }
+    // return arr
+
     for (let i = 0; i < arr.length; i++) {
         for (let j = i + 1; j < arr.length; j++) {
             if (arr[i] > arr[j]) {
@@ -21,6 +32,7 @@ const sortArr = (arr) => {
             }
         }
     }
+
     return arr
 }
 const BubbleSort = (arr) => {
@@ -57,27 +69,52 @@ const BubbleSort = (arr) => {
     // return arr
 
 
-// const arr = [5, 3, -6, 12, 15, 9, 43, 25]
+    // const arr = [5, 3, -6, 12, 15, 9, 43, 25]
+
+    // let swap;
+    // do{
+    //     swap=false;
+    //     for(let i=0 ; i< arr.length; i++)
+    //     {
+    //         if(arr[i] > arr[i+1])
+    //         {
+    //             let next=arr[i]
+    //             arr[i]=arr[i+1]
+    //             arr[i+1]=next
+    //             swap=true
+    //         }
+    //     }
+    // }
+    // while (swap)
+    //     return arr
+
+    // const arr = [5, 3, -6, 12, 15, 9, 43, 25]
+
 
     let swap;
-    do{
-        swap=false;
-        for(let i=0 ; i< arr.length; i++)
+    do {
+
+        swap= false
+        for(let i=0; i< arr.length; i++)
         {
+            // debugger
             if(arr[i] > arr[i+1])
             {
                 let next=arr[i]
-                arr[i]=arr[i+1]
+                arr[i]= arr[i+1]
                 arr[i+1]=next
                 swap=true
             }
         }
+            
     }
     while (swap)
+
         return arr
+
 
 
 }
 
-const result = sortArr(arr)
+const result = BubbleSort(arr)
 console.log(result);

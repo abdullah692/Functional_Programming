@@ -40,36 +40,57 @@ const insertArray = (arr) => {
   // arr[index] = val
   // console.log(arr);
 
-  let val = 100
-  let index = 5
+  //   let val = 100
+  //   let index = 5
 
-debugger
-  for(let i=arr.length-1 ; i >= index ;i--)
-  {
-      arr[i+1]=arr[i] 
-      if(i == index)
-      {
-        arr[i]=val
-      }
-  }
+  // debugger
+  //   for(let i=arr.length-1 ; i >= index ;i--)
+  //   {
+  //       arr[i+1]=arr[i] 
+  //       if(i == index)
+  //       {
+  //         arr[i]=val
+  //       }
+  //   }
+
+  //   return arr
+
+  // let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];
+
+
+  let val = 101;
+  let index = 4;
+
+  // for(let i=arr.length -1 ; i >= index; i--)
+  // {
+  //   arr[i+1]=arr[i]
+  //   if(i == index)
+  //   {
+  //     arr[i]=val
+  //   }
+
+  // }
+
+  arr.splice(index,0,val)
 
   return arr
+
   // for (let i = arr.length; i > index; i--) {
   //   arr[i] = arr[i - 1]
   // }
   // arr[index] = val
   // console.log(arr);
 
-    // for(let i=arr.length; i>index; i--)
-    // {
-    //     arr[i]=arr[i-1]
-    // }
-    // arr[index]=val
+  // for(let i=arr.length; i>index; i--)
+  // {
+  //     arr[i]=arr[i-1]
+  // }
+  // arr[index]=val
 
-    // console.log(arr);
+  // console.log(arr);
 
 
-    
+
   //   let value=arr.splice(index,0,100)
   //  console.log(arr) 
 
@@ -78,6 +99,15 @@ debugger
 }
 
 let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];
-const result=insertArray(arr);
+const result = insertArray(arr);
 console.log(result);
+
+
+let fruits = ["Apple", "Banana", "Cherry", "Date"];
+let arr1 = [2, 5, 78, 3, 20, 45, 67, 54, 32];
+arr1.splice(6,1)
+fruits.splice(1,2)
+
+console.log(fruits);
+console.log(arr1);
 
