@@ -30,26 +30,62 @@
 
 
 let names={
-    first:"Abdullah",
+    firstName:"Abdullah",
     lastName:"Siddiqui"
 }
 
-let myName=function(val,country){
-    console.log(this.first +" "+ this.lastName +"and belongs from" ,val + "country",country);   
+function greet1(city,country)
+{
+     console.log(`Hello, I am ${this.firstName} ${this.lastName} from ${city}, ${country}`)
 }
 
+greet1.apply(names,['Karachi','Pakistan'])
 
-Function.prototype.myBind=function(...args){
-    let obj=this
-    params=args.slice(1)
-    console.log('args',args);
-    
-    return function(...args1){
-        console.log(...args1);
-        
-        obj.apply(args[0],[...params,...args1])
+
+let person1={
+    name:"Ali",
+    greet:function(message,greeting){
+        console.log(`${message} , I am ${this.name} , ${greeting}`);
     }
 }
 
-let printName2=myName.myBind(names,"Karachi")
-printName2('Pakistan')
+let person2={
+    name:"Abdullah" 
+}
+
+
+let person3={
+    name:"Rahul"
+}
+
+person1.greet.call(person2,"Hello","Hi")
+person1.greet.apply(person3,["Namaste","Hello","Hi"])
+const result=person1.greet.bind(person2,"Hello","Bind")
+result()
+
+
+// let names={
+//     first:"Abdullah",
+//     lastName:"Siddiqui"
+// }
+
+// let myName=function(val,country){
+//     console.log(this.first +" "+ this.lastName +"and belongs from" ,val + "country",country);   
+// }
+
+
+
+// // Function.prototype.myBind=function(...args){
+// //     let obj=this
+// //     params=args.slice(1)
+// //     console.log('args',args);
+    
+// //     return function(...args1){
+// //         console.log(...args1);
+        
+// //         obj.apply(args[0],[...params,...args1])
+// //     }
+// // }
+
+// // let printName2=myName.myBind(names,"Karachi")
+// // printName2('Pakistan')
