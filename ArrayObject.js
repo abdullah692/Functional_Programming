@@ -14,6 +14,22 @@ const deliveries = [
 
 
 const convertDeliveries = (deliveries) => {
+
+  let obj = {}
+  let maxVal = 0;
+  let maxCity = null
+  for (let { city, packages } of deliveries) {
+    if (!obj[city]) {
+      obj[city] = { totalPackages: 0 }
+    }
+    obj[city].totalPackages += packages
+    if (maxVal < obj[city].totalPackages) {
+      maxVal = obj[city].totalPackages
+      maxCity = city
+    }
+  }
+
+  return { maxCity, maxVal, obj }
   // let obj = {};
   // let maxVal = 0;
   // let maxcity = null;
@@ -53,21 +69,21 @@ const convertDeliveries = (deliveries) => {
 
 
 
-  let count = {}
-  let maxCount = 0
-  let maxCity = null
-  for (let { city, packages } of deliveries) {
-    if (!count[city]) {
-      count[city] = { totalPackages: 0 }
-    }
-    count[city].totalPackages += packages
-    if (count[city].totalPackages > maxCount) {
-      maxCount = count[city].totalPackages
-      maxCity = city
-    }
-  }
+  // let count = {}
+  // let maxCount = 0
+  // let maxCity = null
+  // for (let { city, packages } of deliveries) {
+  //   if (!count[city]) {
+  //     count[city] = { totalPackages: 0 }
+  //   }
+  //   count[city].totalPackages += packages
+  //   if (count[city].totalPackages > maxCount) {
+  //     maxCount = count[city].totalPackages
+  //     maxCity = city
+  //   }
+  // }
 
-  return { ...count[maxCity], maxCity, maxCount }
+  // return { ...count[maxCity], maxCity, maxCount }
 
 }
 
@@ -91,8 +107,35 @@ const players = [
 ];
 
 
+//   Output
+//   {
+//     "Beginner": ["Charlie"],
+//     "Intermediate": ["Alice", "Bob"],
+//     "Advanced": ["David"]
+//   }
+
 
 const playerFind = (player) => {
+
+  let obj = {}
+  let maxScore = 0;
+  let highestRank = null;
+
+  for (let { name, score } of player) {
+    let level = score <= 500 ? "Beginner" : score <= 1000 ? "Intermediate" : "Advanced"
+
+    if (!obj[level]) {
+      obj[level] = []
+    }
+    obj[level].push(name)
+    if (score > maxScore) {
+      maxScore = score
+      highestRank = level
+    }
+
+  }
+
+  return { obj, maxScore, highestRank }
   // let obj = {}
   // let highestScore = 0;
   // for (let value of player) {
@@ -138,31 +181,25 @@ const playerFind = (player) => {
   // console.log(obj, "players");
   // return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value == maxLevel))
 
-  //   Output
-  //   {
-  //     "Beginner": ["Charlie"],
-  //     "Intermediate": ["Alice", "Bob"],
-  //     "Advanced": ["David"]
+
+  // let obj = {}
+  // let highestScore = 0;
+  // let maxLevel = null
+
+  // for (let { name, score } of player) {
+  //   let level = score <= 500 ? "Beginner" : score <= 1500 ? "Intermediate" : "Advanced"
+  //   // console.log("levels", level);
+  //   if (!obj[level]) {
+  //     obj[level] = []
+  //   }
+  //   obj[level].push(name)
+  //   if (score > highestScore) {
+  //     highestScore = score
   //   }
 
-  let obj = {}
-  let highestScore = 0;
-  let maxLevel = null
 
-  for (let { name, score } of player) {
-    let level = score <= 500 ? "Beginner" : score <= 1500 ? "Intermediate" : "Advanced"
-    // console.log("levels", level);
-    if (!obj[level]) {
-      obj[level] = []
-    }
-    obj[level].push(name)
-    if (score > highestScore) {
-      highestScore = score
-    }
-
-
-  }
-  return { obj, highestScore }
+  // }
+  // return { obj, highestScore }
 
 }
 
@@ -186,6 +223,14 @@ const flights = [
 // }
 
 const flightsRes = (flights) => {
+  let obj = {}
+  for (let { flight, airline, time } of flights) {
+    if (!obj[airline]) {
+      obj[airline] = []
+    }
+    obj[airline].push(`${flight} (${time})`)
+  }
+  return obj
   // let obj = {}
   // let highestFlights = null
   // let maxFlight = 0;
@@ -225,19 +270,19 @@ const flightsRes = (flights) => {
   //   "United Airlines": ["UA202 (11:30 AM)", "UA404 (3:20 PM)"]
   // }
 
-  let obj = {}
-  let maxFlight = 0;
+  // let obj = {}
+  // let maxFlight = 0;
 
-  for (let { flight, airline, time } of flights) {
-    if (!obj[airline]) {
-      obj[airline] = []
-    }
-    obj[airline].push(`${flight} (${time})`)
-    if (obj[airline].length > maxFlight) {
-      maxFlight = airline
-    }
-  }
-  return { convertFlights: obj, maxFlight }
+  // for (let { flight, airline, time } of flights) {
+  //   if (!obj[airline]) {
+  //     obj[airline] = []
+  //   }
+  //   obj[airline].push(`${flight} (${time})`)
+  //   if (obj[airline].length > maxFlight) {
+  //     maxFlight = airline
+  //   }
+  // }
+  // return { convertFlights: obj, maxFlight }
 
 }
 
@@ -258,6 +303,17 @@ const Footballplayers = [
 // }
 
 const footPlayer = (players) => {
+
+  let obj = {}
+  for (let { name, team, goals } of players) {
+    if (!obj[team]) {
+      obj[team] = { players: [], totalGoals: 0 }
+    }
+    obj[team].players.push(name)
+    obj[team].totalGoals += goals
+  }
+
+  return obj
 
   // let obj = {}
   // let maxGoals=0
@@ -306,16 +362,16 @@ const footPlayer = (players) => {
 
   // // return { team: WinningTeam, goals: highestGoals, players: obj[WinningTeam].players }
 
-  let obj = {}
-  for (let { name, team, goals } of players) {
-    if (!obj[team]) {
-      obj[team] = { players: [], totalGoals: 0 }
-    }
-    obj[team].players.push(name)
-    obj[team].totalGoals += goals
-  }
+  // let obj = {}
+  // for (let { name, team, goals } of players) {
+  //   if (!obj[team]) {
+  //     obj[team] = { players: [], totalGoals: 0 }
+  //   }
+  //   obj[team].players.push(name)
+  //   obj[team].totalGoals += goals
+  // }
 
-  return obj
+  // return obj
 }
 const valFootlball = footPlayer(Footballplayers)
 console.log(valFootlball);
@@ -389,6 +445,18 @@ const posts = [
 // }
 
 const convertPost = (post) => {
+  let obj = {}
+
+  for (let { user, hashtags } of post) {
+    for (let tags of hashtags) {
+      if (!obj[tags]) {
+        obj[tags] = []
+      }
+      obj[tags].push(user)
+    }
+  }
+
+  return obj
   // let obj={}
   // for(let {user,hashtags} of post)
   //   {
@@ -422,16 +490,16 @@ const convertPost = (post) => {
 
   // return obj
 
-  let obj = {}
-  for (let { user, hashtags } of post) {
-    for (let tags of hashtags) {
-      if (!obj[tags]) {
-        obj[tags] = []
-      }
-      obj[tags].push(user)
-    }
-  }
-  return obj
+  // let obj = {}
+  // for (let { user, hashtags } of post) {
+  //   for (let tags of hashtags) {
+  //     if (!obj[tags]) {
+  //       obj[tags] = []
+  //     }
+  //     obj[tags].push(user)
+  //   }
+  // }
+  // return obj
 }
 const reusltPost = convertPost(posts)
 console.log(reusltPost, "reusltPost");
@@ -549,35 +617,45 @@ const peoples = [
 // }
 
 const peopleGroup = (arr) => {
-  // let obj = {}
-  // for (let { name, age } of arr) {
-  //   if (!obj[age]) {
-  //     obj[age] = []
-  //   }
-  //   obj[age].push({ name, age })
-  // }
-  // return obj
-
-  // let obj = {}
-  // for (let { name, age } of arr) {
-  //   if (!obj[age]) {
-  //     obj[age] = []
-  //   }
-  //   obj[age].push({ name, age })
-  // }
-
-  // return obj
 
   let obj = {}
   for (let { name, age } of arr) {
     if (!obj[age]) {
       obj[age] = []
     }
-
     obj[age].push({ name, age })
   }
 
   return obj
+  // let obj = {}
+  // for (let { name, age } of arr) {
+  //   if (!obj[age]) {
+  //     obj[age] = []
+  //   }
+  //   obj[age].push({ name, age })
+  // }
+  // return obj
+
+  // let obj = {}
+  // for (let { name, age } of arr) {
+  //   if (!obj[age]) {
+  //     obj[age] = []
+  //   }
+  //   obj[age].push({ name, age })
+  // }
+
+  // return obj
+
+  // let obj = {}
+  // for (let { name, age } of arr) {
+  //   if (!obj[age]) {
+  //     obj[age] = []
+  //   }
+
+  //   obj[age].push({ name, age })
+  // }
+
+  // return obj
 }
 
 const peopleResult = peopleGroup(peoples)
@@ -634,18 +712,27 @@ const employees = [
 
 
 const employeesFetch = (employee) => {
-  
-  let obj={}
-  for(let {department, name, age , position, salary} of employee)
-  {
-    if(!obj[department])
-    {
-      obj[department]={}
-    }
 
-    obj[department][name]={age,position,salary}    
+  let obj = {}
+
+  for (let { department, name, age, position, salary } of employee) {
+    if (!obj[department]) {
+      obj[department] = {}
+    }
+    obj[department][name] = { age, position, salary }
   }
+
   return obj
+
+  // let obj = {}
+  // for (let { department, name, age, position, salary } of employee) {
+  //   if (!obj[department]) {
+  //     obj[department] = {}
+  //   }
+
+  //   obj[department][name] = { age, position, salary }
+  // }
+  // return obj
 
   // let obj = {}
   // for (let { department, name, age, position, salary } of employee) {
@@ -684,12 +771,10 @@ const mergeObj = (data) => {
   // }
   // console.log(obj);
 
-  let obj={}
-  for(let {id, value} of data)
-  {
-    if(!obj[id])
-    {
-      obj[id]={value : 0}
+  let obj = {}
+  for (let { id, value } of data) {
+    if (!obj[id]) {
+      obj[id] = { value: 0 }
     }
     obj[id].value += value
   }
@@ -715,6 +800,20 @@ const orders = [
 //Most purchased item: "Phone"
 
 const mostOrder = (orders) => {
+
+  let obj = {}
+  let maxCount = 0;
+  let maxItem = null;
+
+  for (let { customer, item } of orders) {
+    obj[item] = (obj[item] || 0) + 1
+    if (maxCount < obj[item]) {
+      maxCount = obj[item]
+      maxItem = item
+    }
+  }
+
+  return `Most purchased item is ${maxItem} with sell of ${maxCount}`
   // let obj = {}
   // let mostItem = null
   // let itemCount = 0
@@ -729,21 +828,19 @@ const mostOrder = (orders) => {
 
   // return `Most purchased item:${mostItem} and its count is ${itemCount}`
 
-    let obj = {}
-  let mostItem = null
-  let itemCount = 0
+  // let obj = {}
+  // let mostItem = null
+  // let itemCount = 0
 
-  for(let {item} of orders)
-  {
-      obj[item] =(obj[item] || 0)+1
-      if(obj[item] > itemCount)
-      {
-        itemCount=obj[item]
-        mostItem=item
-      }
-  }
+  // for (let { item } of orders) {
+  //   obj[item] = (obj[item] || 0) + 1
+  //   if (obj[item] > itemCount) {
+  //     itemCount = obj[item]
+  //     mostItem = item
+  //   }
+  // }
 
-    return `Most purchased item:${mostItem} and its count is ${itemCount}`
+  // return `Most purchased item:${mostItem} and its count is ${itemCount}`
 
   // let obj={}
   // let maxPurchase=0;
@@ -836,7 +933,7 @@ const systems = (files) => {
   //   obj[lastIndexVal].push(restWords)
   // }
   // console.log(obj);
-  
+
   // return Object.fromEntries(Object.entries(obj).filter(([key,values]) => values.length > 1))
 
   // let obj={}
@@ -851,33 +948,31 @@ const systems = (files) => {
   //       obj[splitVal]=[]
   //     }
   //     obj[splitVal].push(restVal)
-      
+
   //   }
 
   //   return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
-
-  let obj={}
+  let obj = {}
 
   for(let val of files)
   {
-      let splitIndex= val.lastIndexOf("/");
-      let lastFileName= val.slice(splitIndex + 1)
-      let restElements= val.slice(0,splitIndex)
-      console.log(restElements);
-      if(!obj[lastFileName])
-      {
+    let lastIndexVal=val.lastIndexOf("/")
+    let lastFileName= val.slice(lastIndexVal +1)
+    let restName= val.slice(0,lastIndexVal)
+    console.log(restName);
+    if(!obj[lastFileName])
+    {
         obj[lastFileName]=[]
-      }
-
-      obj[lastFileName].push(restElements)
-      
+    }
+    obj[lastFileName].push(restName)
+    
   }
 
-  // return obj
-  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
+  return Object.fromEntries(Object.entries(obj).filter(([key,values])=> values.length > 1))
+
 
   // let obj={}     
-  
+
   // for(let val of files)
   // {
   //   // let lastFile=val.split("/").pop()
@@ -897,7 +992,7 @@ const systems = (files) => {
   // // console.log(obj);
 
   // return Object.fromEntries(Object.entries(obj).filter(([key,value]) => value.length > 1))
-  
+
 
 }
 
@@ -1098,22 +1193,20 @@ const averageReviews = (reviews) => {
 
   // return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
 
-  let obj={}
+  let obj = {}
   // let count=0;
-  for(let val of reviews)
-  {
-    if(!obj[val.product])
-    {
-      obj[val.product] = {sum:0 , count :0}
+  for (let val of reviews) {
+    if (!obj[val.product]) {
+      obj[val.product] = { sum: 0, count: 0 }
     }
-    obj[val.product].sum+=val.rating
-    obj[val.product].count+=1 
+    obj[val.product].sum += val.rating
+    obj[val.product].count += 1
   }
-    // return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
+  // return Object.fromEntries(Object.entries(obj).map(([key, { sum, count }]) => [key, sum / count]))
 
-  
-    
-  
+
+
+
 }
 
 

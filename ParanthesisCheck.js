@@ -39,27 +39,51 @@ const isBalanced = (str) => {
     // }
     // return true
 
+    // let stack = []
+    // let map = {
+    //     "(": ")",
+    //     "{": "}",
+    //     "[": "]",
+    // }
+
+    // for (let char of str) {
+    //     if (char == "(" || char == "{" || char == "[") {
+    //         stack.push(char)
+    //         console.log(stack);
+
+    //     }
+    //     else if (char != map[char]) {
+    //         if(char != map[stack.pop()])
+    //         {
+    //             return false
+    //         }
+    //     }
+    // }
+    //         console.log(stack,"stack");
+
+    // return stack.length == 0
+
     let stack = []
     let map = {
         "(": ")",
         "{": "}",
-        "[": "]",
+        "[": "]"
     }
 
-    for (let char of str) {
-        if (char == "(" || char == "{" || char == "[") {
-            stack.push(char)
-            console.log(stack);
-            
+    for(let val of str)
+    {
+        if(val == "(" || val== "{" || val=="[")
+        {
+            stack.push(val)
         }
-        else if (char != map[char]) {
-            if(char != map[stack.pop()])
+        else if(val == ")" || val== "}" || val=="]")
+        {
+            if(val != map[stack.pop()])
             {
                 return false
             }
         }
     }
-            console.log(stack,"stack");
 
     return stack.length == 0
 }
