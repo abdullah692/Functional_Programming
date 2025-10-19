@@ -58,21 +58,21 @@ const countUnsortedAlphabets=(val)=>{
     // }
 
     // return {count,alphabets}
-let count =0;
-let alphabets=[]
-let sortVal= val.split('').sort().join('');
 
-for(let i=0 ;i< val.length;i++)
-{
-    if(val[i] != sortVal[i])
+    let count =0;
+    let alphabets=[]
+    let sortVal= val.split('').sort().join('')
+
+    for(let i=0 ;i< val.length; i++)
     {
-        count++;
-        alphabets.push(val[i])
+        if(sortVal[i] != val[i])
+        {
+            count++;
+            alphabets.push(val[i])
+        }
     }
-}
 
-return {count,alphabets}
-
+    return {count, alphabets}
 }
 
 

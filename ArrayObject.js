@@ -952,23 +952,8 @@ const systems = (files) => {
   //   }
 
   //   return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
-  let obj = {}
 
-  for(let val of files)
-  {
-    let lastIndexVal=val.lastIndexOf("/")
-    let lastFileName= val.slice(lastIndexVal +1)
-    let restName= val.slice(0,lastIndexVal)
-    console.log(restName);
-    if(!obj[lastFileName])
-    {
-        obj[lastFileName]=[]
-    }
-    obj[lastFileName].push(restName)
-    
-  }
-
-  return Object.fromEntries(Object.entries(obj).filter(([key,values])=> values.length > 1))
+  
 
 
   // let obj={}     
