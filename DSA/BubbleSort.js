@@ -91,27 +91,44 @@ const BubbleSort = (arr) => {
     // const arr = [5, 3, -6, 12, 15, 9, 43, 25]
 
 
-    let swap;
-    do {
+    // let swap;
+    // do {
 
-        swap= false
-        for(let i=0; i< arr.length; i++)
+    //     swap= false
+    //     for(let i=0; i< arr.length; i++)
+    //     {
+    //         // debugger
+    //         if(arr[i] > arr[i+1])
+    //         {
+    //             let next=arr[i]
+    //             arr[i]= arr[i+1]
+    //             arr[i+1]=next
+    //             swap=true
+    //         }
+    //     }
+            
+    // }
+    // while (swap)
+
+    //     return arr
+
+    let swap;
+    do{
+        swap=false
+        for(let i=0; i<arr.length; i++)
         {
-            // debugger
             if(arr[i] > arr[i+1])
             {
-                let next=arr[i]
-                arr[i]= arr[i+1]
+                let next= arr[i];
+                arr[i]=arr[i+1]
                 arr[i+1]=next
                 swap=true
             }
         }
-            
     }
-    while (swap)
 
+    while(swap)
         return arr
-
 
 
 }
