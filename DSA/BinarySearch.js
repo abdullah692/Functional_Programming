@@ -4,97 +4,91 @@
 //and if larger than in right side of the element 
 //After deciding the side again repeat the process to break it in middle element and left , right side
 
-const arr=[-5,2,4,6,10,13,15]
+const arr = [-5, 2, 4, 6, 10, 13, 15]
 
-const BinarySearch=(arr,target)=>{
+const BinarySearch = (arr, target) => {
 
-    // let leftindex=0
-    // let rightIndex=arr.length -1;
-    // while(leftindex <= rightIndex)
-    // {
-    //     const middleIndex=Math.floor((leftindex + rightIndex)/2)
-    //     console.log(middleIndex); 
-    //     if(arr[middleIndex] == target)
-    //     {
-    //         return middleIndex;
-    //     }
-    //     if(target < arr[middleIndex])
-    //     {
-    //         rightIndex=middleIndex-1;
-    //     }
-    //     else{
-    //         leftindex=middleIndex+1
-    //     }
-    // }
+  // let leftindex=0
+  // let rightIndex=arr.length -1;
+  // while(leftindex <= rightIndex)
+  // {
+  //     const middleIndex=Math.floor((leftindex + rightIndex)/2)
+  //     console.log(middleIndex); 
+  //     if(arr[middleIndex] == target)
+  //     {
+  //         return middleIndex;
+  //     }
+  //     if(target < arr[middleIndex])
+  //     {
+  //         rightIndex=middleIndex-1;
+  //     }
+  //     else{
+  //         leftindex=middleIndex+1
+  //     }
+  // }
 
-    // return -1;
+  // return -1;
 
-    // let leftindex=0;
-    // let rightIndex=arr.length-1;
-    // while(leftindex <= rightIndex)
-    // {
-    //     const middleIndex=Math.floor((leftindex+rightIndex)/2)
-    //     if(arr[middleIndex] == target)
-    //     {
-    //       return `The value ${target} is at index ${middleIndex}`
-    //     }
-    //     if(arr[middleIndex] > target)
-    //     {
-    //       rightIndex=middleIndex-1;
-    //     }
-    //     else{
-    //       leftindex=middleIndex+1
-    //     }
-    // }
-    // return -1
+  // let leftindex=0;
+  // let rightIndex=arr.length-1;
+  // while(leftindex <= rightIndex)
+  // {
+  //     const middleIndex=Math.floor((leftindex+rightIndex)/2)
+  //     if(arr[middleIndex] == target)
+  //     {
+  //       return `The value ${target} is at index ${middleIndex}`
+  //     }
+  //     if(arr[middleIndex] > target)
+  //     {
+  //       rightIndex=middleIndex-1;
+  //     }
+  //     else{
+  //       leftindex=middleIndex+1
+  //     }
+  // }
+  // return -1
 
-    // let leftindex=0
-    // let rightIndex=arr.length -1
+  // let leftindex=0
+  // let rightIndex=arr.length -1
 
-    // while(leftindex <= rightIndex)
-    // {
-    //   let midIndex=Math.floor((leftindex + rightIndex)/2)
-    //   if(arr[midIndex] == target)
-    //   {
-    //     return `The value ${target} is on index ${midIndex}`
-    //   }
-    //   else if(target > arr[midIndex])
-    //   {
-    //     leftindex=midIndex +1
-    //   }
-    //   else{
-    //     rightIndex=midIndex -1
-    //   }
-    // }
+  // while(leftindex <= rightIndex)
+  // {
+  //   let midIndex=Math.floor((leftindex + rightIndex)/2)
+  //   if(arr[midIndex] == target)
+  //   {
+  //     return `The value ${target} is on index ${midIndex}`
+  //   }
+  //   else if(target > arr[midIndex])
+  //   {
+  //     leftindex=midIndex +1
+  //   }
+  //   else{
+  //     rightIndex=midIndex -1
+  //   }
+  // }
 
-    // return -1
+  // return -1
+  let leftindex = 0;
+  let rightIndex = arr.length - 1
 
-    let leftindex=0;
-    let rightIndex=arr.length -1; 
-
-    while(leftindex <= rightIndex)
+  while(leftindex <= rightIndex)
+  {
+    let middleIndex=Math.floor((leftindex+rightIndex)/2);
+    if(arr[middleIndex] == target)
     {
-      let middleIndex= Math.floor((leftindex+rightIndex)/2)
-      console.log(middleIndex,"middleIndex");
-      
-      if(arr[middleIndex] == target)
-      {
-        return `The value ${target} is on index ${middleIndex}`
-      }
-      else if(arr[middleIndex] > target)
-      {
-        rightIndex=middleIndex-1
-      }
-      else{
-        leftindex=middleIndex-1
-
-      }
+      return `The value ${target} is on index ${middleIndex}`
     }
-
-    return -1
+    else if(arr[middleIndex] > target)
+    {
+      rightIndex=middleIndex-1
+    }
+    else{
+      leftindex=middleIndex+1
+    }
   }
+}
 
 
-const result=BinarySearch(arr,6)
+const result = BinarySearch(arr, 6)
 console.log(result);
 

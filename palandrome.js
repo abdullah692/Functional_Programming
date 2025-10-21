@@ -12,16 +12,24 @@ const palandrome = (val) => {
     //   }
     //   return "It is palindrome"
 
-    for(let i=0 ; i< val.length/2 ; i++)
+    // for(let i=0 ; i< val.length/2 ; i++)
+    // {
+    //     if(val[i] != val[val.length-1-i])
+    //     {
+    //         return "Not a Palindrome"
+    //     }
+    // }
+    // return "It is a Palindrome"
+
+    for(let i=0; i< val.length/2; i++)
     {
-        if(val[i] != val[val.length-1-i])
+        if(val[i] != val[val.length -1 -i])
         {
             return "Not a Palindrome"
         }
     }
+
     return "It is a Palindrome"
-
-
 }
 const value = palandrome('aabbaa');
 console.log(value);
@@ -38,7 +46,7 @@ const checkPalindrome=(val)=>{
 // else{
 //     return "Not a plindrome"
 // }
-debugger
+// debugger
 const reverseVal=val.split('').reverse().join('')
 if(reverseVal != val)
 {

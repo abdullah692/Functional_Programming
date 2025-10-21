@@ -53,20 +53,38 @@
 
 
 const removeDuplicates=(arr)=>{
-  let  obj={}
+  // let  obj={}
+  
+  // for(let val of arr)
+  // {
+  //   if(!obj[val])
+  //   {
+  //     obj[val] = (obj[val] || 0)+1
+  //   }else{
+  //     obj[val]++
+  //   }
+  // }
+
+  // return Object.keys(obj).filter(keys => obj[keys] ==1)
+
+
+  let obj=[]
+  // for(let val of arr)
+  // {
+  //   obj[val]= (obj[val] || 0)+1
+  // }
+
+  // return Object.keys(obj).filter(([key,value])=> obj[key] == 1)
   
   for(let val of arr)
   {
-    if(!obj[val])
+    if(!obj.includes(val))
     {
-      obj[val] = (obj[val] || 0)+1
-    }else{
-      obj[val]++
+      obj.push(val)
     }
   }
 
-  return Object.keys(obj).filter(keys => obj[keys] ==1)
-
+  return obj.sort()
 }
 
 

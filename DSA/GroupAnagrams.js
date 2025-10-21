@@ -52,19 +52,18 @@ const groupAnagram = (arr) => {
 
     // return obj
 
-
     let obj={}
 
     for(let val of arr)
     {
-        let sortVal= val.split('').sort().join('')
+        let sortVal=val.split('').sort().join('')
         if(!obj[sortVal])
         {
-            obj[sortVal]=[]       
+            obj[sortVal]=[]
         }
         obj[sortVal].push(val)
     }
- 
+
     return obj
 }
 

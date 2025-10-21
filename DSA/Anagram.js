@@ -45,27 +45,27 @@ const Anagram = (string1, string2) => {
 
    // return "It is an Anagram"
 
-   let obj = {}
-
-   if (string1.length != string2.length) {
+   let obj={}
+   
+   if(string1.length != string2.length)
+   {
       return "Not an Anagram"
-
-
-   }
-   for (let val of string1) {
-      obj[val] = (obj[val] || 0) + 1
    }
 
-   for (let val of string2) {
-      if (!obj[val]) {
+   for(let char of string1)
+   {
+      obj[char] = (obj[char] || 0)+1
+   }
+   for(let char of string2)
+   {
+      if(!obj[char])
+      {
          return "Not an Anagram"
       }
-      else {
-         obj[val]--
-      }
+      obj[char]-=1
    }
 
-   return "Word is Anagram"
+   return "It is an Anagram"
 
    // console.log(obj);
 
@@ -153,5 +153,5 @@ const anagram = (string1, string2) => {
 }
 
 const result =
-  anagram("hellod", "hellod");
+  Anagram("hellod", "hellol");
 console.log(result)
