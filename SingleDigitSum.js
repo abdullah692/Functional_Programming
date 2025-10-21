@@ -48,17 +48,15 @@ const singleDigitSum = (digits) => {
      {
           return digits
      }
-     else{
-          let sum=0;
 
-          let splitNum=digits.toString().split('')
-          for(let val of splitNum)
-          {
-               sum+=Number(val)
-          }
-          return singleDigitSum(sum)
+     let sum=0;
+     let splitNum=digits.toString().split('');
+     for(let val of splitNum)
+     {
+          sum+=Number(val);
      }
 
+     return singleDigitSum(sum)
 }
 const result = singleDigitSum(435)
 console.log(result);

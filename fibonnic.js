@@ -10,13 +10,23 @@ const fibonnic = (num) => {
     //         b=next;
     //    }
 
-    let a = 0, b = 1, next;
+    // let a = 0, b = 1, next;
 
-    for (let i = 0; i <= num; i++) {
+    // for (let i = 0; i <= num; i++) {
+    //     console.log(a);
+    //     next = a + b;   //1
+    //     a = b
+    //     b = next
+    // }
+
+    let a=0 , b=1 , next;
+
+    for(let i=0; i< num ;i++)
+    {
         console.log(a);
-        next = a + b;   //1
-        a = b
-        b = next
+        next=a+b
+        a=b
+        b=next
     }
 }
 
