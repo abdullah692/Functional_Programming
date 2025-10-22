@@ -79,14 +79,28 @@ const deleteArray=(arr,target)=>{
 
     // return arr
     
+    // let indexElement=arr.indexOf(target)
+    // arr.splice(indexElement,1)
+    // // for(let i= indexElement; i<arr.length; i++)
+    // // {
+    // //     arr[i]=arr[i+1]
+    // // }
+    // // arr.pop()
+    // return  arr
+
     let indexElement=arr.indexOf(target)
+
     arr.splice(indexElement,1)
-    // for(let i= indexElement; i<arr.length; i++)
-    // {
-    //     arr[i]=arr[i+1]
-    // }
-    // arr.pop()
-    return  arr
+    console.log(arr);
+    
+    
+//     for(let i=indexElement; i< arr.length; i++)
+//     {
+//         arr[i]=arr[i+1]
+//     }
+
+//     arr.pop()
+//   console.log(arr);
   
 }
 

@@ -15,21 +15,33 @@ const deliveries = [
 
 const convertDeliveries = (deliveries) => {
 
-  let obj = {}
-  let maxVal = 0;
-  let maxCity = null
-  for (let { city, packages } of deliveries) {
-    if (!obj[city]) {
-      obj[city] = { totalPackages: 0 }
-    }
-    obj[city].totalPackages += packages
-    if (maxVal < obj[city].totalPackages) {
-      maxVal = obj[city].totalPackages
-      maxCity = city
-    }
+  let obj={}
+
+  for(let {city, packages} of deliveries)
+  {
+      if(!obj[city])
+      {
+        obj[city]={totalPackages: 0}
+      }
+      obj[city].totalPackages+=packages
   }
 
-  return { maxCity, maxVal, obj }
+  return obj
+  // let obj = {}
+  // let maxVal = 0;
+  // let maxCity = null
+  // for (let { city, packages } of deliveries) {
+  //   if (!obj[city]) {
+  //     obj[city] = { totalPackages: 0 }
+  //   }
+  //   obj[city].totalPackages += packages
+  //   if (maxVal < obj[city].totalPackages) {
+  //     maxVal = obj[city].totalPackages
+  //     maxCity = city
+  //   }
+  // }
+
+  // return { maxCity, maxVal, obj }
   // let obj = {};
   // let maxVal = 0;
   // let maxcity = null;
@@ -899,26 +911,26 @@ const files = [
 // (2) ['A:/Projects', 'E:/Backups']
 
 const systems = (files) => {
-  // let obj = {}
-  // let countFile = 0
-  // for (let val of files) {
-  //   let lastIndexVal = val.lastIndexOf("/")
-  //   let fileName = val.slice(lastIndexVal + 1)
-  //   let restName = val.slice(0, lastIndexVal)
-  //   // console.log(restName);
-  //   if (!obj[fileName]) {
-  //     obj[fileName] = []
-  //   }
-  //   obj[fileName].push(restName)
 
-  //   if (obj[fileName].length > countFile) {
-  //     countFile = obj[fileName].length
-  //   }
-  // }
+  let obj={}
 
-  // return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value.length > 1))
+  for(let val of files)
+  {
+    let lastIndexVal= val.lastIndexOf("/");
+    let lastVal= val.slice(lastIndexVal + 1)
+    let restVal= val.slice(0,lastIndexVal)
+    if(!obj[lastVal])
+    {
+      obj[lastVal]=[]
+    }
 
+    obj[lastVal].push(restVal)
+    
+  }
 
+  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
+  console.log(obj);
+  
   // let obj={}
   // for(let val of files)
   // {

@@ -49,26 +49,27 @@ const currencyCount = (arr, amnt) => {
     // }
 
     // return count
-    let count = {}
-    let reverseArr = arr.reverse();
 
-    for (let val of reverseArr) {
-        if (amnt >= val) {
-            let countVal = Math.floor(amnt / val)
-            count[val] = countVal
+    let count={}
+    let reverseArr= arr.reverse();
+    
+    for(let val of reverseArr)
+    {
+        if(amnt >= val)
+        {
+            let countVal=Math.floor(amnt/val)
+            count[val]=countVal;
             amnt %= val
         }
-
     }
 
     return count
-
 }
 
-//   const arr = [1, 2, 5, 10, 20, 50, 100, 500, 1000];
-// //   let amount=2800
-//   const result1 = currencyCount(arr,amount)
-// console.log(result1);
+  const arr = [1, 2, 5, 10, 20, 50, 100, 500, 1000];
+  let amount1=2800
+  const result1 = currencyCount(arr,amount1)
+console.log(result1);
 
 
 
@@ -202,32 +203,36 @@ const atmCurrency = (amnt) => {
     // }
     // return count
 
-    let count = {}
-    let count5000 = 0
-    let count1000 = 0
-    let count500 = 0
+    let count={}
+    let count5000=0
+    let count1000=0
+    let count500=0
 
-    while (amnt > 0) {
-        if (amnt % 500 != 0) {
-            `Invalid amount entered`
+    while(amnt > 0)
+    {
+        if(amnt % 500 != 0)
+        {
+            return `Invalid Amount entered`
         }
 
-        if ((amnt - 5000) > 0) {
+        if((amnt - 5000) > 0)
+        {
             count5000++;
-            count[5000] = count5000
-            amnt -= 5000
+            count[5000]=count5000;
+            amnt-=5000
         }
-
-        else if ((amnt - 1000) > 0) {
+        else if((amnt - 1000) > 0)
+        {
             count1000++;
-            count[1000] = count1000
-            amnt -= 1000
+            count[1000]=count1000;
+            amnt-=1000
         }
-
-        else if ((amnt - 500) >= 0) {
+        
+        else if((amnt - 500) >= 0)
+        {
             count500++;
-            count[500] = count500
-            amnt -= 500
+            count[500]=count500;
+            amnt-=500
         }
     }
 

@@ -71,6 +71,14 @@ const insertArray = (arr) => {
 
   // }
 
+  // for(let i=arr.length -1 ; i>= index ; i--)
+  // {
+  //    arr[i+1]=arr[i]
+  //    if(i == index)
+  //    {
+  //       arr[i]=val
+  //    }
+  // }
   arr.splice(index,0,val)
 
   return arr

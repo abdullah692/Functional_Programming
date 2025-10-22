@@ -21,7 +21,7 @@ const palandrome = (val) => {
     // }
     // return "It is a Palindrome"
 
-    for(let i=0; i< val.length/2; i++)
+    for(let i=0; i< val.length / 2; i++)
     {
         if(val[i] != val[val.length -1 -i])
         {
@@ -31,7 +31,7 @@ const palandrome = (val) => {
 
     return "It is a Palindrome"
 }
-const value = palandrome('aabbaa');
+const value = palandrome('radar');
 console.log(value);
 
 
