@@ -1,11 +1,17 @@
 const obj1={
     name:'Abdullah'
   }
-  const obj2=obj1;
-  obj2.name="Usman"
+  // const obj2=obj1;
+  // obj2.name="Usman"
+
+
+  const obj2={... obj1}
+  obj2.name='Usman'
   
   console.log(obj1.name);
   console.log(obj2.name);
+
+
   
   const originalObject = {
     name: 'John',
@@ -16,6 +22,17 @@ const obj1={
     },
   };
   
+
+  const deepCopy1= JSON.parse(JSON.stringify(originalObject))
+
+  deepCopy1.name='ALi'
+  deepCopy1.address.city='Karachi'
+
+  console.log(deepCopy1);
+  console.log(originalObject);
+
+  
+
   // Create a deep copy using JSON methods
   const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
   
@@ -31,11 +48,20 @@ const obj1={
   //Shallow Copy
   const obj = { name: 'Version 1', additionalInfo: { version: 1 } };
 
-  const shallowCopy={...obj};
-shallowCopy.name="Ahmed" 
-shallowCopy.additionalInfo.version="5"
-console.log(shallowCopy); 
-console.log(obj); 
+//   const shallowCopy={...obj};
+// shallowCopy.name="Ahmed" 
+// shallowCopy.additionalInfo.version="5"
+// console.log(shallowCopy); 
+// console.log(obj); 
+
+const shallowCopy1= Object.assign({},obj)
+shallowCopy1.name="Versioin6"
+shallowCopy1.additionalInfo.version="9"
+
+console.log(shallowCopy1,"shallowCopy1");
+console.log(obj,"obj");
+
+
 
 
 //Deep Copy

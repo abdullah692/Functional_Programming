@@ -29,14 +29,26 @@
 
 
 
+// let names={
+//     firstName:"Abdullah",
+//     lastName:"Siddiqui"
+// }
+
+// function greet1(city,country)
+// {
+//      console.log(`Hello, I am ${this.firstName} ${this.lastName} from ${city}, ${country}`)
+// }
+
+// greet1.apply(names,['Karachi','Pakistan'])
+
 let names={
     firstName:"Abdullah",
-    lastName:"Siddiqui"
+    LastName:"Siddiqui",
+
 }
 
-function greet1(city,country)
-{
-     console.log(`Hello, I am ${this.firstName} ${this.lastName} from ${city}, ${country}`)
+function greet1(city,country){
+    console.log(`Hello, I am ${this.firstName} ${this.LastName} from ${city}, ${country}`);    
 }
 
 greet1.apply(names,['Karachi','Pakistan'])
