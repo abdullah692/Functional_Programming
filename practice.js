@@ -105,17 +105,14 @@ const calculateBill = (units) => {
 
     // return bill
 
-    if(units <= 100)
-    {
-        bill+= units * 100
+    if (units <= 100) {
+        bill += units * 100
     }
-    else if(units <= 200)
-    {
-        bill+= (100 * 10) + ((units - 100) * 15)
+    else if (units <= 200) {
+        bill += (100 * 10) + ((units - 100) * 15)
     }
-    else
-    {
-        bill+= (100 * 10) + (100 * 15) +((units - 200) * 20)
+    else {
+        bill += (100 * 10) + (100 * 15) + ((units - 200) * 20)
     }
 
     return bill
@@ -129,26 +126,94 @@ console.log(calculateBill(100))
 
 
 
-const calculateDiscount=(amnt)=>{
-    let discountAmt=0
-    if(amnt > 5000)
-    {
-        discountAmt= amnt - (amnt * 20 / 100);
+const calculateDiscount = (amnt) => {
+    let discountAmt = 0
+    if (amnt > 5000) {
+        discountAmt = amnt - (amnt * 20 / 100);
     }
-    else if(amnt >=  2000 && amnt <= 5000)
-    {
-        discountAmt= amnt - (amnt * 10 / 100);
+    else if (amnt >= 2000 && amnt <= 5000) {
+        discountAmt = amnt - (amnt * 10 / 100);
     }
-    else{
-        discountAmt=amnt
+    else {
+        discountAmt = amnt
     }
     return discountAmt
 }
 
-console.log("Discount amnt",calculateDiscount(6000))
-console.log("Discount amnt",calculateDiscount(6700))
-console.log("Discount amnt",calculateDiscount(5700))
-console.log("Discount amnt",calculateDiscount(4000))
-console.log("Discount amnt",calculateDiscount(1800))
+console.log("Discount amnt", calculateDiscount(6000))
+console.log("Discount amnt", calculateDiscount(6700))
+console.log("Discount amnt", calculateDiscount(5700))
+console.log("Discount amnt", calculateDiscount(4000))
+console.log("Discount amnt", calculateDiscount(1800))
 
 
+// Abbreviation Creator:
+// "Pakistan International Airlines" → "PIA".
+
+
+const abbreviation = (name) => {
+
+    let splitName = name.split(" ");
+    let abbreviationName = ''
+    for (let val of splitName) {
+        if (val[0] == val[0].toUpperCase()) {
+            abbreviationName += val.slice(0, 1)
+        }
+    }
+    return abbreviationName
+
+}
+
+console.log(abbreviation("Pakistan International Airlines"));
+console.log(abbreviation("For Your Information"));
+console.log(abbreviation("In My Opinion / In My Humble Opinion"));
+console.log(abbreviation("Laughing Out Loud"));
+console.log(abbreviation("Office of Foreign Disaster Assistance"));
+
+
+const arrObj = [{ item: 'apple', qty: 2, price: 100 }, { item: 'banana', qty: 3, price: 50 }]
+
+
+const calculateCost = (arrObj) => {
+    let totalCost = 0;
+
+    for (let {qty, price } of arrObj) {
+        totalCost += (qty * price)
+    }
+
+    return totalCost
+}
+
+const result = calculateCost(arrObj)
+console.log(result);
+
+
+const arr={
+    user_name: "john",
+    user_details: {
+      home_address: "123 St"
+    }
+  
+}
+
+// {
+//     userName: "john",
+//     userDetails: {
+//       homeAddress: "123 St"
+//     }
+//   }
+
+const convertKeys=(obj1)=>{
+
+    let obj={}
+    for(let key in obj1)
+    {
+        debugger
+        let newKey= key.replace(/_([a-z])/g,(_,c)=> c.toUpperCase())
+        obj[newKey]=typeof obj1[key] === "object" ? convertKeys(obj1[key]) : obj1[key]
+    }
+    return obj
+}
+
+const result1=convertKeys(arr)
+console.log(result1);
