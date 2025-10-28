@@ -147,7 +147,7 @@ const calculateDiscount=(amnt)=>{
 
 console.log("Discount amnt",calculateDiscount(6000))
 console.log("Discount amnt",calculateDiscount(6700))
-console.log("Discount amnt",calculateDiscount(5300))
+console.log("Discount amnt",calculateDiscount(5700))
 console.log("Discount amnt",calculateDiscount(4000))
 console.log("Discount amnt",calculateDiscount(1800))
 
