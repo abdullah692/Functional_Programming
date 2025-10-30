@@ -45,7 +45,7 @@
 //         }
 //     }
 
-    
+
 //     for (let orange of oranges) {
 //         let sumVal = b + orange;
 //         if (sumVal >= s && sumVal <= t) {
@@ -54,7 +54,7 @@
 //     }
 
 //     return {appleCount, orangeCount}
-    
+
 // }
 
 // let s = 7, t = 11;
@@ -66,5 +66,58 @@
 
 //-------------------------------------------------------------
 
+//Kangroo
 
+// const kangaroo = (x1, v1, x2, v2) => {
+
+//     if (v1 == v2) {
+//         return x1 == x2 ? "YES" : "NO"
+//     }
+
+//     let n = (x2 - x1) / (v1 - v2)
+
+//     if (n >= 0 && Number.isInteger(n)) {
+//         return "YES"
+//     }
+//     else {
+//         return "NO"
+//     }
+// }
+// let x1 = 0, v1 = 3
+// let x2 = 4, v2 = 2
+
+// const result = kangaroo(x1, v1, x2, v2)
+// console.log(result);
+
+//-------------------------------------------------------------------------------
+
+//Between Two Sets Problem
+
+const getTotalX=(a,b)=>{
+
+    let count =0;
+    let num=[]    
+
+    for(let i=Math.max(...a); i< Math.min(...b); i++)
+    {
+        let factorOfA = a.every(num => i % num == 0)
+        let factorOfB = b.every(num => num % i == 0)
+
+        if(factorOfA && factorOfB)
+        {
+            count++
+            num.push(i)
+
+        }
+    }
+
+    return {count,num}
+}
+
+let a = [2, 4]
+let b = [16, 32, 96]
+
+
+const result = getTotalX(a,b)
+console.log(result);
 
