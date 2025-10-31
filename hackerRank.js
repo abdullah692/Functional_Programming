@@ -93,31 +93,53 @@
 
 //Between Two Sets Problem
 
-const getTotalX=(a,b)=>{
+// const getTotalX=(a,b)=>{
 
-    let count =0;
-    let num=[]    
+//     let count =0;
+//     let num=[]    
 
-    for(let i=Math.max(...a); i< Math.min(...b); i++)
+//     for(let i=Math.max(...a); i< Math.min(...b); i++)
+//     {
+//         let factorOfA = a.every(num => i % num == 0)
+//         let factorOfB = b.every(num => num % i == 0)
+
+//         if(factorOfA && factorOfB)
+//         {
+//             count++
+//             num.push(i)
+
+//         }
+//     }
+
+//     return {count,num}
+// }
+
+// let a = [2, 4]
+// let b = [16, 32, 96]
+
+
+// const result = getTotalX(a,b)
+// console.log(result);
+
+//----------------------------------------------------------------
+
+function migratoryBirds(arr) {
+    // Write your code here
+    let obj={}
+    let maxCount=0
+    for(let val of arr)
     {
-        let factorOfA = a.every(num => i % num == 0)
-        let factorOfB = b.every(num => num % i == 0)
-
-        if(factorOfA && factorOfB)
+        obj[val] =(obj[val] || 0) +1 ;   
+        if(obj[val] > maxCount)
         {
-            count++
-            num.push(i)
-
+            maxCount= obj[val]
         }
-    }
-
-    return {count,num}
+    }   
+    
+    console.log(obj)
+    console.log(maxCount,"maxCount")
+    return Object.keys(obj).filter((key)=> obj[key]  == maxCount)[0]
+    
 }
 
-let a = [2, 4]
-let b = [16, 32, 96]
-
-
-const result = getTotalX(a,b)
-console.log(result);
-
+console.log(migratoryBirds([1 ,2 ,3 ,4 ,5 ,4 ,3 ,2 ,1 ,3 ,4]))
