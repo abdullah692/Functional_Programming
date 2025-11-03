@@ -143,3 +143,33 @@ function migratoryBirds(arr) {
 }
 
 console.log(migratoryBirds([1 ,2 ,3 ,4 ,5 ,4 ,3 ,2 ,1 ,3 ,4]))
+
+
+//-----------------------------------------------------------------------------------------------
+
+
+const getMoneySpent=(keyboards, drives, b) =>{
+    let max=-1 ;
+
+    for(let keyboard of keyboards)
+    {
+        for(let usb of drives)
+        {
+            let total = keyboard + usb
+            if(total <= b && total > max)
+            {
+                max = total;
+            }
+        }
+    }
+
+    return max
+    
+}
+
+let keyboards=[374625 ,797 ,951]
+let drives=[83477 ,732159 ,779867 ,598794 ,596985 ,156054 ,156030 ,99998 ,58097 ,459353 ,866372, 333784 ,601251]
+let b=374625
+
+const result = getMoneySpent(keyboards, drives, b)
+console.log(result);
