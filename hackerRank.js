@@ -125,51 +125,73 @@
 
 function migratoryBirds(arr) {
     // Write your code here
-    let obj={}
-    let maxCount=0
-    for(let val of arr)
-    {
-        obj[val] =(obj[val] || 0) +1 ;   
-        if(obj[val] > maxCount)
-        {
-            maxCount= obj[val]
+    let obj = {}
+    let maxCount = 0
+    for (let val of arr) {
+        obj[val] = (obj[val] || 0) + 1;
+        if (obj[val] > maxCount) {
+            maxCount = obj[val]
         }
-    }   
-    
+    }
+
     console.log(obj)
-    console.log(maxCount,"maxCount")
-    return  Math.min(...Object.keys(obj).filter((key)=> obj[key]  == maxCount))
-    
+    console.log(maxCount, "maxCount")
+    return Math.min(...Object.keys(obj).filter((key) => obj[key] == maxCount))
+
 }
 
-console.log(migratoryBirds([1 ,2 ,3 ,4 ,5 ,4 ,3 ,2 ,1 ,3 ,4]))
+console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]))
 
 
 //-----------------------------------------------------------------------------------------------
 
 
-const getMoneySpent=(keyboards, drives, b) =>{
-    let max=-1 ;
+const getMoneySpent = (keyboards, drives, b) => {
+    let max = -1;
 
-    for(let keyboard of keyboards)
-    {
-        for(let usb of drives)
-        {
+    for (let keyboard of keyboards) {
+        for (let usb of drives) {
             let total = keyboard + usb
-            if(total <= b && total > max)
-            {
+            if (total <= b && total > max) {
                 max = total;
             }
         }
     }
 
     return max
-    
+
 }
 
-let keyboards=[374625 ,797 ,951]
-let drives=[83477 ,732159 ,779867 ,598794 ,596985 ,156054 ,156030 ,99998 ,58097 ,459353 ,866372, 333784 ,601251]
-let b=374625
+let keyboards = [374625, 797, 951]
+let drives = [83477, 732159, 779867, 598794, 596985, 156054, 156030, 99998, 58097, 459353, 866372, 333784, 601251]
+let b = 374625
 
 const result = getMoneySpent(keyboards, drives, b)
 console.log(result);
+
+
+
+//---------------------------------------------------------------------------------------------------------
+
+
+function pickingNumbers(a) {
+    // Write your code here
+    let maxScore = 0
+    for (let i = 0; i < a.length; i++) {
+        let count = 0;
+        for (let j = 0; j < a.length; j++) {
+
+            if (a[j] === a[i] || a[j] === a[i] + 1) {
+                count++;
+            }
+        }
+        if (count > maxScore) {
+            maxScore = count
+        }
+    }
+
+    return maxScore
+}
+
+const result1 = pickingNumbers([4, 6, 5, 3, 3, 1])
+console.log(result1);
