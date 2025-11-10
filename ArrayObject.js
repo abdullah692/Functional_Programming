@@ -912,25 +912,23 @@ const files = [
 
 const systems = (files) => {
 
+  
   let obj={}
-
   for(let val of files)
   {
-    let lastIndexVal= val.lastIndexOf("/");
-    let lastVal= val.slice(lastIndexVal + 1)
-    let restVal= val.slice(0,lastIndexVal)
-    if(!obj[lastVal])
-    {
-      obj[lastVal]=[]
-    }
+      let lastIndexOf=val.lastIndexOf("/");
+      let lastValue= val.slice(lastIndexOf + 1)
+      let restValue = val.slice(0,lastIndexOf)
+      console.log(restValue,"lastValue");
 
-    obj[lastVal].push(restVal)
-    
+      if(!obj[lastValue])
+      {
+        obj[lastValue]=[]
+      }
+      obj[lastValue].push(restValue)
   }
 
-  return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
-  console.log(obj);
-  
+  return Object.fromEntries(Object.entries(obj).filter(([key,val])=> obj[key].length > 1))
   // let obj={}
   // for(let val of files)
   // {

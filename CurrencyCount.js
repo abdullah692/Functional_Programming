@@ -50,20 +50,21 @@ const currencyCount = (arr, amnt) => {
 
     // return count
 
-    let count={}
+    let count={};
     let reverseArr= arr.reverse();
-    
+
     for(let val of reverseArr)
     {
-        if(amnt >= val)
+        if(amnt > val)
         {
-            let countVal=Math.floor(amnt/val)
-            count[val]=countVal;
-            amnt %= val
+            let countVal = Math.floor(amnt / val)
+            count[val]=countVal
+            amnt%= val
         }
     }
 
     return count
+
 }
 
   const arr = [1, 2, 5, 10, 20, 50, 100, 500, 1000];
