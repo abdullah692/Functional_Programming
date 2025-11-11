@@ -58,8 +58,6 @@ const insertArray = (arr) => {
   // let arr = [2, 5, 78, 3, 20, 45, 67, 54, 32];
 
 
-  let val = 101;
-  let index = 4;
 
   // for(let i=arr.length -1 ; i >= index; i--)
   // {
@@ -79,10 +77,19 @@ const insertArray = (arr) => {
   //       arr[i]=val
   //    }
   // }
-  arr.splice(index,0,val)
+  let val = 101;
+  let index = 4;
+
+  for(let i=arr.length -1 ; i >= index ; i--)
+  {
+      arr[i+1]= arr[i]
+      if(i == index)
+      {
+        arr[i]=val
+      }
+  }
 
   return arr
-
   // for (let i = arr.length; i > index; i--) {
   //   arr[i] = arr[i - 1]
   // }
@@ -113,8 +120,8 @@ console.log(result);
 
 let fruits = ["Apple", "Banana", "Cherry", "Date"];
 let arr1 = [2, 5, 78, 3, 20, 45, 67, 54, 32];
-arr1.splice(6,1)
-fruits.splice(1,2)
+// arr1.splice(6,1)
+fruits.splice(1,0,"Abdullah")
 
 console.log(fruits);
 console.log(arr1);

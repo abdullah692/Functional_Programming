@@ -87,18 +87,22 @@ const isBalanced = (str) => {
 
     // return stack.length == 0
 
-    let stack = []
-    let map = {
-        "(": ")",
-        "{": "}",
-        "[": "]"
+    let map ={
+        "(" : ")",
+        "{" : "}",
+        "[" : "]",
     }
+    let stack=[]
 
-    for (let val of str) {
-        if (val == "(" || val == "{" || val == "[") {
-            stack.push(val)
+    for(let val of str)
+    {
+        
+        if(val == "(" || val == "{" || val == "[")
+        {
+            stack.push(val);
         }
-        else if (val == ")" || val == "}" || val == "]") {
+        else if(val == ")" || val == "}" || val == "]")
+        {
             if(val != map[stack.pop()])
             {
                 return false
@@ -106,7 +110,8 @@ const isBalanced = (str) => {
         }
     }
 
-    return stack.length == 0
+    return stack.length == 0;
+
 }
     //"({[")); // false
 

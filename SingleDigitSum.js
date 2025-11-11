@@ -28,7 +28,7 @@ const singleDigitSum = (digits) => {
      //      {
      //           sum+=Number(val)
      //      }
-          
+
      //      return singleDigitSum(sum)
      // }
      // if(digits > -10 && digits < 10)
@@ -44,19 +44,19 @@ const singleDigitSum = (digits) => {
      // }
      // return singleDigitSum(sum)
 
-     if(digits > -10 && digits < 10)
-     {
+     if (digits > -10 && digits < 10) {
           return digits
      }
+     else {
+          let sum= 0
+          let splitDigits  = digits.toString().split('');
+          for(let val of splitDigits)
+          {
+               sum+=Number(val)
+          }
 
-     let sum=0;
-     let splitNum=digits.toString().split('');
-     for(let val of splitNum)
-     {
-          sum+=Number(val);
+          return singleDigitSum(sum)
      }
-
-     return singleDigitSum(sum)
 }
 const result = singleDigitSum(435)
 console.log(result);
