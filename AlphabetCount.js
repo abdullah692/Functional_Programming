@@ -59,20 +59,20 @@ const countUnsortedAlphabets=(val)=>{
 
     // return {count,alphabets}
 
-    let count =0 ;
+    let count=0;
     let alphabets=[]
-    let sortChar = val.split('').sort().join('')
+    let sortAlp = val.split('').sort().join('');
 
-    for(let i=0 ;i < val.length; i++)
+    for(let i=0 ; i< val.length; i++)
     {
-        if(val[i] != sortChar[i])
+        if(sortAlp[i] != val[i])
         {
+            count++;
             alphabets.push(val[i])
-            count++
         }
     }
 
-    return {count,alphabets}
+    return {alphabets,count}
 }
 
 
