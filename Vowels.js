@@ -14,16 +14,28 @@ const countVowels=(str)=>{
 
     // return count
 
-    let vowels='aeiouAEIOU'
-    let count=0
-    for(let char of str)
+    // let vowels='aeiouAEIOU'
+    // let count=0
+    // for(let char of str)
+    // {
+    //     if(vowels.includes(char))
+    //     {
+    //         count++
+    //     }
+    // }
+
+    // return count
+
+    let vowels='AEIOUaeiou';
+    let count=0;
+
+    for(let val of str)
     {
-        if(vowels.includes(char))
+        if(vowels.includes(val))
         {
             count++
         }
     }
-
     return count
 }
 

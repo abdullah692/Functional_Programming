@@ -44,13 +44,15 @@ const singleDigitSum = (digits) => {
      // }
      // return singleDigitSum(sum)
 
-     if (digits > -10 && digits < 10) {
+     if(digits > -10 && digits < 10)
+     {
           return digits
      }
-     else {
-          let sum= 0
-          let splitDigits  = digits.toString().split('');
-          for(let val of splitDigits)
+     else{
+          let splitNum=digits.toString().split('');
+          let sum=0;
+
+          for(let val of splitNum)
           {
                sum+=Number(val)
           }

@@ -86,6 +86,7 @@ const moveZeroToEnd = (arr) => {
 
     // return arr
     // const arr = [0, 0, 2, 4, 0, 12, 14, 0, 6, 0, 0, 4, 5, 8, 0]
+
     let nonZeorIndex=0;
 
     for(let i=0 ;i< arr.length; i++)
@@ -95,12 +96,11 @@ const moveZeroToEnd = (arr) => {
             let next=arr[i]
             arr[i]=arr[nonZeorIndex]
             arr[nonZeorIndex]=next
-            nonZeorIndex++
+            nonZeorIndex++;
         }
     }
 
     return arr
-    // return arr
 
     // let nonZeorIndex=0
 

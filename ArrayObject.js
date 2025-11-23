@@ -16,17 +16,24 @@ const deliveries = [
 const convertDeliveries = (deliveries) => {
 
   let obj={}
+  let maxVal=0;
+  let maxCity=null
 
-  for(let {city, packages} of deliveries)
+  for(let {city,packages} of deliveries)
   {
       if(!obj[city])
       {
         obj[city]={totalPackages: 0}
       }
-      obj[city].totalPackages+=packages
+      obj[city].totalPackages +=packages
+      if(obj[city].totalPackages > maxVal)
+      {
+        maxVal=obj[city].totalPackages
+        maxCity=city
+      }
   }
 
-  return obj
+  return {obj ,maxCity,maxVal}
   // let obj = {}
   // let maxVal = 0;
   // let maxCity = null
@@ -133,21 +140,23 @@ const playerFind = (player) => {
   let maxScore = 0;
   let highestRank = null;
 
-  for (let { name, score } of player) {
-    let level = score <= 500 ? "Beginner" : score <= 1000 ? "Intermediate" : "Advanced"
-
-    if (!obj[level]) {
-      obj[level] = []
+  for(let val of player)
+  {
+    let level= val.score <= 500 ? "Begineer" : val.score <= 1500 ? "Intermediate" : "Advanced" 
+    if(!obj[level])
+    {
+      obj[level]=[]
     }
-    obj[level].push(name)
-    if (score > maxScore) {
-      maxScore = score
-      highestRank = level
+    obj[level].push(val.name)
+    if(maxScore < val.score)
+    {
+      maxScore=val.score
+      highestRank=level
     }
 
   }
 
-  return { obj, maxScore, highestRank }
+  return {obj,maxScore, highestRank}
   // let obj = {}
   // let highestScore = 0;
   // for (let value of player) {
@@ -316,17 +325,20 @@ const Footballplayers = [
 
 const footPlayer = (players) => {
 
-  let obj = {}
-  for (let { name, team, goals } of players) {
-    if (!obj[team]) {
-      obj[team] = { players: [], totalGoals: 0 }
-    }
-    obj[team].players.push(name)
-    obj[team].totalGoals += goals
+  let obj={}
+
+  for(let {name, team, goals} of players)
+  {
+      if(!obj[team])
+      {
+        obj[team]= {players : [], totalGoals: 0}
+      }
+      obj[team].players.push(name)
+      obj[team].totalGoals+=goals
   }
 
-  return obj
 
+  return obj
   // let obj = {}
   // let maxGoals=0
   // for (let { name, team, goals } of players) {
@@ -457,18 +469,34 @@ const posts = [
 // }
 
 const convertPost = (post) => {
-  let obj = {}
 
-  for (let { user, hashtags } of post) {
-    for (let tags of hashtags) {
-      if (!obj[tags]) {
-        obj[tags] = []
-      }
-      obj[tags].push(user)
+  let obj={}
+
+  for(let {user,hashtags} of post)
+  {
+    for(let tags of hashtags)
+    {
+        if(!obj[tags])
+        {
+          obj[tags]=[]
+        }
+        obj[tags].push(user)
     }
   }
 
   return obj
+  // let obj = {}
+
+  // for (let { user, hashtags } of post) {
+  //   for (let tags of hashtags) {
+  //     if (!obj[tags]) {
+  //       obj[tags] = []
+  //     }
+  //     obj[tags].push(user)
+  //   }
+  // }
+
+  // return obj
   // let obj={}
   // for(let {user,hashtags} of post)
   //   {
