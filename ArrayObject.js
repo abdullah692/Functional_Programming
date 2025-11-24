@@ -940,23 +940,18 @@ const files = [
 
 const systems = (files) => {
 
-  
   let obj={}
   for(let val of files)
   {
-      let lastIndexOf=val.lastIndexOf("/");
-      let lastValue= val.slice(lastIndexOf + 1)
-      let restValue = val.slice(0,lastIndexOf)
-      console.log(restValue,"lastValue");
-
-      if(!obj[lastValue])
-      {
-        obj[lastValue]=[]
-      }
-      obj[lastValue].push(restValue)
+      let lastIndex=val.lastIndexOf("/")
+      let lastVal= val.slice(lastIndex + 1)
+      console.log(lastVal,"lastVal");
+      let restVal= val.slice(0,lastIndex)
+      console.log(restVal,"restVal");
+      
+      
   }
 
-  return Object.fromEntries(Object.entries(obj).filter(([key,val])=> obj[key].length > 1))
   // let obj={}
   // for(let val of files)
   // {
