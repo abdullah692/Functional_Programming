@@ -18,15 +18,29 @@ reverseStr(str)
 
 
 const parkPay = (hrs) => {
-    let pay = 0
-    if (hrs <= 2) {
-        pay = hrs * 50
+    // let pay = 0
+    // if (hrs <= 2) {
+    //     pay = hrs * 50
+    // }
+    // else {
+    //     pay = ((hrs - 2) * 30) + (2 * 50)
+    // }
+
+    // return `pay ${pay} of hrs${hrs}`
+
+    let pay=0;
+
+    if(hrs <= 2)
+    {
+        pay=hrs * 50
     }
-    else {
-        pay = ((hrs - 2) * 30) + (2 * 50)
+    else{
+        pay= (2 * 50) + ((hrs -2) * 30)
     }
 
-    return `pay ${pay} of hrs${hrs}`
+    return pay
+
+
     // let devidePay=hrs -2 ;
 
     // if(hrs > 2)
@@ -51,12 +65,12 @@ const parkPay = (hrs) => {
 
 }
 
-console.log(parkPay(2))
-console.log(parkPay(5))
-console.log(parkPay(3))
-console.log(parkPay(1))
-console.log(parkPay(6))
-console.log(parkPay(0))
+console.log(parkPay(2),"paypark")
+console.log(parkPay(5),"paypark")
+console.log(parkPay(3),"paypark")
+console.log(parkPay(1),"paypark")
+console.log(parkPay(6),"paypark")
+console.log(parkPay(0),"paypark")
 
 
 
@@ -104,14 +118,30 @@ const calculateBill = (units) => {
     // }
 
     // return bill
+   // units <= 100 
 
-    if (units <= 100) {
-        bill += units * 100
+    // if (units <= 100) {
+    //     bill += units * 100
+    // }
+    // else if (units <= 200) {
+    //     bill += (100 * 10) + ((units - 100) * 15)
+    // }
+    // else {
+    //     bill += (100 * 10) + (100 * 15) + ((units - 200) * 20)
+    // }
+
+    // return bill
+
+    if(units <= 100)
+    {
+        bill += units * 10
     }
-    else if (units <= 200) {
-        bill += (100 * 10) + ((units - 100) * 15)
+    else if(units <= 200)
+    {
+        bill+= (100 * 10) + ((units - 100) * 15)
     }
-    else {
+    else
+    {
         bill += (100 * 10) + (100 * 15) + ((units - 200) * 20)
     }
 
@@ -128,17 +158,31 @@ console.log(calculateBill(100))
 
 const calculateDiscount = (amnt) => {
     let discountAmt = 0
-    if (amnt > 5000) {
-        discountAmt = amnt - (amnt * 20 / 100);
+//     if (amnt > 5000) {
+//         discountAmt = amnt - (amnt * 20 / 100);
+//     }
+//     else if (amnt >= 2000 && amnt <= 5000) {
+//         discountAmt = amnt - (amnt * 10 / 100);
+//     }
+//     else {
+//         discountAmt = amnt
+//     }
+//     return discountAmt
+
+    if(amnt > 5000)
+    {
+        discountAmt= amnt - (amnt * 20 /100)
     }
-    else if (amnt >= 2000 && amnt <= 5000) {
-        discountAmt = amnt - (amnt * 10 / 100);
+    else if(amnt >= 2000 && amnt <= 5000)
+    {
+        discountAmt= amnt - (amnt * 10 /100)
     }
-    else {
-        discountAmt = amnt
+    else{
+        discountAmt=amnt
     }
+
     return discountAmt
-}
+} 
 
 console.log("Discount amnt", calculateDiscount(6000))
 console.log("Discount amnt", calculateDiscount(6700))
@@ -153,14 +197,24 @@ console.log("Discount amnt", calculateDiscount(1800))
 
 const abbreviation = (name) => {
 
-    let splitName = name.split(" ");
-    let abbreviationName = ''
-    for (let val of splitName) {
-        if (val[0] == val[0].toUpperCase()) {
-            abbreviationName += val.slice(0, 1)
-        }
+    // let splitName = name.split(" ");
+    // let abbreviationName = ''
+    // for (let val of splitName) {
+    //     if (val[0] == val[0].toUpperCase()) {
+    //         abbreviationName += val.slice(0, 1)
+    //     }
+    // }
+    // return abbreviationName
+
+    let splitName= name.split(" ")
+    let abbreviationName=''
+
+    for(let val of splitName)
+    {
+        abbreviationName += val[0].toUpperCase()
     }
-    return abbreviationName
+    
+    
 
 }
 
@@ -208,7 +262,7 @@ const convertKeys=(obj1)=>{
     let obj={}
     for(let key in obj1)
     {
-        debugger
+        // debugger
         let newKey= key.replace(/_([a-z])/g,(_,c)=> c.toUpperCase())
         obj[newKey]=typeof obj1[key] === "object" ? convertKeys(obj1[key]) : obj1[key]
     }
