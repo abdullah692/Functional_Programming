@@ -211,11 +211,12 @@ const abbreviation = (name) => {
 
     for(let val of splitName)
     {
-        abbreviationName += val[0].toUpperCase()
+        if(val[0] == val[0].toUpperCase())
+        {
+            abbreviationName += val[0].toUpperCase()
+        }
     }
-    
-    
-
+    return abbreviationName
 }
 
 console.log(abbreviation("Pakistan International Airlines"));
