@@ -52,7 +52,6 @@ const groupAnagram = (arr) => {
 
     // return obj
 
-
     let obj={}
 
     for(let val of arr)
@@ -64,8 +63,10 @@ const groupAnagram = (arr) => {
         }
         obj[sortVal].push(val)
     }
+
     return obj
 }
+
 
 
 const arr = ["eat", "tea", "tan", "ate", "nat", "bat"]
