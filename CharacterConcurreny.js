@@ -40,16 +40,15 @@ const CharacterFreq = (string) => {
   // }
   // return obj
 
- 
-  let obj={}
-  for(let val of string)
-  {
-    obj[val] = (obj[val] || 0) +1
+
+  let obj = {}
+  for (let val of string) {
+    obj[val] = (obj[val] || 0) + 1
   }
   return obj
 }
 
-const res=CharacterFreq('abdullahasasawewe')
+const res = CharacterFreq('abdullahasasawewe')
 console.log(res);
 
 
@@ -57,14 +56,12 @@ console.log(res);
 //With Array
 
 const CharacterCheck = (arr1) => {
-  let arr=[]
+  let arr = []
 
-  for(let char of arr1)
-  {
-    if(!arr.includes(char))
-    {
-      arr[char]=(arr[char] || 0)+1
-    }else{
+  for (let char of arr1) {
+    if (!arr.includes(char)) {
+      arr[char] = (arr[char] || 0) + 1
+    } else {
       arr[char]++
     }
   }
@@ -108,3 +105,25 @@ console.log(result);
 //     arr.push(char)
 // }
 // console.log(arr);
+
+
+function migratoryBirds(arr) {
+  // Write your code here
+  let obj = {}
+  let maxBird = 0
+
+  for (let i of arr) {
+    obj[i] = (obj[i] || 0) + 1;
+    if (maxBird < obj[i]) {
+
+      maxBird = obj[i]
+    }
+  }
+
+  return Math.min(...Object.keys(obj).filter((key) => obj[key] == maxBird))
+}
+
+
+let arr2 = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]
+const res2 = migratoryBirds(arr2)
+console.log(res2);
