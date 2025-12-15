@@ -6,10 +6,9 @@ const temperatureCheck = (arr) => {
 
     for(let i=0; i< arr.length; i++)
     {
-        let count=0;
+        let count=0
         let found=false
-
-        for(let j=i+1; j<arr.length; j++)
+        for(let j=i+1; j < arr.length; j++)
         {
             count++;
             if(arr[i] < arr[j])
