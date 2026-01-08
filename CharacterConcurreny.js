@@ -41,10 +41,13 @@ const CharacterFreq = (string) => {
   // return obj
 
 
-  let obj = {}
-  for (let val of string) {
-    obj[val] = (obj[val] || 0) + 1
+  let obj={}
+
+  for(let val of string)
+  {
+      obj[val] = (obj[val] || 0) + 1
   }
+
   return obj
 }
 
