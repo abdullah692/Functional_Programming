@@ -51,16 +51,17 @@ const groupAnagram = (arr) => {
     // }
 
     // return obj
+    
     let obj={}
-
-    for(let val of arr)
+    for(let char of arr)
     {
-        let sortVal = val.split('').sort().join('')
+        let sortVal = char.split('').sort().join('')
         if(!obj[sortVal])
         {
             obj[sortVal]=[]
         }
-        obj[sortVal].push(val)
+
+        obj[sortVal].push(char)
     }
 
     return obj
@@ -68,6 +69,6 @@ const groupAnagram = (arr) => {
 
 
 
-const arr = ["eat", "tea", "tan", "ate", "nat", "bat"]
+const arr = ["eat", "tea", "tan", "ate", "nat", "bat","tab"]
 const result = groupAnagram(arr)
 console.log(result);

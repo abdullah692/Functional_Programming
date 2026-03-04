@@ -49,27 +49,26 @@ const Anagram = (string1, string2) => {
 
    if(string1.length != string2.length)
    {
-      return "Not a Palindrome"
+      return 'Not an Anagram'
    }
-   for(let val of string1)
+
+   for(let char of string1)
    {
-      obj[val]= (obj[val] || 0) +1
+      obj[char] = (obj[char] || 0) +1
    }
-   for(let val of string2)
+
+   for(let char of string2)
    {
-      if(!obj[val])
+      if(!obj[char])
       {
-         return 'Not a Palindrome'
+         return "Not an Anagram"
       }
       else{
-         obj[val]-=1;
+         obj[char]--
       }
    }
 
-   return "It is a Palindrome"
-
-   // console.log(obj);
-
+   return "It is an Anagram"
 
 }
 
@@ -154,5 +153,5 @@ const anagram = (string1, string2) => {
 }
 
 const result =
-  Anagram("hello", "hello");
+  Anagram("abdullah", "ablludhv");
 console.log(result)
