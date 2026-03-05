@@ -31,22 +31,20 @@ const LongestString = (val) => {
 
     // return {maxCount,maxWord}
 
-    let splitWords= val.split(" ")
-    console.log(splitWords);
-    
-    let maxWord=0
-    let maxChar=null
+    let maxCount=0;
+    let maxWord=''
+    let valSplit= val.split(' ')
 
-    for(let val of splitWords)
+    for(let char of valSplit)
     {
-        if(val.length > maxWord)
+        if(char.length > maxCount)
         {
-            maxWord=val.length
-            maxChar=val
+            maxCount=char.length
+            maxWord=char
         }
     }
 
-    return {maxChar,maxWord}
+    return {maxCount,maxWord}
 
     // let maxChar=0;
     // let maxWord=null
