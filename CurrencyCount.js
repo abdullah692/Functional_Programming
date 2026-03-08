@@ -62,8 +62,20 @@ const currencyCount = (arr, amnt) => {
 
     // return count
 
-    let count={}
-    
+    let count = {}
+    let reverseArr = arr.reverse();
+
+    for (let i = 0; i < reverseArr.length; i++) {
+        if (amnt > arr[i]) {
+            let val = Math.floor(amnt / arr[i])
+            count[arr[i]] = val
+            amnt %= arr[i]
+        }
+    }
+
+    return count
+
+
 }
 
 const arr = [1, 2, 5, 10, 20, 50, 100, 500, 1000];
@@ -210,27 +222,57 @@ const atmCurrency = (amnt) => {
 
     while (amnt > 0) {
         if (amnt % 500 != 0) {
-            return `Invalid amount entered`
+            return 'Invalid amount entered'
+        }
+        else {
+            debugger
+            if ((amnt - 5000) > 0) {
+                // let count5000= Math.floor(amnt/5000)
+                // count[5000]=count5000
+                // amnt%=5000
+                count5000++
+                count[5000] = count5000
+                amnt -= 5000
+
+            }
+            else if ((amnt - 1000) > 0) {
+                count1000++
+                count[1000] = count1000
+                amnt -= 1000
+            }
+            else if ((amnt - 500) >= 0) {
+                count500++
+                count[500] = count500
+                amnt -= 500
+            }
         }
 
-        if ((amnt - 5000) > 0) {
-            count5000++;
-            count[5000] = count5000
-            amnt -= 5000
-        }
-        else if ((amnt - 1000) > 0) {
-            count1000++;
-            count[1000] = count1000
-            amnt -= 1000
-        }
-         else if ((amnt - 500) >= 0) {
-            count500++;
-            count[500] = count500
-            amnt -= 500
-        }
     }
-
     return count
+
+    // while (amnt > 0) {
+    //     if (amnt % 500 != 0) {
+    //         return `Invalid amount entered`
+    //     }
+
+    //     if ((amnt - 5000) > 0) {
+    //         count5000++;
+    //         count[5000] = count5000
+    //         amnt -= 5000
+    //     }
+    //     else if ((amnt - 1000) > 0) {
+    //         count1000++;
+    //         count[1000] = count1000
+    //         amnt -= 1000
+    //     }
+    //      else if ((amnt - 500) >= 0) {
+    //         count500++;
+    //         count[500] = count500
+    //         amnt -= 500
+    //     }
+    // }
+
+    // return count
 }
 
 let amount = 20000
