@@ -84,12 +84,39 @@ const cutStick = (arr) => {
 
     // return stick
 
-    let stick = []
+    // let stick = []
 
-    while (arr.some((val) => val > 0)) {
-        let count = 0;
+    // while (arr.some((val) => val > 0)) {
+    //     let count = 0;
+    //     let minVal = Math.min(...arr.filter((val) => val > 0))
+    //     console.log(minVal,"minVal");
+
+
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] - minVal >= 0) {
+    //             arr[i] -= minVal
+    //             count++
+    //         }
+    //     }
+
+    //     console.log(arr,"arr");
+
+    //     stick.push(count)
+    // }
+
+    // return stick
+
+    // let minVal = Math.min(...arr)
+    // console.log(minVal,"minVla");
+
+
+    let stick = []
+    
+    while (arr.some((v) => v > 0)) {
         let minVal = Math.min(...arr.filter((val) => val > 0))
-        console.log(minVal,"minVal");
+        console.log("minVal", minVal);
+        let count = 0;
+        console.log(arr,"arr");
         
 
         for (let i = 0; i < arr.length; i++) {
@@ -98,10 +125,12 @@ const cutStick = (arr) => {
                 count++
             }
         }
-        
-        console.log(arr,"arr");
-        
+
+
         stick.push(count)
+
+
+
     }
 
     return stick
@@ -109,8 +138,8 @@ const cutStick = (arr) => {
 
 }
 
-let arr = [1, 2, 3, 4, 3, 3, 2, 1]
-// let arr = [5, 4, 4, 2, 2, 8]
+// let arr = [1, 2, 3, 4, 3, 3, 2, 1]
+let arr = [5, 4, 4, 2, 2, 8]
 
 const result = cutStick(arr)
 console.log(result, "result");
