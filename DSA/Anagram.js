@@ -44,31 +44,32 @@ const Anagram = (string1, string2) => {
    // }
 
    // return "It is an Anagram"
+   let obj = {}
 
-   let obj={}
-
-   if(string1.length != string2.length)
-   {
-      return 'Not an Anagram'
+   if (string1.length != string2.length) {
+      return "Not an Anagram"
    }
-
-   for(let char of string1)
-   {
-      obj[char] = (obj[char] || 0) +1
-   }
-
-   for(let char of string2)
-   {
-      if(!obj[char])
+   
+      for(let val of string1)
       {
-         return "Not an Anagram"
+         obj[val] =(obj[val] || 0) +1
       }
-      else{
-         obj[char]--
-      }
-   }
 
-   return "It is an Anagram"
+      for(let val of string2)
+      {
+         if(!obj[val])
+         {
+            return "Not an Anagram"
+         }
+         else {
+            obj[val]--
+         }
+      }
+
+
+      return "It is an Anagram"
+
+   
 
 }
 
@@ -133,19 +134,17 @@ const anagram = (string1, string2) => {
    // }
    // return "Not an Anagram"
 
-   if(string1.length != string2.length)
-   {
+   if (string1.length != string2.length) {
       return 'Not an Anagram'
    }
 
-   let sortString1=string1.split('').sort().join('')
-   let sortString2=string2.split('').sort().join('')
+   let sortString1 = string1.split('').sort().join('')
+   let sortString2 = string2.split('').sort().join('')
 
-   if(sortString1 == sortString2)
-   {
+   if (sortString1 == sortString2) {
       return 'Word is Anagram'
    }
-   else{
+   else {
       return 'Not an Anagram'
 
    }
@@ -153,5 +152,5 @@ const anagram = (string1, string2) => {
 }
 
 const result =
-  Anagram("abdullah", "ablludhv");
+   Anagram("abdullah", "ablludhv");
 console.log(result)

@@ -135,17 +135,42 @@ const findUniques=(arr1)=>{
 
 // console.log(uniqueArr);
 
-  let uniqueNum=[]
+  // let uniqueNum=[]
   
+  // for(let val of arr1)
+  // {
+  //     if(!uniqueNum.includes(val))
+  //     {
+  //       uniqueNum.push(val)
+  //     }
+  // }
+
+  // return uniqueNum
+
+  let uniqueArr=[]
+
   for(let val of arr1)
   {
-      if(!uniqueNum.includes(val))
-      {
-        uniqueNum.push(val)
-      }
+    if(!uniqueArr.includes(val))
+    {
+      uniqueArr.push(val)
+    }
   }
 
-  return uniqueNum
+  return uniqueArr.sort()
+
+
+
+  // let uniqueNum={}
+
+  // for(let val of arr1)
+  // {
+  //   uniqueNum[val]=(uniqueNum[val] || 0 ) +1
+
+  // }
+
+
+  // return Object.keys(uniqueNum).filter((v)=> v == 1)
 
 }
 
@@ -163,6 +188,6 @@ const findUniques=(arr1)=>{
 // }
 let arr1 = [2, 4, 1, 1, 2, 3, 4, 3, 6, 8, 5, 5, 9];
 
-const result = removeDuplicates(arr1);
+const result = findUniques(arr1);
 console.log(result);
 
