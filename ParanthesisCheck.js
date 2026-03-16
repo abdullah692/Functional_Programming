@@ -88,27 +88,54 @@ const isBalanced = (str) => {
     // return stack.length == 0
 
 
-    let map = {
-        "(": ")",
-        "{": "}",
-        "[": "]",
+    // let map = {
+    //     "(": ")",
+    //     "{": "}",
+    //     "[": "]",
+    // }
+
+    // let stack = []
+    // for (let val of str) {
+    //     if (map[val]) {
+    //         stack.push(val)
+    //     }
+    //     else if (val == ")" || val == "}" || val == "]") {
+    //         if (map[stack.pop()] != val) {
+    //             return false
+    //         }
+
+    //     }
+    // }
+
+    // return stack.length == 0 
+
+
+    let map={
+        "(":")",
+        "{":"}",
+        "[":"]",
     }
 
-    let stack = []
-    for (let val of str) {
-        if (map[val]) {
+    let stack=[]
+
+    for(let val of str)
+    {
+        if(val == "(" || val == "{" || val == "[")
+        {
             stack.push(val)
         }
-        else if (val == ")" || val == "}" || val == "]") {
-            if (map[stack.pop()] != val) {
+        else if(val == ")" || val == "}" || val == "]")
+        {
+            if(val != map[stack.pop()])
+            {
                 return false
             }
-
         }
     }
 
-    return stack.length == 0 
+    return stack.length == 0
 }
+
 
 
 //   console.log(isBalanced("(){}[]")); // true

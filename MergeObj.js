@@ -11,6 +11,25 @@ let obj2 = {
 
 const merge = (obj1, obj2) => {
  
+  let obj={}
+
+  for(let key in {...obj1, ...obj2})
+  {
+      if(obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key))
+      {
+          obj[key]= [... new Set(obj1[key].concat(obj2[key]))]
+      }
+      else if(obj1.hasOwnProperty(key))
+      {
+        obj[key]=obj1[key]
+      }
+      else{
+        obj[key]=obj2[key]
+
+      }
+  }
+
+  return obj
   // let obj={}
 
   // for(let key in {...obj1, ...obj2})
@@ -31,25 +50,25 @@ const merge = (obj1, obj2) => {
 
   // console.log(obj);
 
-  let obj={}
+  // let obj={}
 
-  for(let key in {...obj1,...obj2})
-  {
-    if(obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key))
-    {
-      obj[key] = [... new Set(obj1[key].concat(obj2[key]))]
-    }
-    else if(obj1.hasOwnProperty(key))
-    {
-      obj[key]= obj1[key]
-    }
-    else{
-      obj[key]= obj2[key]
+  // for(let key in {...obj1,...obj2})
+  // {
+  //   if(obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key))
+  //   {
+  //     obj[key] = [... new Set(obj1[key].concat(obj2[key]))]
+  //   }
+  //   else if(obj1.hasOwnProperty(key))
+  //   {
+  //     obj[key]= obj1[key]
+  //   }
+  //   else{
+  //     obj[key]= obj2[key]
 
-    }
-  }
+  //   }
+  // }
 
-  return obj
+  // return obj
   
   // let obj = {};
 
