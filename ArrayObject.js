@@ -15,25 +15,48 @@ const deliveries = [
 
 const convertDeliveries = (deliveries) => {
 
-  let obj={}
-  let maxVal=0;
-  let maxCity=null
 
-  for(let {city,packages} of deliveries)
+  
+  let obj={}
+  let maxVal= 0;
+  let maxCity=null;
+
+
+  for(let val of deliveries)
   {
-      if(!obj[city])
+      if(!obj[val.city])
       {
-        obj[city]={totalPackages: 0}
+        obj[val.city]={totalPackages : 0}
       }
-      obj[city].totalPackages +=packages
-      if(obj[city].totalPackages > maxVal)
+      
+      obj[val.city].totalPackages +=val.packages
+      if(obj[val.city].totalPackages > maxVal)
       {
-        maxVal=obj[city].totalPackages
-        maxCity=city
+        maxVal = obj[val.city].totalPackages
+        maxCity = val.city
       }
   }
 
-  return {obj ,maxCity,maxVal}
+  return {obj,maxCity,maxVal}
+  // let obj={}
+  // let maxVal=0;
+  // let maxCity=null
+
+  // for(let {city,packages} of deliveries)
+  // {
+  //     if(!obj[city])
+  //     {
+  //       obj[city]={totalPackages: 0}
+  //     }
+  //     obj[city].totalPackages +=packages
+  //     if(obj[city].totalPackages > maxVal)
+  //     {
+  //       maxVal=obj[city].totalPackages
+  //       maxCity=city
+  //     }
+  // }
+
+  // return {obj ,maxCity,maxVal}
   // let obj = {}
   // let maxVal = 0;
   // let maxCity = null
