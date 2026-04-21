@@ -215,26 +215,30 @@ const SumZero = (arr, target) => {
 
     // return -1
 
+    // let left=0;
+    // let right=arr.length -1;
+    // let sortArr= arr.sort((a,b)=> a-b)
 
-    let left = 0;
-    let right = arr.length - 1;
-    let sortArr = arr.sort((a, b) => a - b)
+    // while(left <= right)
+    // {
+    //     let sum = sortArr[left] + sortArr[right]
 
-    while (left <= right) {
-        let sum = arr[left] + arr[right]
-        if (sum == target) {
-            return `The target value ${target} is the values of ${sortArr[left]} and ${sortArr[right]}`
-        }
-        else if(sum > target)
-        {
-            right--
-        }
-        else{
-            left++
-        }
-    }
+    //     if(sum == target)
+    //     {
+    //         return `The target value ${target} is the values of ${sortArr[left]} and ${sortArr[right]}`
+    //     }
 
-    return "No value exists"
+    //     if(sum > target)
+    //     {
+    //         right--
+    //     }
+    //     else{
+    //         left++
+    //     }
+    // }
+
+    // return -1
+
 
     // for (let i = 0; i < arr.length; i++) {
     //     for (let j = i + 1; j < arr.length; j++) {
@@ -246,6 +250,17 @@ const SumZero = (arr, target) => {
     //     }
     // }
 
+
+    for(let i=0; i < arr.length; i++)
+    {
+        for(let j=i+1 ; j< arr.length; j++)
+        {
+            if(arr[i] + arr[j] == target)
+            {
+                    return `${i} & ${j} index to make ${target}`
+            }
+        }
+    }
 }
 
 const arr = [2, 4, 6, 5, 10, 8, -2,0]
