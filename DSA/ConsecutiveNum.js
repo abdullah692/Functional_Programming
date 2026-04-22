@@ -21,28 +21,38 @@ const consecutiveSum = (arr) => {
     // for (let i = 0; i < arr.length-3; i++) {
     //     sum+=arr[i]+arr[i+1]+arr[i+2]
     //     console.log(sum);
-        
+
     //     arr1.push(sum)
     // }
 
     // console.log(arr1);
-    
+
     // return Math.max(...arr1)
-let sum=0
-let arr1=[]
-let maxSum=0
+    // let sum=0
+    // let arr1=[]
+    // let maxSum=0
 
-for(let i=0 ;i< arr.length-3; i++)
-{
-    sum+=arr[i]+arr[i+1] + arr[i+2]
-    arr1.push(sum)
-    if(sum > maxSum)
-    {
-        maxSum=sum
+    // for(let i=0 ;i< arr.length-3; i++)
+    // {
+    //     sum+=arr[i]+arr[i+1] + arr[i+2]
+    //     arr1.push(sum)
+    //     if(sum > maxSum)
+    //     {
+    //         maxSum=sum
+    //     }
+    // }
+
+    // return {arr1,maxSum}
+
+    let sum = []
+
+    for (let i = 0; i < arr.length - 3; i++) {
+        debugger
+        let add = arr[i] + arr[i + 1] + arr[i + 2]
+        sum[i] = add
     }
-}
 
-return {arr1,maxSum}
+    return sum
 };
 
 // const consecutiveSum = (arr) => {

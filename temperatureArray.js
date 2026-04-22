@@ -4,20 +4,19 @@ const temperatureCheck = (arr) => {
 
     let temp=[]
 
-    for(let i=0 ; i< arr.length ;i++)
+    for(let i=0; i< arr.length; i++)
     {
-        let count =0
+        let count=0;
         let flag=false
 
-        for(let j= i+1; j< arr.length; j++)
+        for(let j=i +1 ; j< arr.length; j++)
         {
             count++
             if(arr[i] < arr[j])
             {
                 temp.push(count)
-                flag=true
+                flag= true
                 break
-
             }
         }
 
@@ -27,7 +26,34 @@ const temperatureCheck = (arr) => {
         }
     }
 
+
     return temp
+    // let temp=[]
+
+    // for(let i=0 ; i< arr.length ;i++)
+    // {
+    //     let count =0
+    //     let flag=false
+
+    //     for(let j= i+1; j< arr.length; j++)
+    //     {
+    //         count++
+    //         if(arr[i] < arr[j])
+    //         {
+    //             temp.push(count)
+    //             flag=true
+    //             break
+
+    //         }
+    //     }
+
+    //     if(!flag)
+    //     {
+    //         temp.push(0)
+    //     }
+    // }
+
+    // return temp
     // let temp=[]
 
     // for(let i=0; i< arr.length; i++)
