@@ -16,28 +16,25 @@ const deliveries = [
 const convertDeliveries = (deliveries) => {
 
 
-  
-  let obj={}
-  let maxVal= 0;
-  let maxCity=null;
+
+  let obj = {}
+  let maxVal = 0;
+  let maxCity = null;
 
 
-  for(let val of deliveries)
-  {
-      if(!obj[val.city])
-      {
-        obj[val.city]={totalPackages : 0}
-      }
-      
-      obj[val.city].totalPackages +=val.packages
-      if(obj[val.city].totalPackages > maxVal)
-      {
-        maxVal = obj[val.city].totalPackages
-        maxCity = val.city
-      }
+  for (let val of deliveries) {
+    if (!obj[val.city]) {
+      obj[val.city] = { totalPackages: 0 }
+    }
+
+    obj[val.city].totalPackages += val.packages
+    if (obj[val.city].totalPackages > maxVal) {
+      maxVal = obj[val.city].totalPackages
+      maxCity = val.city
+    }
   }
 
-  return {obj,maxCity,maxVal}
+  return { obj, maxCity, maxVal }
   // let obj={}
   // let maxVal=0;
   // let maxCity=null
@@ -159,27 +156,45 @@ const players = [
 
 const playerFind = (player) => {
 
-  let obj = {}
-  let maxScore = 0;
-  let highestRank = null;
 
-  for(let val of player)
-  {
-    let level= val.score <= 500 ? "Begineer" : val.score <= 1500 ? "Intermediate" : "Advanced" 
-    if(!obj[level])
-    {
-      obj[level]=[]
+  let obj = {}
+  let maxScore = 0
+  let highestRank = null
+  for (let val of player) {
+    let level = val.score >= 1500 ? "Advanced" : val.score >= 500 ? "Intermediate" : "Beginner"
+
+    if (!obj[level]) {
+      obj[level] = []
     }
     obj[level].push(val.name)
-    if(maxScore < val.score)
-    {
-      maxScore=val.score
-      highestRank=level
+    if (val.score > maxScore) {
+      maxScore = val.score
+      highestRank = level
     }
-
   }
 
-  return {obj,maxScore, highestRank}
+  return { ...obj, maxScore, highestRank }
+  // let obj = {}
+  // let maxScore = 0;
+  // let highestRank = null;
+
+  // for(let val of player)
+  // {
+  //   let level= val.score <= 500 ? "Begineer" : val.score <= 1500 ? "Intermediate" : "Advanced" 
+  //   if(!obj[level])
+  //   {
+  //     obj[level]=[]
+  //   }
+  //   obj[level].push(val.name)
+  //   if(maxScore < val.score)
+  //   {
+  //     maxScore=val.score
+  //     highestRank=level
+  //   }
+
+  // }
+
+  // return {obj,maxScore, highestRank}
   // let obj = {}
   // let highestScore = 0;
   // for (let value of player) {
@@ -267,14 +282,22 @@ const flights = [
 // }
 
 const flightsRes = (flights) => {
+
   let obj = {}
+  let highestFlights = null
+  let maxFlight = 0;
   for (let { flight, airline, time } of flights) {
     if (!obj[airline]) {
       obj[airline] = []
     }
-    obj[airline].push(`${flight} (${time})`)
+    obj[airline].push(`${time} (${flight})`)
+    if (maxFlight < obj[airline].length) {
+      maxFlight = obj[airline].length
+      highestFlights = airline
+    }
   }
-  return obj
+
+  return {obj, highestFlights}
   // let obj = {}
   // let highestFlights = null
   // let maxFlight = 0;
@@ -348,16 +371,14 @@ const Footballplayers = [
 
 const footPlayer = (players) => {
 
-  let obj={}
+  let obj = {}
 
-  for(let {name, team, goals} of players)
-  {
-      if(!obj[team])
-      {
-        obj[team]= {players : [], totalGoals: 0}
-      }
-      obj[team].players.push(name)
-      obj[team].totalGoals+=goals
+  for (let { name, team, goals } of players) {
+    if (!obj[team]) {
+      obj[team] = { players: [], totalGoals: 0 }
+    }
+    obj[team].players.push(name)
+    obj[team].totalGoals += goals
   }
 
 
@@ -436,8 +457,18 @@ const books = [
 // }
 
 const Books = (books) => {
-  // let obj={}
+  let obj={}
 
+  for(let {title,author} of books)
+  {
+    if(!obj[author])
+    {
+      obj[author]=[]
+    }
+    obj[author].push(title)
+  }
+
+  return Object.fromEntries(Object.entries(obj).sort((a,b)=> a-b))
   // for(let val of books)
   // {
   //   if(!obj[val.author])
@@ -463,14 +494,14 @@ const Books = (books) => {
   //   "George Orwell": ["1984", "Animal Farm"]
   // }
 
-  let obj = {}
-  for (let { title, author } of books) {
-    if (!obj[author]) {
-      obj[author] = []
-    }
-    obj[author].push(title)
-  }
-  return obj
+  // let obj = {}
+  // for (let { title, author } of books) {
+  //   if (!obj[author]) {
+  //     obj[author] = []
+  //   }
+  //   obj[author].push(title)
+  // }
+  // return obj
 
   // return Object.fromEntries(Object.entries(obj).sort((a,b)=> a.title - b.title))
 }
@@ -495,18 +526,18 @@ const convertPost = (post) => {
 
   let obj={}
 
-  for(let {user,hashtags} of post)
+  for(let {user, hashtags} of post)
   {
-    for(let tags of hashtags)
+    for(let tag of hashtags)
     {
-        if(!obj[tags])
-        {
-          obj[tags]=[]
-        }
-        obj[tags].push(user)
+      if(!obj[tag])
+      {
+        obj[tag]=[]
+      }
+
+      obj[tag].push(user)
     }
   }
-
   return obj
   // let obj = {}
 
@@ -681,15 +712,26 @@ const peoples = [
 
 const peopleGroup = (arr) => {
 
-  let obj = {}
-  for (let { name, age } of arr) {
-    if (!obj[age]) {
-      obj[age] = []
-    }
-    obj[age].push({ name, age })
-  }
+  let obj={}
 
+  for(let {name,age} of arr)
+  {
+    if(!obj[age])
+    {
+      obj[age]=[]
+    }
+    obj[age].push({name,age})
+  }
   return obj
+  // let obj = {}
+  // for (let { name, age } of arr) {
+  //   if (!obj[age]) {
+  //     obj[age] = []
+  //   }
+  //   obj[age].push({ name, age })
+  // }
+
+  // return obj
   // let obj = {}
   // for (let { name, age } of arr) {
   //   if (!obj[age]) {
@@ -774,18 +816,33 @@ const employees = [
 // }
 
 
+
 const employeesFetch = (employee) => {
 
-  let obj = {}
+  let obj={}
 
-  for (let { department, name, age, position, salary } of employee) {
-    if (!obj[department]) {
-      obj[department] = {}
-    }
-    obj[department][name] = { age, position, salary }
+  for(let {department,name,age,salary,position} of employee)
+  {
+      if(!obj[department])
+      {
+        obj[department]={}
+      }
+       obj[department][name] = {age,position,salary}
   }
 
   return obj
+
+
+  // let obj = {}
+
+  // for (let { department, name, age, position, salary } of employee) {
+  //   if (!obj[department]) {
+  //     obj[department] = {}
+  //   }
+  //   obj[department][name] = { age, position, salary }
+  // }
+
+  // return obj
 
   // let obj = {}
   // for (let { department, name, age, position, salary } of employee) {
@@ -862,21 +919,47 @@ const orders = [
 
 //Most purchased item: "Phone"
 
+
 const mostOrder = (orders) => {
 
-  let obj = {}
-  let maxCount = 0;
-  let maxItem = null;
 
-  for (let { customer, item } of orders) {
-    obj[item] = (obj[item] || 0) + 1
-    if (maxCount < obj[item]) {
-      maxCount = obj[item]
-      maxItem = item
+  let obj={}
+  let maxItem=null
+  let maxCount=0;
+
+  for(let {customer,item} of orders)
+  {
+    if(!obj[item])
+    {
+      obj[item] = (obj[item] || 0) + 1
+    }
+    else{
+
+      obj[item]++
+    }
+
+    if(maxCount < obj[item])
+    {
+      maxCount=obj[item]
+      maxItem= item
     }
   }
+  console.log(obj,"obj");
 
-  return `Most purchased item is ${maxItem} with sell of ${maxCount}`
+  return `Most purchased item: ${maxItem} of having pruchase of count ${maxCount}`
+  // let obj = {}
+  // let maxCount = 0;
+  // let maxItem = null;
+
+  // for (let { customer, item } of orders) {
+  //   obj[item] = (obj[item] || 0) + 1
+  //   if (maxCount < obj[item]) {
+  //     maxCount = obj[item]
+  //     maxItem = item
+  //   }
+  // }
+
+  // return `Most purchased item is ${maxItem} with sell of ${maxCount}`
   // let obj = {}
   // let mostItem = null
   // let itemCount = 0
@@ -964,16 +1047,32 @@ const files = [
 const systems = (files) => {
 
   let obj={}
+
   for(let val of files)
   {
-      let lastIndex=val.lastIndexOf("/")
-      let lastVal= val.slice(lastIndex + 1)
-      console.log(lastVal,"lastVal");
-      let restVal= val.slice(0,lastIndex)
-      console.log(restVal,"restVal");
-      
-      
-  }
+    let lastIndex= val.lastIndexOf("/")
+    let lastValue= val.slice(lastIndex + 1)
+    let restVal= val.slice(0,lastIndex)
+    console.log("lastIndex",restVal);
+
+    if(!obj[lastValue])
+    {
+      obj[lastValue] = []
+    }
+    obj[lastValue].push(restVal)
+  // return obj
+}
+  return Object.fromEntries(Object.entries(obj).filter(([key,val])=> val.length > 1))
+  // let obj = {}
+  // for (let val of files) {
+  //   let lastIndex = val.lastIndexOf("/")
+  //   let lastVal = val.slice(lastIndex + 1)
+  //   console.log(lastVal, "lastVal");
+  //   let restVal = val.slice(0, lastIndex)
+  //   console.log(restVal, "restVal");
+
+
+  // }
 
   // let obj={}
   // for(let val of files)
@@ -1009,7 +1108,7 @@ const systems = (files) => {
 
   //   return Object.fromEntries(Object.entries(obj).filter(([key,value])=> obj[key].length > 1))
 
-  
+
 
 
   // let obj={}     
