@@ -28,20 +28,39 @@ function superReducedString(s) {
 
 
 
-    let flag = false
-    for (let i = 0; i < s.length; i++) {
-        debugger
-        if (s[i] == s[i + 1]) {
-            s = s.substring(0, i) + s.substring(i + 1, s.length)
-            flag = true
+    // let flag = false
+    // for (let i = 0; i < s.length; i++) {
+    //     debugger
+    //     if (s[i] == s[i + 1]) {
+    //         s = s.substring(0, i) + s.substring(i + 1, s.length)
+    //         flag = true
+    //     }
+
+    // }
+
+    // if (!flag) {
+    //     return s
+    // }
+
+
+    // return superReducedString(s)
+
+    let flag= false
+
+    for(let i=0; i < s.length; i++)
+    {
+        if(s[i] == s[i+1])
+        {
+            s=s.substring(0,i) + s.substring(i+1,s.length)
+            flag=true
         }
 
     }
 
-    if (!flag) {
+    if(!flag)
+    {
         return s
     }
-
 
     return superReducedString(s)
 }
@@ -53,11 +72,27 @@ function superReducedString(s) {
 // like    ---- aa make it "" -------
 const superReducedString2=(s)=>{
 
+    // let stack=[]
+
+    // for(let char of s)
+    //     {
+    //     if(stack.length && stack[stack.length - 1] == char)
+    //     {
+    //         stack.pop()
+    //     }
+    //     else{
+    //         stack.push(char)
+    //     }
+    // }
+
+
+    // return stack.length ? stack.join('') : "Empty String"
+
     let stack=[]
 
     for(let char of s)
-        {
-        if(stack.length && stack[stack.length - 1] == char)
+    {
+        if(stack.length != 0 && stack[stack.length - 1] == char)
         {
             stack.pop()
         }
@@ -71,5 +106,5 @@ const superReducedString2=(s)=>{
 }
 
 
-const result = superReducedString2("aaabccddd")
+const result = superReducedString("aaabccddd")
 console.log(result);

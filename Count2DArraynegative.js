@@ -108,15 +108,26 @@ const transposeMatrix = (matrix) => {
 
     // return result
 
-    let result = []
+    // let result = []
 
-    for (let i = 0; i < matrix.length; i++) {
-        console.log(matrix.map((val)=> val[i]));
-        result.push(matrix.map((val)=> val[i]))
+    // for (let i = 0; i < matrix.length; i++) {
+    //     console.log(matrix.map((val)=> val[i]));
+    //     result.push(matrix.map((val)=> val[i]))
+        
+    // }
+    // return result
+
+    let result=[]
+
+    for(let i=0; i< matrix.length; i++)
+    {
+        console.log("matrix", matrix.map((v)=> v[i]));
+        result.push(matrix.map((v)=> v[i]))
         
     }
-    return result
 
+    console.log(result);
+    
 
 };
 
