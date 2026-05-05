@@ -135,14 +135,17 @@ const cutStick = (arr) => {
 
     // return stick
 
+
     let stick=[]
 
-    while(arr.some((v)=> v > 0))
+    while(arr.some(v => v > 0))
     {
-        let minVal = Math.min(...arr.filter((v)=> v > 0))
-        let count=0
+        debugger
+        let minVal = Math.min(... arr.filter((v => v > 0)))
+        console.log(minVal,"minVal");
 
-        for(let i=0; i< arr.length;i++)
+        let count= 0
+        for(let i=0 ;i < arr.length; i++)
         {
             if(arr[i] - minVal >= 0)
             {
@@ -150,16 +153,11 @@ const cutStick = (arr) => {
                 count++
             }
         }
-
-        stick.push(count)
-        console.log("minvAL",minVal);
-        // break
         
+        stick.push(count)
     }
-    
 
     return stick
-
 
 }
 

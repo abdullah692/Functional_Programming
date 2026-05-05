@@ -62,16 +62,22 @@ const currencyCount = (arr, amnt) => {
 
     // return count
 
-    let count = {}
-    let revAmnt = arr.reverse()
+    let count ={}
+    let revArr = arr.reverse()
+    console.log(revArr,"revArr");
+    
 
-    for (let val of revAmnt) {
-        if (amnt > val) {
-            let amtVal = Math.floor(amnt / val)
-            count[val] = amtVal
-            amnt %= val
+    for(let i=0 ; i < revArr.length; i++)
+    {
+        if(amnt > revArr[i])
+        {
+
+            let val= Math.floor(amnt/revArr[i])
+            count[revArr[i]] = val;
+            amnt%=revArr[i]
         }
     }
+
 
     return count
 }
@@ -303,5 +309,5 @@ const atmCurrency = (amnt) => {
 }
 
 let amount = 20000
-const result = atmCurrency(amount)
+const result = currencyCount(amount)
 console.log(result);
