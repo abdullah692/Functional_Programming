@@ -21,15 +21,26 @@ const palandrome = (val) => {
     // }
     // return "It is a Palindrome"
 
-    for(let i=0; i< val.length / 2; i++)
+    // for(let i=0; i< val.length / 2; i++)
+    // {
+    //     if(val[i] != val[val.length -1 -i])
+    //     {
+    //         return "Not a Palindrome"
+    //     }
+    // }
+
+    // return "It is a Palindrome"
+    
+    for(let i=0; i < Math.floor(val/2); i++)
     {
-        if(val[i] != val[val.length -1 -i])
+        if(val[i] != val[val.length - 1 -i])
         {
             return "Not a Palindrome"
         }
+        else{
+            return "It is a Palindrome"
+        }
     }
-
-    return "It is a Palindrome"
 }
 const value = palandrome('radar');
 console.log(value);

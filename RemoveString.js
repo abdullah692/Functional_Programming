@@ -45,22 +45,41 @@ function superReducedString(s) {
 
     // return superReducedString(s)
 
-    let flag= false
+    // let flag= false
 
-    for(let i=0; i < s.length; i++)
+    // for(let i=0; i < s.length; i++)
+    // {
+    //     if(s[i] == s[i+1])
+    //     {
+    //         s=s.substring(0,i) + s.substring(i+1,s.length)
+    //         flag=true
+    //     }
+
+    // }
+
+    // if(!flag)
+    // {
+    //     return s
+    // }
+
+    // return superReducedString(s)
+
+    let flag=false
+
+    for(let i=0; i< s.length; i++)
     {
         if(s[i] == s[i+1])
         {
             s=s.substring(0,i) + s.substring(i+1,s.length)
             flag=true
         }
-
     }
 
     if(!flag)
     {
         return s
     }
+
 
     return superReducedString(s)
 }
