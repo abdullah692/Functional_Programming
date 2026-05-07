@@ -13,7 +13,27 @@ const Check = (arr) => {
     let top = 0;
     let height = 0;
     let left = 0;
-    let width = 0;
+    let width = 0;  
+
+    for(let i=0; i< arr.length; i++)
+    {
+        for(let j=0; j< arr.length; j++)
+        {
+            if(arr[i][j] == "w")
+            {
+                if(top == 0 && left == 0)
+                {
+                    top = i
+                    left= j
+                }
+                else{
+                    height = i - top  + 1
+                    width = j  - left  +1
+                }
+                
+            }
+        }
+    }
 
     
 
