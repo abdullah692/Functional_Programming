@@ -172,28 +172,30 @@ function isBalanceds(str) {
     //     }
     // return true
 
-    // let stack = []
-    // let mapped = {
-    //     '(': ')',
-    //     '{': '}',
-    //     '[': ']',
-    // }
-    // for (let val of str) {
-    //     if (val == '(' || val == '{' || val == '[') {
-    //         stack.push(val)
-    //         console.log(stack);
-    //         // debugger
+    let stack=[]
+    let map={
+        "(":')',
+        "{":'}',
+        "[":']',
+    }
 
-    //     }
-    //     else if (val != mapped[val]) {
-    //         if (mapped[stack.pop()] != val) {
-    //             return false
-    //         }
-    //     }
+    for(let char of str)
+    {
+        if(map[char])
+        {
+            stack.push(char)
+        }
+        else if(char == ")" || char == "}" || char == "]")
+        {
+            if(char != map[stack.pop()])
+            {
+                return false
+            }
+        }
+    }
 
-    // }
 
-    // return stack.length == 0
+    return stack.length == 0
 }
 
 

@@ -15,6 +15,8 @@ const Check = (arr) => {
     let left = 0;
     let width = 0;
 
+    
+
     // for (let i = 0; i < arr.length; i++) {
     //     for (let j = 0; j < arr.length; j++) {
     //             if(arr[i][j] == "w")
@@ -44,23 +46,23 @@ const Check = (arr) => {
     //     }
     // }
 
-    for(let i=0 ; i< arr.length; i++)
-    {
-        for(let j=0; j< arr.length; j++)
-        {
-            if(arr[i][j] == "w")
-            {
-                if(top ==0 && left == 0)
-                {
-                    top=i;
-                    left =j
-                }
+    // for(let i=0 ; i< arr.length; i++)
+    // {
+    //     for(let j=0; j< arr.length; j++)
+    //     {
+    //         if(arr[i][j] == "w")
+    //         {
+    //             if(top ==0 && left == 0)
+    //             {
+    //                 top=i;
+    //                 left =j
+    //             }
 
-                height= i- top + 1
-                width= j-left +1
-            }
-        }
-    }
+    //             height= i- top + 1
+    //             width= j-left +1
+    //         }
+    //     }
+    // }
 
 
     // for(let i=0 ; i<arr.length ;i++)
