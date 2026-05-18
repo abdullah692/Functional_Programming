@@ -6,6 +6,7 @@ function acmTeam(topic) {
     let nums = topic.map((t) => parseInt(t, 2));
     console.log(nums, "nums");
 
+    debugger
     for (let i = 0; i < topic.length; i++) {
         console.log(topic[i], "topic[i]");
 
