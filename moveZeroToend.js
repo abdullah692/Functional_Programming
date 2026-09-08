@@ -1,20 +1,34 @@
 const moveZeroToEnd = (arr) => {
 
+    // let nonZeorIndex=0;
+
+    // for(let i=0; i< arr.length; i++)
+    // {
+    //     if(arr[i] != 0)
+    //     {
+    //         let next= arr[i]
+    //         arr[i]=arr[nonZeorIndex]
+    //         arr[nonZeorIndex]=next
+    //         nonZeorIndex++
+    //     }
+    // }
+
+    // return arr
+
     let nonZeorIndex=0;
 
-    for(let i=0; i< arr.length; i++)
+    for(let i=0 ;i < arr.length; i++)
     {
         if(arr[i] != 0)
         {
-            let next= arr[i]
-            arr[i]=arr[nonZeorIndex]
-            arr[nonZeorIndex]=next
+            let next = arr[nonZeorIndex]
+            arr[nonZeorIndex]=arr[i]
+            arr[i]= next
             nonZeorIndex++
         }
     }
 
     return arr
-
     // let zeroIndex = 0;
     // for (let i = 0; i < arr.length; i++) {
     //     if (arr[i] != 0) {
