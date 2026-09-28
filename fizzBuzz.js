@@ -14,7 +14,7 @@
 //   }
 // };
 
-// fizzBuzz(15);
+// fizzBuzz(15); 
 
 const FizzBuzz = (num) => {
  for(let i=0 ; i<=num; i++)
