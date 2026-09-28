@@ -44,20 +44,40 @@ const singleDigitSum = (digits) => {
      // }
      // return singleDigitSum(sum)
 
+     // if(digits > -10 && digits < 10)
+     // {
+     //      return digits
+     // }
+     // else{
+     //      let splitNum=digits.toString().split('');
+     //      let sum=0;
+
+     //      for(let val of splitNum)
+     //      {
+     //           sum+=Number(val)
+     //      }
+
+     //      return singleDigitSum(sum)
+     // }
+
+
      if(digits > -10 && digits < 10)
      {
           return digits
      }
      else{
-          let splitNum=digits.toString().split('');
-          let sum=0;
 
-          for(let val of splitNum)
+          let splitNum =  digits.toString().split('')
+          let sum=0
+          console.log(splitNum);
+     
+          for(let  val of splitNum)
           {
                sum+=Number(val)
           }
-
+     
           return singleDigitSum(sum)
+          
      }
 }
 const result = singleDigitSum(435)

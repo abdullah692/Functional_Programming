@@ -172,28 +172,29 @@ function isBalanceds(str) {
     //     }
     // return true
 
+
     let stack=[]
     let map={
-        "(":')',
-        "{":'}',
-        "[":']',
+        "(": ")",
+        "{": "}",
+        "[": "]",
     }
 
-    for(let char of str)
+    for(let val of str)
     {
-        if(map[char])
+
+        if(val == "(" || val == "{" || val == "[")
         {
-            stack.push(char)
+            stack.push(val)
         }
-        else if(char == ")" || char == "}" || char == "]")
+        else if(val == ")" || val == "}" || val == "]")
         {
-            if(char != map[stack.pop()])
+            if(val != map[stack.pop()])
             {
                 return false
             }
         }
     }
-
 
     return stack.length == 0
 }
@@ -201,11 +202,11 @@ function isBalanceds(str) {
 
 
 // Example usage
-console.log(isBalanced("(){}[]")); // true
-console.log(isBalanced("({[)]}")); // false
-console.log(isBalanced("({[]})")); // true
-console.log(isBalanced("({[")); // false
-console.log(isBalanced("")); // true
+console.log(isBalanceds("(){}[]")); // true
+console.log(isBalanceds("({[)]}")); // false
+console.log(isBalanceds("({[]})")); // true
+console.log(isBalanceds("({[")); // false
+console.log(isBalanceds("")); // true
 
 
 

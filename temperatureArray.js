@@ -2,21 +2,52 @@ let arr = [73, 74, 75, 71, 69, 72, 76, 73]
 
 const temperatureCheck = (arr) => {
 
+    // let temp=[]
+
+    // for(let i=0; i< arr.length; i++)
+    // {
+    //     let count=0;
+    //     let flag=false
+
+    //     for(let j=i +1 ; j< arr.length; j++)
+    //     {
+    //         count++
+    //         if(arr[i] < arr[j])
+    //         {
+    //             temp.push(count)
+    //             flag= true
+    //             break
+    //         }
+    //     }
+
+    //     if(!flag)
+    //     {
+    //         temp.push(0)
+    //     }
+    // }
+
+
+    // return temp
+
+
     let temp=[]
+    
 
     for(let i=0; i< arr.length; i++)
     {
-        let count=0;
+        // debugger
+        let count= 0; 
         let flag=false
-
-        for(let j=i +1 ; j< arr.length; j++)
+        
+        for(let j=i+1; j< arr.length; j++)
         {
             count++
             if(arr[i] < arr[j])
             {
                 temp.push(count)
-                flag= true
-                break
+                flag=true
+                break;
+
             }
         }
 

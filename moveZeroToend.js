@@ -15,20 +15,28 @@ const moveZeroToEnd = (arr) => {
 
     // return arr
 
-    let nonZeorIndex=0;
 
-    for(let i=0 ;i < arr.length; i++)
+
+    // const arr = [0, 0, 2, 4, 0, 12, 14, 0, 6, 0, 0, 4, 5, 8, 0]
+
+    let nonZeorIndex=0
+
+    for(let i=0 ;i< arr.length; i++)
     {
         if(arr[i] != 0)
         {
-            let next = arr[nonZeorIndex]
-            arr[nonZeorIndex]=arr[i]
-            arr[i]= next
-            nonZeorIndex++
+            if(arr[i] != 0)
+            {
+                let next= arr[i]
+                arr[i]=arr[nonZeorIndex]
+                arr[nonZeorIndex]=next
+                nonZeorIndex++
+            }
         }
     }
 
     return arr
+
     // let zeroIndex = 0;
     // for (let i = 0; i < arr.length; i++) {
     //     if (arr[i] != 0) {
