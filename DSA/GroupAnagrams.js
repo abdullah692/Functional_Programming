@@ -67,7 +67,7 @@ const groupAnagram = (arr) => {
 
     // return obj
 
-    let obj={}
+    let obj={} 
 
     for(let val of arr)
     {
